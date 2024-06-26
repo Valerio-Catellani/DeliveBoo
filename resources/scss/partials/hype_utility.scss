@@ -1,0 +1,50 @@
+
+$increment_1: 1;
+
+@for $i from 1 through 100 {
+  .hype-w-#{($i * $increment_1)}x100 {
+    width: ($i * $increment_1) * 1%;
+  }
+}
+
+
+
+@for $i from 1 through 100 {
+    .hype-h-#{($i * $increment_1)}x100 {
+      height: ($i * $increment_1) * 1%;
+    }
+  }
+
+  .hype-text-shadow{
+    text-shadow: 
+   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+   -1px  1px 0 #000,
+    1px  1px 0 #000;  
+ } 
+ 
+ .hype-text-shadow-white{
+     text-shadow: 
+    -1px -1px 0 #ffffff,  
+     1px -1px 0 #ffffff,
+    -1px  1px 0 #ffffff,
+     1px  1px 0 #ffffff;  
+  } 
+
+  .hype-shadow-white {
+    box-shadow: 0 0 5px white
+  }
+
+.hype-unselectable {
+        -webkit-user-select: none; 
+        user-select: none;
+}
+
+.hype-hover-size:hover {
+    transform: scale(1.1);
+    transition: transform 0.1s ease-in;
+}
+
+.hype-pointer {
+    cursor: pointer;
+}
