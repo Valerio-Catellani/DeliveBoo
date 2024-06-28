@@ -18,7 +18,7 @@ return new class extends Migration
             $table->decimal('price', 6, 2);
             $table->text('image')->nullable();
             $table->text('ingredients');
-            $table->string('slug')->nullable();
+            $table->string('slug')->unique()->nullable();
             $table->boolean('visible')->default(true);
             $table->timestamps();
         });

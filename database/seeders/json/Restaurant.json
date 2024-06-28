@@ -1,0 +1,182 @@
+[
+    {
+        "Name": "Pizzeria Onisto",
+        "Address": "Vicolo Paolo 6\nLodovico ligure, 74693 Udine (VV)",
+        "image": null,
+        "VAT": "IT32770638461"
+    },
+    {
+        "Name": "Pizzeria Maspero",
+        "Address": "Borgo Livio 253\nSan Coluccio, 49442 Avellino (FG)",
+        "image": "https://placeimg.com/760/220/any",
+        "VAT": "IT59884188005"
+    },
+    {
+        "Name": "Pizzeria Rapisardi",
+        "Address": "Strada Pietro 19 Piano 8\nVanessa sardo, 00265 Venezia (AO)",
+        "image": null,
+        "VAT": "IT58996811983"
+    },
+    {
+        "Name": "Pizzeria Franceschi",
+        "Address": "Piazza Tina 053 Piano 9\nQuarto Giacinto calabro, 12432 Cosenza (VI)",
+        "image": "https://dummyimage.com/787x891",
+        "VAT": "IT08463819554"
+    },
+    {
+        "Name": "Pizzeria Tommaseo",
+        "Address": "Vicolo Arnaldo 1 Piano 6\nSan Ciro calabro, 19413 Trieste (GE)",
+        "image": null,
+        "VAT": "IT25323209077"
+    },
+    {
+        "Name": "Ristorante Verri",
+        "Address": "Borgo Eleanora 524 Appartamento 77\nQuarto Giuseppe, 37293 Verona (PI)",
+        "image": "https://www.matricianella.it/%2fmedia%2f12861%2f4913_Giorno_1_FLM_9216.jpg",
+        "VAT": "IT56462298713"
+    },
+    {
+        "Name": "Ristorante Musatti",
+        "Address": "Viale Franscini 34\nAlfio calabro, 60980 Torino (AT)",
+        "image": "https://static.cookist.it/wp-content/uploads/sites/21/2020/07/ristoranti-allaperto-roma-Roof-Garden1.jpg",
+        "VAT": "IT69475086164"
+    },
+    {
+        "Name": "Ristorante Battelli",
+        "Address": "Rotonda Fiamma 1\nSettimo Elisa lido, 39964 Bergamo (BI)",
+        "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/14/5c/56/56/ristorante-la-mingla.jpg?w=800&h=600&s=1",
+        "VAT": "IT37946308871"
+    },
+    {
+        "Name": "Ristorante Geraci",
+        "Address": "Strada Gozzi 126 Piano 6\nConcetta del friuli, 86279 Venezia (BR)",
+        "image": "https://th.bing.com/th/id/R.7f0f5fd17f0739f38c39080f8c0dcf90?rik=xtI%2bWpTHBYuoUg&pid=ImgRaw&r=0",
+        "VAT": "IT79658314883"
+    },
+    {
+        "Name": "Ristorante Morpurgo",
+        "Address": "Contrada Maggioli 55\nSan Leopoldo, 31368 Campobasso (GR)",
+        "image": "https://flawless.life/wp-content/uploads/2020/09/I-Migliori-Ristoranti-dove-Mangiare-sul-Lago-Maggiore-Tiffany-1536x1024.jpg",
+        "VAT": "IT67348561977"
+    },
+    {
+        "Name": "Ristorante Cagnin",
+        "Address": "Contrada Alighieri 63\nSettimo Ettore a mare, 65660 Firenze (NO)",
+        "image": "https://www.gamberorosso.it/wp-content/uploads/2020/07/maggiore-cop-768x513.jpg",
+        "VAT": "IT98325628473"
+    },
+    {
+        "Name": "Ristorante Borrani",
+        "Address": "Borgo Donato 074\nLilla umbro, 67920 Carbonia-Iglesias (RM)",
+        "image": "https://th.bing.com/th/id/R.27d72092fdfb05270a33818669c83252?rik=bg9f1cDwpfaHEQ&pid=ImgRaw&r=0",
+        "VAT": "IT86515078346"
+    },
+    {
+        "Name": "Ristorante Bianchi",
+        "Address": "Via Gaggini 1 Appartamento 83\nMigliaccio salentino, 90541 Siracusa (VA)",
+        "image": "https://www.ilcorrieredellacitta.com/wp-content/uploads/2020/01/Ristorante-Per-me-.jpg",
+        "VAT": "IT17075462082"
+    },
+    {
+        "Name": "Ristorante Curci",
+        "Address": "Vicolo Turrini 0\nBorgo Alfio laziale, 47944 Pavia (IS)",
+        "image": "https://www.ticino.ch/pictures/ristorazione/verybig4/152364_3.jpg",
+        "VAT": "IT81122563845"
+    },
+    {
+        "Name": "Ristorante Nitto",
+        "Address": "Canale Pierpaolo 1\nSauro lido, 72626 Piacenza (AR)",
+        "image": "https://images.ctfassets.net/7dc7gq8ix1ml/6XckIYSX6C9IR4iDkpRBA4/6bf4766c5c9409b1eba64a590418cdc1/cover-bucaLapi.jpg?w=1200&h=1200&fit=fill&f=faces",
+        "VAT": "IT64421978593"
+    },
+    {
+        "Name": "Ristorante Zaguri",
+        "Address": "Canale Tolentino 28\nBorgo Ippazio umbro, 40854 Lodi (BS)",
+        "image": "https://flawless.life/wp-content/uploads/2020/06/I-Migliori-Ristoranti-con-Giardino-di-Milano-Emporio-Armani-Giardino-Milano.jpg",
+        "VAT": "IT39437400668"
+    },
+    {
+        "Name": "Ristorante Altera",
+        "Address": "Incrocio Gianetti 68\nAnnunziata ligure, 53066 Foggia (IS)",
+        "image": "https://th.bing.com/th/id/R.940def70e35fb85e5ea95cbcab7107ef?rik=3UQsKi67nOPIyg&riu=http%3a%2f%2fwww.ristorantebernabo.it%2fimages%2fslide%2f1.jpg&ehk=VoVCSaOxDHawbJNTSeVmgeniu06tkpQPp%2bafi47QAXY%3d&risl=&pid=ImgRaw&r=0",
+        "VAT": "IT83999073342"
+    },
+    {
+        "Name": "Ristorante Fallaci",
+        "Address": "Strada Gianni 66\nBorgo Diana salentino, 09347 Livorno (BO)",
+        "image": "https://media-cdn.tripadvisor.com/media/photo-s/02/c3/c8/a3/vino-e-camino.jpg",
+        "VAT": "IT39901573441"
+    },
+    {
+        "Name": "Ristorante Adinolfi",
+        "Address": "Viale Gastone 86 Piano 2\nSan Venancio, 16521 Pisa (TN)",
+        "image": "https://u.tfstatic.com/restaurant_photos/818/56818/169/612/la-casa-di-ninetta-vista-della-sala-6acda.jpg",
+        "VAT": "IT60244846907"
+    },
+    {
+        "Name": "Ristorante Bombieri",
+        "Address": "Canale Vismara 79 Appartamento 43\nScaramucci calabro, 27514 Rimini (PI)",
+        "image": "https://th.bing.com/th/id/OIP.jv3qGjVwtg6sgt9jV-wjjwAAAA?dpr=2&pid=ImgDetMain",
+        "VAT": "IT92841208987"
+    },
+    {
+        "Name": "Ristorante Vitturi",
+        "Address": "Piazza Raffaella 6 Piano 4\nBellocchio sardo, 03610 Livorno (NO)",
+        "image": "https://media-cdn.tripadvisor.com/media/photo-s/1d/1d/b7/2c/la-sala-piccola.jpg",
+        "VAT": "IT27901042723"
+    },
+    {
+        "Name": "Ristorante Giovine",
+        "Address": "Viale Severino 21\nSettimo Antonio a mare, 64074 Varese (BG)",
+        "image": "https://th.bing.com/th/id/R.a13125aed988e3b9c4dee9897c79ea5c?rik=X15JXLrVFv6pCg&pid=ImgRaw&r=0",
+        "VAT": "IT83899388483"
+    },
+    {
+        "Name": "Ristorante Cuda",
+        "Address": "Strada Ivan 68 Piano 8\nSan Niccol\u00f2, 12068 Aosta (PI)",
+        "image": null,
+        "VAT": "IT95300003511"
+    },
+    {
+        "Name": "Ristorante Lucarelli",
+        "Address": "Strada Piersanti 449 Appartamento 28\nSesto Milo salentino, 01645 Foggia (AG)",
+        "image": "https://placekitten.com/282/1002",
+        "VAT": "IT31658122938"
+    },
+    {
+        "Name": "Ristorante Brunello",
+        "Address": "Canale Michele 799 Appartamento 78\nQuarto Vincenza del friuli, 95599 Udine (AO)",
+        "image": "https://placekitten.com/868/218",
+        "VAT": "IT65325668433"
+    },
+    {
+        "Name": "Ristorante Bombieri",
+        "Address": "Borgo Antonio 61\nSettimo Allegra laziale, 52257 Massa-Carrara (SP)",
+        "image": null,
+        "VAT": "IT45627272685"
+    },
+    {
+        "Name": "Ristorante Mercantini",
+        "Address": "Rotonda Manuel 3\nSesto Milo laziale, 17893 Ancona (MB)",
+        "image": "https://dummyimage.com/974x134",
+        "VAT": "IT33935504405"
+    },
+    {
+        "Name": "Ristorante Bianchi",
+        "Address": "Strada Rismondo 2\nSilvestri umbro, 05017 Olbia-Tempio (SR)",
+        "image": "https://www.lorempixel.com/14/506",
+        "VAT": "IT61627994960"
+    },
+    {
+        "Name": "Ristorante Turci",
+        "Address": "Vicolo Federigo 27\nSan Toni, 87764 Vibo Valentia (RM)",
+        "image": null,
+        "VAT": "IT59981290777"
+    },
+    {
+        "Name": "Ristorante Interminei",
+        "Address": "Piazza Livia 5\nSperi del friuli, 83953 Savona (CL)",
+        "image": null,
+        "VAT": "IT88269146319"
+    }
+]
