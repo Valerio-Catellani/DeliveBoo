@@ -140,14 +140,8 @@
     {
         "Name": "Ristorante Lucarelli",
         "Address": "Strada Piersanti 449 Appartamento 28\nSesto Milo salentino, 01645 Foggia (AG)",
-        "image": "https://placekitten.com/282/1002",
+        "image": "https://qul.imgix.net/c595fa5a-e88d-4ae9-bd99-3d5ce60b442f/72184_sld.jpg",
         "VAT": "IT31658122938"
-    },
-    {
-        "Name": "Ristorante Brunello",
-        "Address": "Canale Michele 799 Appartamento 78\nQuarto Vincenza del friuli, 95599 Udine (AO)",
-        "image": "https://placekitten.com/868/218",
-        "VAT": "IT65325668433"
     },
     {
         "Name": "Ristorante La Piazza",
