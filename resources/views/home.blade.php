@@ -16,9 +16,9 @@
         </div>
         <div class="container">
             <div class="row">
-                @foreach ($res as $rest)
+                @foreach ($rest as $res)
                     <div class="col-2 mt-5" style="aspect-ratio: 1/1">
-                        <h6>{{ $res->name }}</h6>
+                        <h6>{{ $res->Name }}</h6>
                         <div class="w-100 h-100">
                             <img class="img-fluid w-100 h-100" src="{{ $res->image }}" alt="no-img">
                         </div>
