@@ -27,7 +27,7 @@
     @if (App\Models\Restaurant::where('user_id', Auth::user()->id)->exists())
         <p>risto</p>
     @else
-        <a role="button" class="mine-custom-btn mb-3" href="{{ route('admin.restaurants.create') }}">Aggiungi il tuo Primo
+        <a role="button" class="mine-custom-btn mb-3" href="{{ route('admin.restaurants.create', ['user_slug' => Auth::user()->slug]) }}">Aggiungi il tuo Primo
             ristorante</a>
     @endif
 @endsection

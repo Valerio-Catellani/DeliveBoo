@@ -1,3 +1,12 @@
+@php
+    $restaurant = App\Models\Restaurant::where('user_id', Auth::user()->id)->first();
+    $user = Auth::user();
+    $data = [
+        'restaurant_slug' => $restaurant->slug,
+        'user_slug' => $user->slug,
+    ];
+@endphp
+
 <nav id='sidebar' class=" navbar-dark position-relative sidebar-risize">
     <button id="hype-sidebar-collapse" class="default-button text-white position-absolute"><i
             class="fa-solid fa-caret-left fs-1 hype-text-collapse"></i><i
@@ -10,16 +19,16 @@
     </a>
     <ul class="nav flex-column">
         <li class="nav-item  {{ Route::currentRouteName() === 'admin.dashboard' ? 'active' : '' }}">
-            <a class="nav-link text-white " aria-current="page" href="{{ route('admin.dashboard') }}"><i
+            <a class="nav-link text-white " aria-current="page"
+                href="{{ route('admin.dashboard', Auth::user()->slug) }}"><i
                     class="fa-solid fa-home fs-4 pe-3"></i><span class="hype-text-collapse">Dashboard</span></a>
         </li>
 
-        @if (App\Models\Restaurant::where('user_id', Auth::user()->id)->exists())
-            <li
-                class="nav-item {{ Route::currentRouteName() === 'admin.rooms.index' || Route::currentRouteName() === 'admin.rooms.show' || Route::currentRouteName() === 'admin.rooms.edit' || Route::currentRouteName() === 'admin.rooms.create' ? 'active' : '' }}">
+        @if ($restaurant)
+            <li class="nav-item ">
                 <a class="nav-link text-white " aria-current="page"
-                    href="{{ route('admin.restaurants.show', App\Models\Restaurant::where('user_id', Auth::user()->id)->first()->slug) }}"><i
-                        class="fa-solid fa-tv fs-4 pe-3"></i><span class="hype-text-collapse">I miei
+                    href="{{ route('admin.restaurants.show', $data) }}"><i class="fa-solid fa-tv fs-4 pe-3"></i><span
+                        class="hype-text-collapse">I miei
                         Ristoranti</span></a>
             </li>
         @endif

@@ -8,7 +8,8 @@
         <div class="container rounded-2 hype-shadow-white p-5 container-table example-color">
             <h1 class="text-center hype-text-shadow text-white fw-bolder">Aggiungi un Ristorante</h1>
 
-            <form id="comic-form" action="{{ route('admin.restaurants.store') }}" method="POST" enctype="multipart/form-data">
+            <form id="comic-form" action="{{ route('admin.restaurants.store', ['user_slug' => session('user_slug')]) }}"
+                method="POST" enctype="multipart/form-data">
                 @csrf
 
                 <div class="mb-3 @error('name') err-animation @enderror">
@@ -58,7 +59,7 @@
                 <br>
                 <div class="text-center w-25 mx-auto d-flex gap-2">
                     <button type="submit" class="mine-custom-btn mt-3 w-100">Salva</button>
-                    <a href="{{ route('admin.dashboard') }}"
+                    <a href="{{ route('admin.dashboard', ['user_slug' => session('user_slug')]) }}"
                         class="mine-custom-btn min-custom-btn-grey mt-3 w-100">Indietro</a>
                 </div>
             </form>

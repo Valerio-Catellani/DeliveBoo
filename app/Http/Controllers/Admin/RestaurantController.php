@@ -18,7 +18,7 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        //
+        return redirect()->route('admin.dashboard', ['user_slug' => Auth::user()->slug]);
     }
 
     /**
@@ -66,19 +66,27 @@ class RestaurantController extends Controller
         $new_restaurant = new Restaurant();
         $new_restaurant->fill($validate);
         $new_restaurant->save();
-        return redirect()->route('admin.restaurants.show', $new_restaurant->slug);
+
+        $data = [
+            'restaurant_slug' => $new_restaurant->slug,
+            'user_slug' => Auth::user()->slug
+        ];
+        return redirect()->route('admin.restaurants.show', $data);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show($slug)
+    public function show($user_slug, $restaurant_slug)
     {
-        $restaurant = Restaurant::where('slug', $slug)->first();
+
+
+        $restaurant = Restaurant::where('slug', $restaurant_slug)->first();
         if ($restaurant && $restaurant->user_id == Auth::user()->id) {
             return view('admin.restaurants.show', compact('restaurant'));
         }
-        return redirect()->route('admin.dashboard');
+
+        return redirect()->route('admin.dashboard', ['user_slug' => $user_slug]);
     }
 
     /**
