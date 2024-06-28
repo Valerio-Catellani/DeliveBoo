@@ -4,7 +4,7 @@
         "nome": "Budino di Ricotta",
         "immagine": "https://www.themealdb.com/images/media/meals/1549542877.jpg",
         "descrizione": "Una ricotta di bufala e una zucchina greca, due ingredienti principali che ci aiutano a rendere questo piatto unico.",
-        "prezzo": "15.00€",
+        "prezzo": "15.00",
         "categoria": "Italiano",
         "ingredienti": "ricotta, farina, zucchero, uova, limone, rum",
         "visibile": "Si"
@@ -14,7 +14,7 @@
         "nome": "Tiramisù",
         "immagine": "https://bing.com/th?id=OSK.167a7b6a3dbe0563289cc43c26d3621c",
         "descrizione": "Un classico dolce italiano con strati di savoiardi imbevuti di caffè e crema di mascarpone.",
-        "prezzo": "7.00€",
+        "prezzo": "7.00",
         "categoria": "Italiano",
         "ingredienti": "savoiardi, caffè, mascarpone, uova, zucchero, cacao",
         "visibile": "Si"
@@ -24,7 +24,7 @@
         "nome": "Risotto alla Milanese",
         "immagine": "https://th.bing.com/th?id=OSK.54c7bc3f4e198152b765ba9341a8b553&w=530&h=353&rs=2&qlt=80&pcl=1b1a19&o=6&cdv=1&dpr=2&pid=16.1",
         "descrizione": "Un risotto cremoso a base di zafferano, burro e Parmigiano Reggiano.",
-        "prezzo": "14.00€",
+        "prezzo": "14.00",
         "categoria": "Italiano",
         "ingredienti": "riso, zafferano, burro, parmigiano, brodo di carne",
         "visibile": "Si"
@@ -34,7 +34,7 @@
         "nome": "Pasta alla Carbonara",
         "immagine": "https://www.themealdb.com/images/media/meals/llcbn01574260722.jpg",
         "descrizione": "Una pasta tradizionale italiana con guanciale, uova e pecorino romano.",
-        "prezzo": "12.00€",
+        "prezzo": "12.00",
         "categoria": "Italiano",
         "ingredienti": "pasta, guanciale, uova, pecorino, pepe",
         "visibile": "Si"
@@ -44,7 +44,7 @@
         "nome": "Lasagne",
         "immagine": "https://www.themealdb.com/images/media/meals/wtsvxx1511296896.jpg",
         "descrizione": "Strati di pasta, ragù di carne, besciamella e Parmigiano.",
-        "prezzo": "16.00€",
+        "prezzo": "16.00",
         "categoria": "Italiano",
         "ingredienti": "pasta, carne macinata, pomodoro, besciamella, parmigiano",
         "visibile": "Si"
@@ -54,7 +54,7 @@
         "nome": "Parmigiana di Melanzane",
         "immagine": "https://th.bing.com/th?id=OSK.5e0d1f8f4fa0358750b317c5dc6f8107&w=530&h=353&rs=2&qlt=80&pcl=1b1a19&o=6&cdv=1&dpr=2&pid=16.1",
         "descrizione": "Fette di melanzane fritte, sugo di pomodoro e mozzarella, cotte al forno.",
-        "prezzo": "13.00€",
+        "prezzo": "13.00",
         "categoria": "Italiano",
         "ingredienti": "melanzane, pomodoro, mozzarella, parmigiano, basilico",
         "visibile": "Si"
@@ -64,7 +64,7 @@
         "nome": "Gnocchi al Pesto",
         "immagine": "https://th.bing.com/th/id/OIP.kmYldmQB121QtfQY4AqnFAAAAA?dpr=2&pid=ImgDetMain",
         "descrizione": "Gnocchi di patate conditi con un pesto fresco di basilico.",
-        "prezzo": "11.00€",
+        "prezzo": "11.00",
         "categoria": "Italiano",
         "ingredienti": "gnocchi, basilico, pinoli, parmigiano, olio d'oliva",
         "visibile": "Si"
@@ -74,7 +74,7 @@
         "nome": "Minestrone",
         "immagine": "https://th.bing.com/th?id=OSK.fdbd0a0c7ebfb0ba1f9e6dd0d77945e7&w=530&h=353&rs=2&qlt=80&pcl=1b1a19&o=6&cdv=1&dpr=2&pid=16.1",
         "descrizione": "Una zuppa ricca di verdure e legumi, tipica della tradizione italiana.",
-        "prezzo": "9.00€",
+        "prezzo": "9.00",
         "categoria": "Italiano",
         "ingredienti": "verdure miste, fagioli, pasta, pomodoro, brodo vegetale",
         "visibile": "Si"
@@ -84,7 +84,7 @@
         "nome": "Polenta e Salsiccia",
         "immagine": "https://bing.com/th?id=OSK.43c934185bbe6f83f1f6a756ff1a43ad",
         "descrizione": "Un piatto rustico del nord Italia con polenta morbida e salsiccia.",
-        "prezzo": "13.00€",
+        "prezzo": "13.00",
         "categoria": "Italiano",
         "ingredienti": "polenta, salsiccia, burro, formaggio, brodo",
         "visibile": "Si"
@@ -94,7 +94,7 @@
         "nome": "Saltimbocca alla Romana",
         "immagine": "https://bing.com/th?id=OSK.82b9d684e3d0f07a244df12f7c44a229",
         "descrizione": "Scaloppine di vitello con prosciutto e salvia, cotte nel vino bianco.",
-        "prezzo": "15.00€",
+        "prezzo": "15.00",
         "categoria": "Italiano",
         "ingredienti": "vitello, prosciutto, salvia, burro, vino bianco",
         "visibile": "Si"
@@ -104,7 +104,7 @@
         "nome": "Hamburger",
         "immagine": "https://facts.net/wp-content/uploads/2021/06/hamburger-with-fries.jpg",
         "descrizione": "Un classico internazionale con un succoso hamburger di manzo, lattuga, pomodoro e formaggio.",
-        "prezzo": "10.00€",
+        "prezzo": "10.00",
         "categoria": "Internazionale",
         "ingredienti": "manzo, lattuga, pomodoro, formaggio, pane",
         "visibile": "Si"
@@ -114,7 +114,7 @@
         "nome": "Nigiri",
         "immagine": "https://cdn.ilclubdellericette.it/wp-content/uploads/2020/01/ricetta-nigiri.jpg",
         "descrizione": "Riso condito con aceto e zucchero, accompagnato da pesce crudo o verdure.",
-        "prezzo": "20.00€",
+        "prezzo": "20.00",
         "categoria": "Internazionale",
         "ingredienti": "riso, aceto di riso, pesce, verdure, alghe",
         "visibile": "Si"
@@ -124,7 +124,7 @@
         "nome": "Poplpette di Ceci",
         "immagine": "https://th.bing.com/th?id=OSK.e0a55eb09bcd34e40ff7af5c64abd64c&w=1128&h=1692&rs=2&qlt=80&pcl=1b1a19&o=6&cdv=1&pid=16.1",
         "descrizione": "Polpette di ceci fritte",
-        "prezzo": "8.00€",
+        "prezzo": "8.00",
         "categoria": "Internazionale",
         "ingredienti": "ceci, prezzemolo, cipolla, aglio, cumino",
         "visibile": "Si"
@@ -134,7 +134,7 @@
         "nome": "Paella",
         "immagine": "https://th.bing.com/th?id=OSK.606538cba64f363739e0338e8daf7f49&w=530&h=742&rs=2&qlt=80&pcl=1b1a19&o=6&cdv=1&dpr=2&pid=16.1",
         "descrizione": "Un piatto spagnolo a base di riso, frutti di mare, pollo e verdure.",
-        "prezzo": "18.00€",
+        "prezzo": "18.00",
         "categoria": "Internazionale",
         "ingredienti": "riso, frutti di mare, pollo, peperoni, zafferano",
         "visibile": "Si"
@@ -144,7 +144,7 @@
         "nome": "Borscht",
         "immagine": "https://media.kaufland.com/images/PPIM/AP_Content_2708/std.lang.all/82/73/Asset_1588273.jpg",
         "descrizione": "Una zuppa tradizionale dell'Europa dell'Est a base di barbabietole.",
-        "prezzo": "10.00€",
+        "prezzo": "10.00",
         "categoria": "Internazionale",
         "ingredienti": "barbabietole, brodo, patate, carote, panna acida",
         "visibile": "Si"
@@ -154,7 +154,7 @@
         "nome": "Pad Thai",
         "immagine": "https://www.themealdb.com/images/media/meals/uuuspp1468263334.jpg",
         "descrizione": "Un piatto thailandese con noodles di riso, gamberi, tofu, uova e arachidi.",
-        "prezzo": "13.00€",
+        "prezzo": "13.00",
         "categoria": "Internazionale",
         "ingredienti": "noodles di riso, gamberi, tofu, uova, arachidi",
         "visibile": "Si"
@@ -164,7 +164,7 @@
         "nome": "Curry di Agnello",
         "immagine": "https://cdn.ilclubdellericette.it/wp-content/uploads/2019/01/curry-di-agnello.jpg",
         "descrizione": "Un piatto speziato indiano a base di carne di agnello e spezie.",
-        "prezzo": "14.00€",
+        "prezzo": "14.00",
         "categoria": "Internazionale",
         "ingredienti": "agnello, spezie, pomodori, cipolla, aglio",
         "visibile": "Si"
@@ -174,7 +174,7 @@
         "nome": "Kebab",
         "immagine": "https://thumbs.dreamstime.com/b/turkish-chicken-doner-sandwich-pide-fast-food-concept-84510108.jpg",
         "descrizione": "Carne arrostita servita con pane pita e verdure.",
-        "prezzo": "11.00€",
+        "prezzo": "11.00",
         "categoria": "Internazionale",
         "ingredienti": "carne, pita, verdure, yogurt, spezie",
         "visibile": "Si"
@@ -184,7 +184,7 @@
         "nome": "Ceviche",
         "immagine": "https://s-media-cache-ak0.pinimg.com/originals/20/5c/01/205c010658835bfe3528861fb73db1bc.jpg",
         "descrizione": "Un piatto latinoamericano a base di pesce crudo marinato nel succo di lime.",
-        "prezzo": "12.00€",
+        "prezzo": "12.00",
         "categoria": "Internazionale",
         "ingredienti": "pesce, lime, cipolla, peperoncino, coriandolo",
         "visibile": "Si"
@@ -194,7 +194,7 @@
         "nome": "Chili con Carne",
         "immagine": "https://bing.com/th?id=OSK.0e9077ca52975ea441c2955547368b52",
         "descrizione": "Un piatto messicano a base di carne macinata, fagioli e spezie.",
-        "prezzo": "10.00€",
+        "prezzo": "10.00",
         "categoria": "Internazionale",
         "ingredienti": "carne macinata, fagioli, pomodoro, cipolla, peperoncino",
         "visibile": "Si"
@@ -204,7 +204,7 @@
         "nome": "Lo Mein di Manzo",
         "immagine": "https://www.themealdb.com/images/media/meals/1529444830.jpg",
         "descrizione": "Un piatto classico cinese con strisce di manzo tenero, noodles e verdure in una salsa saporita.",
-        "prezzo": "12.00€",
+        "prezzo": "12.00",
         "categoria": "Cinese",
         "ingredienti": "manzo, noodles, verdure, salsa di soia, zenzero, aglio",
         "visibile": "Si"
@@ -214,7 +214,7 @@
         "nome": "Riso Cantonese",
         "immagine": "https://bing.com/th?id=OSK.e4e172b997a561342423dee11b5b42a5",
         "descrizione": "Riso fritto con prosciutto, piselli, uova e cipolle verdi.",
-        "prezzo": "9.00€",
+        "prezzo": "9.00",
         "categoria": "Cinese",
         "ingredienti": "riso, prosciutto, piselli, uova, cipolle verdi",
         "visibile": "Si"
@@ -224,7 +224,7 @@
         "nome": "Pollo al Limone",
         "immagine": "https://bing.com/th?id=OSK.4b97b6d5304e9ef5f3509d2f8736d802",
         "descrizione": "Pollo fritto servito con una salsa al limone dolce e acida.",
-        "prezzo": "11.00€",
+        "prezzo": "11.00",
         "categoria": "Cinese",
         "ingredienti": "pollo, limone, zucchero, aceto, maizena",
         "visibile": "Si"
@@ -234,7 +234,7 @@
         "nome": "Involtini Primavera",
         "immagine": "https://bing.com/th?id=OSK.e814be2f5a41573c59835f8caa3802c0",
         "descrizione": "Involtini fritti ripieni di verdure e carne.",
-        "prezzo": "6.00€",
+        "prezzo": "6.00",
         "categoria": "Cinese",
         "ingredienti": "carote, cavolo, funghi, maiale, pasta fillo",
         "visibile": "Si"
@@ -244,7 +244,7 @@
         "nome": "Zuppa Agro Piccante",
         "immagine": "https://bing.com/th?id=OSK.8d3f4cbb36767aa9f4d745efe680285a",
         "descrizione": "Una zuppa piccante e acidula con tofu, funghi e bambù.",
-        "prezzo": "8.00€",
+        "prezzo": "8.00",
         "categoria": "Cinese",
         "ingredienti": "tofu, funghi, bambù, aceto, peperoncino",
         "visibile": "Si"
@@ -254,7 +254,7 @@
         "nome": "Maiale in Agrodolce",
         "immagine": "https://www.themealdb.com/images/media/meals/1529442316.jpg",
         "descrizione": "Un piatto cinese popolare con pezzi di maiale fritto in una salsa agrodolce.",
-        "prezzo": "13.00€",
+        "prezzo": "13.00",
         "categoria": "Cinese",
         "ingredienti": "maiale, peperoni, ananas, aceto, zucchero",
         "visibile": "Si"
@@ -264,7 +264,7 @@
         "nome": "Manzo con Broccoli",
         "immagine": "https://bing.com/th?id=OSK.ce5279982698855d29a4fd656c507053",
         "descrizione": "Strisce di manzo saltate con broccoli in una salsa di soia.",
-        "prezzo": "12.00€",
+        "prezzo": "12.00",
         "categoria": "Cinese",
         "ingredienti": "manzo, broccoli, salsa di soia, aglio, zenzero",
         "visibile": "Si"
@@ -274,7 +274,7 @@
         "nome": "Pollo Kung Pao",
         "immagine": "https://bing.com/th?id=OSK.dc05d3c04e3b5e0d3a160c2fc71f4cda",
         "descrizione": "Un piatto speziato con pollo, peperoni e arachidi.",
-        "prezzo": "14.00€",
+        "prezzo": "14.00",
         "categoria": "Cinese",
         "ingredienti": "pollo, peperoni, arachidi, salsa di soia, peperoncino",
         "visibile": "Si"
@@ -284,7 +284,7 @@
         "nome": "Noodles alla Pechinese",
         "immagine": "https://www.orientalitalia.com/wp-content/uploads/2022/06/Yakisoba-Noodles-1.png",
         "descrizione": "Noodles con carne di maiale e verdure in una salsa speziata.",
-        "prezzo": "10.00€",
+        "prezzo": "10.00",
         "categoria": "Cinese",
         "ingredienti": "noodles, maiale, cipolla, aglio, salsa di soia",
         "visibile": "Si"
@@ -294,7 +294,7 @@
         "nome": "Ravioli Cinesi",
         "immagine": "https://bing.com/th?id=OSK.1b3209a9896b1164bf1c4dc24c0eccf4",
         "descrizione": "Ravioli al vapore ripieni di carne di maiale e verdure.",
-        "prezzo": "9.00€",
+        "prezzo": "9.00",
         "categoria": "Cinese",
         "ingredienti": "farina, maiale, cavolo, cipolla, zenzero",
         "visibile": "Si"
@@ -304,7 +304,7 @@
         "nome": "Sushi",
         "immagine": "https://www.themealdb.com/images/media/meals/g046bb1663960946.jpg",
         "descrizione": "Riso condito con aceto e zucchero, accompagnato da pesce crudo o verdure.",
-        "prezzo": "20.00€",
+        "prezzo": "20.00",
         "categoria": "Giapponese",
         "ingredienti": "riso, aceto di riso, pesce, verdure, alghe",
         "visibile": "Si"
@@ -314,7 +314,7 @@
         "nome": "Ramen",
         "immagine": "https://www.gnom-gnom.com/wp-content/uploads/2021/12/Keto-Ramen-Shirataki-Noodles-Gnom-Gnom-4.jpg",
         "descrizione": "Zuppa giapponese a base di brodo, noodles e carne.",
-        "prezzo": "12.00€",
+        "prezzo": "12.00",
         "categoria": "Giapponese",
         "ingredienti": "noodles, brodo, maiale, uova, alghe",
         "visibile": "Si"
@@ -324,7 +324,7 @@
         "nome": "Tempura",
         "immagine": "https://bing.com/th?id=OSK.c51b75f40576a2cf8f3310fd6a0d4d97",
         "descrizione": "Frutti di mare e verdure fritti in una pastella leggera.",
-        "prezzo": "14.00€",
+        "prezzo": "14.00",
         "categoria": "Giapponese",
         "ingredienti": "gamberi, verdure, farina, uova, acqua frizzante",
         "visibile": "Si"
@@ -334,7 +334,7 @@
         "nome": "Yakitori",
         "immagine": "https://sitchu-web.azurewebsites.net/media/5tunietw/fotolia_134177068_subscription_monthly_m.jpg?mode=max&width=1400&rnd=132685752155600000",
         "descrizione": "Spiedini di pollo grigliati con salsa tare.",
-        "prezzo": "10.00€",
+        "prezzo": "10.00",
         "categoria": "Giapponese",
         "ingredienti": "pollo, salsa di soia, mirin, zucchero, sake",
         "visibile": "Si"
@@ -344,7 +344,7 @@
         "nome": "Tonkatsu",
         "immagine": "https://th.bing.com/th/id/OIP.8PbIPTJY133RXqYnQaTMhgHaE7?rs=1&pid=ImgDetMain",
         "descrizione": "Cotoletta di maiale impanata e fritta, servita con salsa tonkatsu.",
-        "prezzo": "13.00€",
+        "prezzo": "13.00",
         "categoria": "Giapponese",
         "ingredienti": "maiale, farina, uova, pangrattato, salsa tonkatsu",
         "visibile": "Si"
@@ -354,7 +354,7 @@
         "nome": "Onigiri",
         "immagine": "https://www.wandercooks.com/wp-content/uploads/2020/09/easy-onigiri-recipe-1-1024x1024.jpg",
         "descrizione": "Polpette di riso ripiene di vari ingredienti e avvolte in alga nori.",
-        "prezzo": "5.00€",
+        "prezzo": "5.00",
         "categoria": "Giapponese",
         "ingredienti": "riso, alga nori, pesce, umeboshi, semi di sesamo",
         "visibile": "Si"
@@ -364,7 +364,7 @@
         "nome": "Udon",
         "immagine": "https://www.jocooks.com/wp-content/uploads/2014/09/hoisin-chicken-udon-noodles-1-13.jpg",
         "descrizione": "Spessi noodles di grano serviti in brodo caldo o freddo.",
-        "prezzo": "11.00€",
+        "prezzo": "11.00",
         "categoria": "Giapponese",
         "ingredienti": "noodles, brodo, tofu, cipolla, funghi",
         "visibile": "Si"
@@ -374,7 +374,7 @@
         "nome": "Miso Soup",
         "immagine": "https://www.bing.com/th/id/OIP.oElcx8s-JA8DhFrCrIUuCQHaJQ?dpr=2&pid=ImgDetMain",
         "descrizione": "Una zuppa giapponese a base di brodo di miso, tofu e alghe.",
-        "prezzo": "6.00€",
+        "prezzo": "6.00",
         "categoria": "Giapponese",
         "ingredienti": "miso, tofu, alghe, cipolla verde, dashi",
         "visibile": "Si"
@@ -384,7 +384,7 @@
         "nome": "Takoyaki",
         "immagine": "https://th.bing.com/th/id/R.f386e65c879b0c8c0649237b1de5d564?rik=Za53QKBrUrkY%2bg&riu=http%3a%2f%2featyourteacup.co%2fwp-content%2fuploads%2f2014%2f12%2ftako.jpg&ehk=8uWPtTuQT%2fJdkRwp%2flZJd9AOrbA%2bFCjw9lBUwjAoz%2fU%3d&risl=&pid=ImgRaw&r=0",
         "descrizione": "Palline di pastella con pezzi di polpo, tipiche di Osaka.",
-        "prezzo": "8.00€",
+        "prezzo": "8.00",
         "categoria": "Giapponese",
         "ingredienti": "polpo, farina, uova, cipolla verde, zenzero",
         "visibile": "Si"
@@ -394,7 +394,7 @@
         "nome": "Katsu Curry",
         "immagine": "https://japan.recipetineats.com/wp-content/uploads/2021/12/Katsu_Curry_7011b.jpg",
         "descrizione": "Riso servito con cotoletta di pollo e curry giapponese.",
-        "prezzo": "14.00€",
+        "prezzo": "14.00",
         "categoria": "Giapponese",
         "ingredienti": "pollo, curry, riso, patate, carote",
         "visibile": "Si"
@@ -404,7 +404,7 @@
         "nome": "Tacos di Pesce",
         "immagine": "https://staticcookist.akamaized.net/wp-content/uploads/sites/21/2022/06/Tacos-di-pesce-1200x675.jpg",
         "descrizione": "Deliziosi tacos messicani di pesce serviti con salsa fresca e una spruzzata di lime.",
-        "prezzo": "10.00€",
+        "prezzo": "10.00",
         "categoria": "Messicano",
         "ingredienti": "pesce, tortillas, salsa, lime, cavolo, spezie",
         "visibile": "Si"
@@ -414,7 +414,7 @@
         "nome": "Quesadilla",
         "immagine": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2015/04/0e56ab38542c762f226df9866314520e2fac6f6a.jpeg",
         "descrizione": "Tortillas ripiene di formaggio e altri ingredienti, grigliate fino a fondere.",
-        "prezzo": "8.00€",
+        "prezzo": "8.00",
         "categoria": "Messicano",
         "ingredienti": "tortillas, formaggio, pollo, verdure, spezie",
         "visibile": "Si"
@@ -424,7 +424,7 @@
         "nome": "Guacamole",
         "immagine": "https://www.giallozafferano.it/images/236-23676/Guacamole_450x300.jpg",
         "descrizione": "Una salsa messicana a base di avocado schiacciato, lime e spezie.",
-        "prezzo": "5.00€",
+        "prezzo": "5.00",
         "categoria": "Messicano",
         "ingredienti": "avocado, lime, cipolla, pomodoro, coriandolo",
         "visibile": "Si"
@@ -434,7 +434,7 @@
         "nome": "Enchiladas",
         "immagine": "https://staticcookist.akamaized.net/wp-content/uploads/sites/21/2022/06/Enchiladas-1200x675.jpg",
         "descrizione": "Tortillas ripiene di carne o fagioli, ricoperte di salsa e formaggio, poi cotte al forno.",
-        "prezzo": "12.00€",
+        "prezzo": "12.00",
         "categoria": "Messicano",
         "ingredienti": "tortillas, carne, fagioli, salsa, formaggio",
         "visibile": "Si"
@@ -444,7 +444,7 @@
         "nome": "Burrito",
         "immagine": "https://cdn.tasteatlas.com/images/dishes/f4291f3e82f84c33a5997f801e8fb24f.jpg?mw=2000",
         "descrizione": "Una grande tortilla arrotolata e ripiena di carne, riso, fagioli e verdure.",
-        "prezzo": "11.00€",
+        "prezzo": "11.00",
         "categoria": "Messicano",
         "ingredienti": "tortilla, carne, riso, fagioli, verdure",
         "visibile": "Si"
@@ -454,7 +454,7 @@
         "nome": "Pozole",
         "immagine": "https://healthysimpleyum.com/wp-content/uploads/2021/10/IMG_0287-scaled-e1697062875825-1321x1536.jpg",
         "descrizione": "Una zuppa tradizionale messicana a base di mais hominy e carne.",
-        "prezzo": "10.00€",
+        "prezzo": "10.00",
         "categoria": "Messicano",
         "ingredienti": "mais hominy, carne, peperoncino, cipolla, lime",
         "visibile": "Si"
@@ -464,7 +464,7 @@
         "nome": "Chilaquiles",
         "immagine": "https://www.chocolatesandchai.com/wp-content/uploads/2023/10/Chilaquiles-Rojos-20.jpg.webp",
         "descrizione": "Tortillas fritte servite con salsa verde o rossa, uova e formaggio.",
-        "prezzo": "9.00€",
+        "prezzo": "9.00",
         "categoria": "Messicano",
         "ingredienti": "tortillas, salsa, uova, formaggio, panna acida",
         "visibile": "Si"
@@ -474,7 +474,7 @@
         "nome": "Tamales",
         "immagine": "https://www.cucchiaio.it/content/cucchiaio/it/ricette/2021/03/tamales/jcr:content/header-par/image-single.img.jpg/1614776897309.jpg?im=Resize=(1968)",
         "descrizione": "Un piatto messicano a base di masa (farina di mais) cotta a vapore in foglie di mais.",
-        "prezzo": "7.00€",
+        "prezzo": "7.00",
         "categoria": "Messicano",
         "ingredienti": "masa, carne, foglie di mais, spezie, salsa",
         "visibile": "Si"
@@ -484,7 +484,7 @@
         "nome": "Tostadas",
         "immagine": "https://www.finedininglovers.it/sites/g/files/xknfdk1106/files/styles/recipes_1200_800/public/2023-09/Tostadas-messicane-ricetta.jpg.webp?itok=oFD9Esvg",
         "descrizione": "Tortillas croccanti ricoperte di fagioli, carne, lattuga e formaggio.",
-        "prezzo": "8.00€",
+        "prezzo": "8.00",
         "categoria": "Messicano",
         "ingredienti": "tortillas, fagioli, carne, lattuga, formaggio",
         "visibile": "Si"
@@ -494,7 +494,7 @@
         "nome": "Fajitas",
         "immagine": "https://www.giallozafferano.it/images/215-21529/Fajitas-di-carne-e-pollo_450x300.jpg",
         "descrizione": "Strisce di carne marinata servite con peperoni e cipolle, accompagnate da tortillas.",
-        "prezzo": "13.00€",
+        "prezzo": "13.00",
         "categoria": "Messicano",
         "ingredienti": "carne, peperoni, cipolle, tortillas, spezie",
         "visibile": "Si"
@@ -504,7 +504,7 @@
         "nome": "Gazpacho",
         "immagine": "https://www.giallozafferano.it/images/3-304/Gazpacho-andaluso_450x300.jpg",
         "descrizione": "Una zuppa fredda spagnola a base di pomodori e verdure crude.",
-        "prezzo": "7.00€",
+        "prezzo": "7.00",
         "categoria": "Spagnolo",
         "ingredienti": "pomodori, cetrioli, peperoni, cipolla, aceto",
         "visibile": "Si"
@@ -514,7 +514,7 @@
         "nome": "Tortilla Spagnola",
         "immagine": "https://www.giallozafferano.it/images/165-16558/Tortilla-de-patatas_450x300.jpg",
         "descrizione": "Una frittata spagnola di patate e cipolle.",
-        "prezzo": "8.00€",
+        "prezzo": "8.00",
         "categoria": "Spagnolo",
         "ingredienti": "patate, cipolle, uova, olio d'oliva, sale",
         "visibile": "Si"
@@ -524,7 +524,7 @@
         "nome": "Tapas",
         "immagine": "https://www.themealdb.com/images/media/meals/ytuvwr1503070420.jpg",
         "descrizione": "Piccoli piatti spagnoli da condividere, spesso accompagnati da bevande.",
-        "prezzo": "12.00€",
+        "prezzo": "12.00",
         "categoria": "Spagnolo",
         "ingredienti": "vari",
         "visibile": "Si"
@@ -534,7 +534,7 @@
         "nome": "Pollo Biryani",
         "immagine": "https://www.themealdb.com/images/media/meals/urtpqw1487341253.jpg",
         "descrizione": "Piatto di riso aromatico con riso basmati, pollo e varie spezie.",
-        "prezzo": "12.00€",
+        "prezzo": "12.00",
         "categoria": "Indiano",
         "ingredienti": "riso basmati, pollo, spezie, yogurt, cipolle",
         "visibile": "Si"
@@ -544,7 +544,7 @@
         "nome": "Paneer Butter Masala",
         "immagine": "https://www.themealdb.com/images/media/meals/qpxvuq1511798906.jpg",
         "descrizione": "Paneer cucinato in una salsa ricca a base di pomodoro con burro e panna.",
-        "prezzo": "11.00€",
+        "prezzo": "11.00",
         "categoria": "Indiano",
         "ingredienti": "paneer, pomodori, burro, panna, spezie",
         "visibile": "Si"
@@ -554,7 +554,7 @@
         "nome": "Dal Tadka",
         "immagine": "https://www.themealdb.com/images/media/meals/wuxrtu1483564410.jpg",
         "descrizione": "Lenticchie gialle cotte con cipolle, pomodori e temperate con cumino e aglio.",
-        "prezzo": "9.00€",
+        "prezzo": "9.00",
         "categoria": "Indiano",
         "ingredienti": "lenticchie gialle, cipolle, pomodori, cumino, aglio",
         "visibile": "Si"
@@ -564,7 +564,7 @@
         "nome": "Aloo Gobi",
         "immagine": "https://www.tasteofhome.com/wp-content/uploads/2021/02/Gobi-Aloo_EXPS_THJJ21_260273_B02_11_1b-57.jpg",
         "descrizione": "Patate e cavolfiore cucinati con cipolle, pomodori e spezie.",
-        "prezzo": "10.00€",
+        "prezzo": "10.00",
         "categoria": "Indiano",
         "ingredienti": "patate, cavolfiore, cipolle, pomodori, spezie",
         "visibile": "Si"
@@ -574,7 +574,7 @@
         "nome": "Samosa",
         "immagine": "https://tse2.mm.bing.net/th?id=OIP.79eO7CIt5WlGjzKIuiQ7PwHaGl&pid=Api",
         "descrizione": "Pasticcini fritti ripieni di patate speziate e piselli.",
-        "prezzo": "6.00€",
+        "prezzo": "6.00",
         "categoria": "Indiano",
         "ingredienti": "patate, piselli, pasta sfoglia, spezie, olio",
         "visibile": "Si"
@@ -584,7 +584,7 @@
         "nome": "Pollo Tikka Masala",
         "immagine": "https://www.themealdb.com/images/media/meals/wyxwsp1486979827.jpg",
         "descrizione": "Pollo marinato in una salsa cremosa di pomodoro e spezie.",
-        "prezzo": "12.00€",
+        "prezzo": "12.00",
         "categoria": "Indiano",
         "ingredienti": "pollo, pomodoro, yogurt, spezie, panna",
         "visibile": "Si"
@@ -594,7 +594,7 @@
         "nome": "Rogan Josh",
         "immagine": "https://www.archanaskitchen.com/images/archanaskitchen/1-Author/Shaheen_Ali/Kashmiri_Rogan_Josh.jpg",
         "descrizione": "Agnello cucinato con una varietà di spezie in una salsa ricca a base di pomodoro.",
-        "prezzo": "14.00€",
+        "prezzo": "14.00",
         "categoria": "Indiano",
         "ingredienti": "agnello, spezie, pomodori, cipolle, mandorle",
         "visibile": "Si"
@@ -604,7 +604,7 @@
         "nome": "Palak Paneer",
         "immagine": "https://tse3.mm.bing.net/th?id=OIP.Z-4p0keIz595EfMdwkz61wHaFj&pid=Api",
         "descrizione": "Formaggio paneer in una salsa densa di spinaci.",
-        "prezzo": "11.00€",
+        "prezzo": "11.00",
         "categoria": "Indiano",
         "ingredienti": "paneer, spinaci, panna, spezie",
         "visibile": "Si"
@@ -614,7 +614,7 @@
         "nome": "Chole Bhature",
         "immagine": "https://2.bp.blogspot.com/-OU_L_dlS_G0/Wx9rVpMKeVI/AAAAAAAAAEE/lL6pyCPBVoQkBxbpYZg9wRt6-Lce51C7ACLcBGAs/s1600/imperial%2Binn.jpg",
         "descrizione": "Ceci speziati serviti con pane fritto.",
-        "prezzo": "9.00€",
+        "prezzo": "9.00",
         "categoria": "Indiano",
         "ingredienti": "ceci, spezie, farina, olio",
         "visibile": "Si"
@@ -624,7 +624,7 @@
         "nome": "Vegetable Biryani",
         "immagine": "http://img.taste.com.au/_L7m5vxs/taste/2016/11/vegetable-biryani-102620-1.jpeg",
         "descrizione": "Verdure miste e riso basmati cucinati con spezie aromatiche.",
-        "prezzo": "10.00€",
+        "prezzo": "10.00",
         "categoria": "Indiano",
         "ingredienti": "verdure, riso basmati, spezie, cipolle, yogurt",
         "visibile": "Si"
@@ -634,7 +634,7 @@
         "nome": "Salmone alla Griglia",
         "immagine": "https://bing.com/th?id=OSK.d46b5ea074b55dfc9d744be07d94b7a6",
         "descrizione": "Filetto di salmone grigliato alla perfezione con limone e erbe.",
-        "prezzo": "18.00€",
+        "prezzo": "18.00",
         "categoria": "Pesce",
         "ingredienti": "salmone, limone, erbe, olio d'oliva",
         "visibile": "Si"
@@ -644,7 +644,7 @@
         "nome": "Fish and Chips",
         "immagine": "https://th.bing.com/th/id/OIP.kxAF1QREh_a70wix3TBEIQHaE8?dpr=2&pid=ImgDetMain",
         "descrizione": "Pesce impanato e fritto servito con patatine croccanti.",
-        "prezzo": "14.00€",
+        "prezzo": "14.00",
         "categoria": "Pesce",
         "ingredienti": "pesce, patate, farina, olio",
         "visibile": "Si"
@@ -654,7 +654,7 @@
         "nome": "Gamberi Scampi",
         "immagine": "https://i.pinimg.com/originals/83/13/0b/83130b2dc8f64cc6157f7d0a3946bebf.jpg",
         "descrizione": "Gamberi cotti in una salsa burro agliaglio.",
-        "prezzo": "16.00€",
+        "prezzo": "16.00",
         "categoria": "Pesce",
         "ingredienti": "gamberi, aglio, burro, prezzemolo",
         "visibile": "Si"
@@ -664,7 +664,7 @@
         "nome": "Calamari Fritti",
         "immagine": "https://www.siciliafan.it/wp-content/uploads/sites/3/2020/02/Calamari-fritti.jpg",
         "descrizione": "Anelli di calamaro fritti serviti con spicchi di limone e salsa marinara.",
-        "prezzo": "15.00€",
+        "prezzo": "15.00",
         "categoria": "Pesce",
         "ingredienti": "calamari, farina, olio, limone, salsa marinara",
         "visibile": "Si"
@@ -674,7 +674,7 @@
         "nome": "Coda di Aragosta",
         "immagine": "https://tse2.mm.bing.net/th?id=OIP.dXoxmW4dkhEEnaTDeInjAgHaKf&pid=Api",
         "descrizione": "Coda di aragosta grigliata servita con burro fuso.",
-        "prezzo": "25.00€",
+        "prezzo": "25.00",
         "categoria": "Pesce",
         "ingredienti": "coda di aragosta, burro, limone",
         "visibile": "Si"
@@ -684,7 +684,7 @@
         "nome": "Paella di Frutti di Mare",
         "immagine": "https://www.themealdb.com/images/media/meals/1520081754.jpg",
         "descrizione": "Piatto spagnolo con riso, zafferano, frutti di mare e carne.",
-        "prezzo": "20.00€",
+        "prezzo": "20.00",
         "categoria": "Pesce",
         "ingredienti": "riso, zafferano, frutti di mare, carne, verdure",
         "visibile": "Si"
@@ -694,7 +694,7 @@
         "nome": "Zuppa di Pesce",
         "immagine": "https://th.bing.com/th/id/OIP.foOAtZ96X-_SNnDPHMT3xwHaHa?w=600&h=600&rs=1&pid=ImgDetMain",
         "descrizione": "Zuppa ricca di pesce misto con pomodori, sedano e prezzemolo.",
-        "prezzo": "16.00€",
+        "prezzo": "16.00",
         "categoria": "Pesce",
         "ingredienti": "pesce misto, pomodori, sedano, prezzemolo",
         "visibile": "Si"
@@ -704,7 +704,7 @@
         "nome": "Temaki",
         "immagine": "https://blog.giallozafferano.it/colcuoreincucina/wp-content/uploads/2021/03/IMG_20210301_215030_683.jpg",
         "descrizione": "Assortimento di riso e pesce crudo avvolto in foglie di alga.",
-        "prezzo": "22.00€",
+        "prezzo": "22.00",
         "categoria": "Pesce",
         "ingredienti": "riso, pesce crudo, alga nori",
         "visibile": "Si"
@@ -714,7 +714,7 @@
         "nome": "Cozze alla Marinara",
         "immagine": "https://www.themealdb.com/images/media/meals/vptqpw1511798500.jpg",
         "descrizione": "Cozze in una salsa di pomodoro e vino bianco con aglio e prezzemolo.",
-        "prezzo": "14.00€",
+        "prezzo": "14.00",
         "categoria": "Pesce",
         "ingredienti": "cozze, pomodoro, vino bianco, aglio, prezzemolo",
         "visibile": "Si"
@@ -724,7 +724,7 @@
         "nome": "Baccalà alla Livornese",
         "immagine": "https://www.profumodibasilico.it/wp-content/uploads/2017/11/baccal%C3%A0-alla-livornese-2000x1250-752x440.jpg",
         "descrizione": "Baccalà cotto con pomodori, capperi, olive e prezzemolo.",
-        "prezzo": "18.00€",
+        "prezzo": "18.00",
         "categoria": "Pesce",
         "ingredienti": "baccalà, pomodori, capperi, olive, prezzemolo",
         "visibile": "Si"
@@ -734,7 +734,7 @@
         "nome": "Tonno alla Griglia",
         "immagine": "https://www.themealdb.com/images/media/meals/1548772327.jpg",
         "descrizione": "Filetto di tonno grigliato servito con limone e insalata.",
-        "prezzo": "19.00€",
+        "prezzo": "19.00",
         "categoria": "Pesce",
         "ingredienti": "tonno, limone, insalata",
         "visibile": "Si"
@@ -744,7 +744,7 @@
         "nome": "Insalata di Mare",
         "immagine": "https://tse1.mm.bing.net/th?id=OIP.ZN8GkCuW8OEPV5rAkDelswHaD4&pid=Api",
         "descrizione": "Insalata mista di frutti di mare con limone e olio d'oliva.",
-        "prezzo": "17.00€",
+        "prezzo": "17.00",
         "categoria": "Pesce",
         "ingredienti": "frutti di mare, limone, olio d'oliva",
         "visibile": "Si"
@@ -754,7 +754,7 @@
         "nome": "Filetto alla Griglia",
         "immagine": "https://www.3quarti.it/tre-quarti/assets/media/2015/10/IMG_4659-scaled.jpg",
         "descrizione": "Filetto di manzo alla griglia servito con patate al forno e verdure.",
-        "prezzo": "25.00€",
+        "prezzo": "25.00",
         "categoria": "Carne",
         "ingredienti": "filetto di manzo, patate, verdure",
         "visibile": "Si"
@@ -764,7 +764,7 @@
         "nome": "Bistecca Fiorentina",
         "immagine": "http://www.chizzocute.it/wp-content/uploads/2016/07/bistecca-fiorentina-1024x678.jpg",
         "descrizione": "Bistecca di manzo alla griglia servita con olio d'oliva e rosmarino.",
-        "prezzo": "28.00€",
+        "prezzo": "28.00",
         "categoria": "Carne",
         "ingredienti": "bistecca di manzo, olio d'oliva, rosmarino",
         "visibile": "Si"
@@ -774,7 +774,7 @@
         "nome": "Polpettone",
         "immagine": "https://www.fattoincasadabenedetta.it/wp-content/uploads/2022/03/polpettone.jpg",
         "descrizione": "Polpettone di carne di maiale e manzo con uova, pane grattugiato e spezie.",
-        "prezzo": "14.00€",
+        "prezzo": "14.00",
         "categoria": "Carne",
         "ingredienti": "carne di maiale, carne di manzo, uova, pane grattugiato, spezie",
         "visibile": "Si"
@@ -784,7 +784,7 @@
         "nome": "Arrosto di Maiale",
         "immagine": "https://www.cucchiaio.it/content/cucchiaio/it/ricette/2016/05/arrosto-di-maiale-al-forno/jcr:content/header-par/image-single.img.jpg/1462376079371.jpg?im=Resize=(1968)",
         "descrizione": "Arrosto di maiale al forno servito con patate e salsa.",
-        "prezzo": "18.00€",
+        "prezzo": "18.00",
         "categoria": "Carne",
         "ingredienti": "arrosto di maiale, patate, salsa",
         "visibile": "Si"
@@ -794,7 +794,7 @@
         "nome": "Pizza Margherita",
         "immagine": "https://www.themealdb.com/images/media/meals/x0lk931587671540.jpg",
         "descrizione": "Pizza classica con salsa di pomodoro, mozzarella e basilico.",
-        "prezzo": "10.00€",
+        "prezzo": "10.00",
         "categoria": "Pizza",
         "ingredienti": "salsa di pomodoro, mozzarella, basilico",
         "visibile": "Si"
@@ -804,7 +804,7 @@
         "nome": "Pizza Prosciutto Funghi",
         "immagine": "https://bing.com/th?id=OSK.52fc464eb157092eeff907c29bf35ba2",
         "descrizione": "Pizza con salsa di pomodoro, mozzarella, prosciutto cotto e funghi.",
-        "prezzo": "12.00€",
+        "prezzo": "12.00",
         "categoria": "Pizza",
         "ingredienti": "salsa di pomodoro, mozzarella, prosciutto cotto, funghi",
         "visibile": "Si"
@@ -814,7 +814,7 @@
         "nome": "Pizza Quattro Stagioni",
         "immagine": "https://i0.wp.com/www.piccolericette.net/piccolericette/wp-content/uploads/2016/07/3017_Pizza.jpg?resize=895%2C616&ssl=1",
         "descrizione": "Pizza divisa in quattro sezioni con pomodoro, mozzarella, prosciutto, funghi, carciofi e olive.",
-        "prezzo": "14.00€",
+        "prezzo": "14.00",
         "categoria": "Pizza",
         "ingredienti": "salsa di pomodoro, mozzarella, prosciutto, funghi, carciofi, olive",
         "visibile": "Si"
@@ -824,7 +824,7 @@
         "nome": "Pizza Diavola",
         "immagine": "https://wips.plug.it/cips/buonissimo.org/cms/2023/02/pizza-alla-diavola.jpg?w=713&a=c&h=407",
         "descrizione": "Pizza piccante con salsa di pomodoro, mozzarella, salame piccante e peperoncino.",
-        "prezzo": "13.00€",
+        "prezzo": "13.00",
         "categoria": "Pizza",
         "ingredienti": "salsa di pomodoro, mozzarella, salame piccante, peperoncino",
         "visibile": "Si"
@@ -834,7 +834,7 @@
         "nome": "Calzone",
         "immagine": "https://i2.wp.com/www.piccolericette.net/piccolericette/wp-content/uploads/2020/09/4460_Calzoni.jpg?zoom=2&resize=595%2C410&ssl=1",
         "descrizione": "Calzone ripieno di salsa di pomodoro, mozzarella, prosciutto e funghi.",
-        "prezzo": "11.00€",
+        "prezzo": "11.00",
         "categoria": "Pizza",
         "ingredienti": "salsa di pomodoro, mozzarella, prosciutto, funghi",
         "visibile": "Si"
@@ -844,7 +844,7 @@
         "nome": "Pizza Capricciosa",
         "immagine": "https://wips.plug.it/cips/buonissimo.org/cms/2019/04/pizza-capricciosa.jpg?w=713&a=c&h=407",
         "descrizione": "Pizza con salsa di pomodoro, mozzarella, prosciutto cotto, funghi, carciofi e olive.",
-        "prezzo": "12.00€",
+        "prezzo": "12.00",
         "categoria": "Pizza",
         "ingredienti": "salsa di pomodoro, mozzarella, prosciutto cotto, funghi, carciofi, olive",
         "visibile": "Si"
@@ -854,7 +854,7 @@
         "nome": "Insalata Greca",
         "immagine": "https://www.tavolartegusto.it/wp/wp-content/uploads/2023/07/Insalata-greca.jpg",
         "descrizione": "Insalata fresca con pomodori, cetrioli, olive, cipolle e formaggio feta.",
-        "prezzo": "9.00€",
+        "prezzo": "9.00",
         "categoria": "Vegetariano",
         "ingredienti": "pomodori, cetrioli, olive, cipolle, formaggio feta",
         "visibile": "Si"
@@ -864,7 +864,7 @@
         "nome": "Couscous alle Verdure",
         "immagine": "https://www.cucchiaio.it/content/cucchiaio/it/ricette/2010/10/ricetta-cous-cous-verdure/jcr:content/header-par/image_single.img.jpg/1619082051539.jpg?im=Resize=(1968)",
         "descrizione": "Couscous con verdure miste come zucchine, melanzane e peperoni.",
-        "prezzo": "10.00€",
+        "prezzo": "10.00",
         "categoria": "Vegetariano",
         "ingredienti": "couscous, zucchine, melanzane, peperoni",
         "visibile": "Si"
@@ -874,7 +874,7 @@
         "nome": "Frittata di Verdure",
         "immagine": "https://www.salepepe.it/files/2022/10/2-1-1140x636.jpg",
         "descrizione": "Frittata con verdure come spinaci, pomodori e peperoni.",
-        "prezzo": "8.00€",
+        "prezzo": "8.00",
         "categoria": "Vegetariano",
         "ingredienti": "uova, spinaci, pomodori, peperoni",
         "visibile": "Si"
@@ -884,7 +884,7 @@
         "nome": "Risotto ai Funghi",
         "immagine": "https://blog.giallozafferano.it/ricettepanedolci/wp-content/uploads/2020/10/risotto-ai-funghi-1.jpeg",
         "descrizione": "Risotto cremoso con funghi porcini e parmigiano.",
-        "prezzo": "11.00€",
+        "prezzo": "11.00",
         "categoria": "Vegetariano",
         "ingredienti": "riso, funghi porcini, parmigiano",
         "visibile": "Si"
@@ -894,7 +894,7 @@
         "nome": "Pasta al Pesto",
         "immagine": "https://www.fattoincasadabenedetta.it/wp-content/uploads/2022/07/AdobeStock_235021478-1200x900.jpg",
         "descrizione": "Pasta con pesto alla genovese, basilico e pinoli.",
-        "prezzo": "9.00€",
+        "prezzo": "9.00",
         "categoria": "Vegetariano",
         "ingredienti": "pasta, pesto, basilico, pinoli",
         "visibile": "Si"
@@ -904,7 +904,7 @@
         "nome": "Hummus",
         "immagine": "https://www.giallozafferano.it/images/243-24308/Hummus_450x300.jpg",
         "descrizione": "Purea di ceci con tahini, aglio, succo di limone e olio d'oliva.",
-        "prezzo": "7.00€",
+        "prezzo": "7.00",
         "categoria": "Vegetariano",
         "ingredienti": "ceci, tahini, aglio, limone, olio d'oliva",
         "visibile": "Si"
@@ -914,7 +914,7 @@
         "nome": "Burger Vegano",
         "immagine": "https://static.gamberorosso.it/2021/02/burger-vegetali-768x512.jpg",
         "descrizione": "Burger vegano con burger di quinoa, lenticchie e verdure, servito con insalata.",
-        "prezzo": "12.00€",
+        "prezzo": "12.00",
         "categoria": "Vegano",
         "ingredienti": "quinoa, lenticchie, verdure, insalata",
         "visibile": "Si"
@@ -924,7 +924,7 @@
         "nome": "Falafel",
         "immagine": "https://coopmaster.it/blog/wp-content/uploads/2021/05/falafel.jpg",
         "descrizione": "Polpette di ceci e prezzemolo fritte, servite con hummus e insalata.",
-        "prezzo": "10.00€",
+        "prezzo": "10.00",
         "categoria": "Vegano",
         "ingredienti": "ceci, prezzemolo, hummus, insalata",
         "visibile": "Si"
@@ -934,7 +934,7 @@
         "nome": "Zuppa di Lenticchie",
         "immagine": "https://assets.tmecosys.com/image/upload/t_web767x639/img/recipe/ras/Assets/98DCCA51-5D56-4613-B791-D6F65405E097/Derivates/242065e5-eb54-45a7-8019-9f59efac768f.jpg",
         "descrizione": "Zuppa calda di lenticchie con verdure e spezie.",
-        "prezzo": "8.00€",
+        "prezzo": "8.00",
         "categoria": "Vegano",
         "ingredienti": "lenticchie, verdure, spezie",
         "visibile": "Si"
@@ -944,7 +944,7 @@
         "nome": "Insalata di Quinoa",
         "immagine": "https://green-paths.com/wp-content/uploads/2021/03/Insalata-di-quinoa-scaled.jpg",
         "descrizione": "Insalata fresca di quinoa con pomodori, cetrioli e olive.",
-        "prezzo": "9.00€",
+        "prezzo": "9.00",
         "categoria": "Vegano",
         "ingredienti": "quinoa, pomodori, cetrioli, olive",
         "visibile": "Si"
@@ -954,7 +954,7 @@
         "nome": "Pasta Aglio e Olio",
         "immagine": "https://www.fattoincasadabenedetta.it/wp-content/uploads/2022/02/SPAGHETTI-AGLIO-OLIO-E-PEPERONCINO-sito-3.jpg",
         "descrizione": "Pasta con olio d'oliva, aglio, prezzemolo e peperoncino.",
-        "prezzo": "8.00€",
+        "prezzo": "8.00",
         "categoria": "Vegano",
         "ingredienti": "pasta, olio d'oliva, aglio, prezzemolo, peperoncino",
         "visibile": "Si"
@@ -964,7 +964,7 @@
         "nome": "Couscous al Pomodoro",
         "immagine": "https://tuttofabrodoincucina.it/wp-content/uploads/2018/06/cous-cous-mediterranero-al-pomodoro-1020x600.jpg",
         "descrizione": "Couscous con salsa di pomodoro, ceci e verdure.",
-        "prezzo": "10.00€",
+        "prezzo": "10.00",
         "categoria": "Vegano",
         "ingredienti": "couscous, salsa di pomodoro, ceci, verdure",
         "visibile": "Si"
