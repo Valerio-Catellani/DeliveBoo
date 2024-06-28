@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Str;
 use App\Models\Restaurant;
 use Laravel\Sanctum\HasApiTokens;
 
@@ -22,6 +23,7 @@ class User extends Authenticatable
         'name',
         'lastname',
         'email',
+        'slug',
         'password',
     ];
 
@@ -45,7 +47,25 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function restaurant() {
+    public function restaurant()
+    {
         return $this->hasOne(Restaurant::class);
+    }
+
+
+    public static function generateSlug($name, $lastname)
+    {
+        // Concatenazione di nome e cognome
+        $baseSlug = Str::slug("{$name}-{$lastname}", '-');
+        $slug = $baseSlug;
+        $count = 1;
+
+        // Controllo se lo slug esiste già e aggiunta del numero incrementale se necessario
+        while (User::where('slug', $slug)->exists()) {
+            $slug = "{$baseSlug}-{$count}";
+            $count++;
+        }
+
+        return $slug;
     }
 }

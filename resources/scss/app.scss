@@ -9,3 +9,219 @@ $fa-font-path: "../fonts/webfonts" !default;
 @import "~@fortawesome/fontawesome-free/scss/brands";
 
 @import "~bootstrap/scss/bootstrap";
+
+/*utilities*/
+body {
+    font-family: "Amita", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.mine-custom-btn {
+    // background-color: $active-primary-color !important;
+    // border: black 1px solid !important;
+    /* CSS */
+    align-items: center;
+    appearance: none;
+    background-image: radial-gradient(
+        100% 100% at 100% 0,
+        $active-secondary-color 0,
+        $active-primary-color 100%
+    );
+    border: 0;
+    border-radius: 6px;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+        rgba(55, 0, 255, 0.3) 0 7px 13px -3px,
+        rgba(58, 70, 111, 0.5) 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    height: 48px;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    transition: box-shadow 0.15s, transform 0.15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow, transform;
+    font-size: 18px;
+
+    &:focus {
+        box-shadow: #350909 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+            rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #350909 0 -3px 0 inset;
+    }
+
+    &:hover {
+        box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+            rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #350909 0 -3px 0 inset;
+        transform: translateY(-2px);
+    }
+
+    &:active {
+        box-shadow: #350909 0 3px 7px inset;
+        transform: translateY(2px);
+    }
+}
+
+.min-custom-btn-grey {
+    background-image: radial-gradient(
+        100% 100% at 100% 0,
+        $background-4th-color 0,
+        $background-secondary-color 100%
+    ) !important;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 0 0.25rem $active-secondary-color !important;
+}
+.logo-img-container {
+    width: 50px;
+    min-width: 50px;
+    aspect-ratio: 1/1;
+}
+
+.default-button {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    font-size: 2rem;
+
+    &:hover {
+        transform: scale(1.2);
+        transition: transform 0.3s ease-in-out;
+    }
+}
+
+.err-animation {
+    animation: shake 0.05s;
+    animation-iteration-count: 5;
+
+    @keyframes shake {
+        0% {
+            transform: translateX(0);
+        }
+        25% {
+            transform: translateX(5px);
+        }
+        50% {
+            transform: translateX(-5px);
+        }
+        75% {
+            transform: translateX(5px);
+        }
+        100% {
+            transform: translateX(0);
+        }
+    }
+}
+
+#admin {
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+
+    #sidebar {
+        background-color: $background-primary-color;
+        z-index: 20;
+        width: 250px;
+        transition: width 0.5s ease-out;
+
+        #hype-sidebar-collapse {
+            top: 40px;
+            transform: translateY(-50%);
+            right: -30px;
+        }
+        li {
+            background: linear-gradient(
+                to right,
+                $background-tertiary-color 50%,
+                $background-primary-color 50%
+            );
+            background-size: 200% 100%;
+            background-position: right bottom;
+            transition: background-position 0.5s;
+
+            &:hover {
+                background-position: left bottom;
+            }
+        }
+        .active {
+            position: relative;
+            &::before {
+                content: "";
+                position: absolute;
+                bottom: 0%;
+                left: 0%;
+                width: 5px;
+                height: 100%;
+                background-color: $active-primary-color;
+            }
+        }
+    }
+
+    .sidebard-collapse {
+        width: 80px !important;
+    }
+
+    @media screen and (max-width: 767px) {
+        .sidebar-risize {
+            width: 80px !important;
+            .hype-text-collapse {
+                display: none;
+            }
+        }
+    }
+
+    #wrapper {
+        flex-grow: 1;
+
+        header {
+            height: 80px;
+            background-image: linear-gradient(
+                to right,
+                $background-primary-color 10%,
+                $background-secondary-color 20%
+            );
+            display: flex;
+            justify-content: end;
+            position: relative;
+            z-index: 10;
+            padding-right: 30px;
+            nav {
+                background-color: $background-secondary-color;
+                z-index: 100;
+                li {
+                    position: relative;
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        bottom: 2px;
+                        left: 10%;
+                        width: 0%;
+                        height: 3px;
+                        background-color: $active-primary-color;
+                        transition: width 0.2s ease-out;
+                    }
+
+                    &:hover::after {
+                        width: 80%; /* Modifica la larghezza quando passi sopra con il mouse */
+                    }
+                }
+            }
+        }
+
+        main {
+            height: calc(100vh - 80px);
+            overflow-y: auto;
+        }
+    }
+}
