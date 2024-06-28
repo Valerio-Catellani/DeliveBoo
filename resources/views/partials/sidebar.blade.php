@@ -6,8 +6,11 @@
         <div class="logo-img-container d-flex align-items-center">
             <img class="img-fluid" src="/images/cinema_paradiso_logo.png" alt="logo">
         </div>
-        <h2 class="p-3 hype-text-collapse">Cinema Paradiso</h2>
+        <h2 class="p-3 hype-text-collapse">DeliveBoo</h2>
     </a>
+    @if (session('user_name'))
+        <p>Benvenuto, {{ session('user_name') }}!</p>
+    @endif
     <ul class="nav flex-column">
         <li class="nav-item  {{ Route::currentRouteName() === 'admin.dashboard' ? 'active' : '' }}">
             <a class="nav-link text-white " aria-current="page" href="{{ route('admin.dashboard') }}"><i
@@ -15,9 +18,17 @@
         </li>
         <li
             class="nav-item {{ Route::currentRouteName() === 'admin.rooms.index' || Route::currentRouteName() === 'admin.rooms.show' || Route::currentRouteName() === 'admin.rooms.edit' || Route::currentRouteName() === 'admin.rooms.create' ? 'active' : '' }}">
+            <a class="nav-link text-white " aria-current="page"
+                href="{{ route('admin.restaurants.show', $user->slug) }}"><i class="fa-solid fa-tv fs-4 pe-3"></i><span
+                    class="hype-text-collapse">Sale</span></a>
+        </li>
+        {{--
+         <li
+            class="nav-item {{ Route::currentRouteName() === 'admin.rooms.index' || Route::currentRouteName() === 'admin.rooms.show' || Route::currentRouteName() === 'admin.rooms.edit' || Route::currentRouteName() === 'admin.rooms.create' ? 'active' : '' }}">
             <a class="nav-link text-white " aria-current="page" href="{{ route('admin.rooms.index') }}"><i
                     class="fa-solid fa-tv fs-4 pe-3"></i><span class="hype-text-collapse">Sale</span></a>
         </li>
+        {{--
         <li
             class="nav-item {{ Route::currentRouteName() === 'admin.movies.index' || Route::currentRouteName() === 'admin.movies.show' || Route::currentRouteName() === 'admin.movies.edit' || Route::currentRouteName() === 'admin.movies.create' ? 'active' : '' }}">
             <a class="nav-link text-white " aria-current="page" href="{{ route('admin.movies.index') }}"><i
@@ -38,6 +49,6 @@
             <a class="nav-link text-white " aria-current="page" href="{{ route('admin.projections.index') }}"><i
                     class="fa-solid fa-clapperboard fs-4 pe-3"></i><span
                     class="hype-text-collapse">Proiezioni</span></a>
-        </li>
+        </li> --}}
     </ul>
 </nav>

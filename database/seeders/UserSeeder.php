@@ -19,6 +19,7 @@ class UserSeeder extends Seeder
             $new_user->name = $user->name;
             $new_user->lastname = $user->lastname;
             $new_user->email = $user->email;
+            $new_user->slug = User::generateSlug($user->name, $user->lastname);
             $new_user->password = $user->password;
             $new_user->save();
         }
