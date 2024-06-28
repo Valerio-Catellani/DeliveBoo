@@ -21,8 +21,9 @@ class DatabaseSeeder extends Seeder
             TypologySeeder::class,
             RestaurantSeeder::class,
             RestaurantTypologySeeder::class,
-            // OrderSeeder::class,
-            // DishSeeder::class,
+            DishSeeder::class,
+            OrderSeeder::class,
+            DishOrderSeeder::class,
         ]);
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',

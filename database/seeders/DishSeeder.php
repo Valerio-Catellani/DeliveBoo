@@ -29,10 +29,10 @@ class DishSeeder extends Seeder
             });
 
             //count($filtered_dishes)
-            $random_number_of_dishes = rand(3, count($filtered_dishes));
+            $random_number_of_dishes = rand(7, count($filtered_dishes));
             $random_price_increment = rand(1, 10);
 
-            for ($i = 1; $i < $random_number_of_dishes; $i++) {
+            for ($i = 0; $i < $random_number_of_dishes; $i++) {
                 if ($filtered_dishes && count($filtered_dishes) > 0) {
                     $random_key = array_rand($filtered_dishes);
                     $random_dish = $filtered_dishes[$random_key];
