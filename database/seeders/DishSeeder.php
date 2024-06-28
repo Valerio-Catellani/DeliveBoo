@@ -12,6 +12,6 @@ class DishSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        
     }
 }
