@@ -1,32 +1,32 @@
 [
     {
-        "Name": "Pizzeria Onisto",
+        "Name": "Ristorante Onisto",
         "Address": "Vicolo Paolo 6\nLodovico ligure, 74693 Udine (VV)",
-        "image": null,
+        "image": "https://www.scattidigusto.it/wp-content/uploads/2021/05/Acanto-Palermo.jpg",
         "VAT": "IT32770638461"
     },
     {
-        "Name": "Pizzeria Maspero",
+        "Name": "Ristorante Maspero",
         "Address": "Borgo Livio 253\nSan Coluccio, 49442 Avellino (FG)",
-        "image": "https://placeimg.com/760/220/any",
+        "image": "https://www.virtuquotidiane.it/wp-content/uploads/2021/09/Zio-Barrett_4.jpeg",
         "VAT": "IT59884188005"
     },
     {
-        "Name": "Pizzeria Rapisardi",
+        "Name": "Ristorante Rapisardi",
         "Address": "Strada Pietro 19 Piano 8\nVanessa sardo, 00265 Venezia (AO)",
-        "image": null,
+        "image": "https://flawless.life/wp-content/uploads/2020/02/10_ristoranti_a_milano_da_provare_a_novembre_n10_new.jpeg",
         "VAT": "IT58996811983"
     },
     {
-        "Name": "Pizzeria Franceschi",
+        "Name": "Ristorante Franceschi",
         "Address": "Piazza Tina 053 Piano 9\nQuarto Giacinto calabro, 12432 Cosenza (VI)",
-        "image": "https://dummyimage.com/787x891",
+        "image": "https://www.scattidigusto.it/wp-content/uploads/2021/05/Alle-Terrazze-Mondello-1280x1280.jpg",
         "VAT": "IT08463819554"
     },
     {
-        "Name": "Pizzeria Tommaseo",
+        "Name": "Ristorante Tommaseo",
         "Address": "Vicolo Arnaldo 1 Piano 6\nSan Ciro calabro, 19413 Trieste (GE)",
-        "image": null,
+        "image": "https://th.bing.com/th/id/R.3d902b3cd26bf4b9521c0508d67c3293?rik=w6oJtPDYWoI%2b6w&riu=http%3a%2f%2f2night.s3.amazonaws.com%2fpics%2farticles%2fcropped%2f1600x800%2f150%2f5a3151c0c9f56b4ad6f95065.jpg&ehk=b5wxqzrCCkza8iF1q1glqr%2fh1aq3lGFpThA%2fCcPV7fs%3d&risl=&pid=ImgRaw&r=0",
         "VAT": "IT25323209077"
     },
     {
@@ -134,7 +134,7 @@
     {
         "Name": "Ristorante Cuda",
         "Address": "Strada Ivan 68 Piano 8\nSan Niccol\u00f2, 12068 Aosta (PI)",
-        "image": null,
+        "image": "https://cdn.businessinsider.de/wp-content/uploads/2019/12/ristorante-la-sponda-in-positano-italy-1.png",
         "VAT": "IT95300003511"
     },
     {
@@ -150,33 +150,33 @@
         "VAT": "IT65325668433"
     },
     {
-        "Name": "Ristorante Bombieri",
+        "Name": "Ristorante La Piazza",
         "Address": "Borgo Antonio 61\nSettimo Allegra laziale, 52257 Massa-Carrara (SP)",
-        "image": null,
+        "image": "https://i0.wp.com/jetsettimes.com/wp-content/uploads/2022/03/FACEBOOK-Ristorante-La-Piazza-Venezia-.jpeg?resize=800%2C800&ssl=1",
         "VAT": "IT45627272685"
     },
     {
-        "Name": "Ristorante Mercantini",
+        "Name": "Ristorante il Vizietto",
         "Address": "Rotonda Manuel 3\nSesto Milo laziale, 17893 Ancona (MB)",
-        "image": "https://dummyimage.com/974x134",
+        "image": "https://www.viajantemovel.com.br/wp-content/uploads/2019/12/Restaurante-IlVizietto-cortinadampezzo-italia-02.jpg",
         "VAT": "IT33935504405"
     },
     {
-        "Name": "Ristorante Bianchi",
+        "Name": "Osteria Bruenello",
         "Address": "Strada Rismondo 2\nSilvestri umbro, 05017 Olbia-Tempio (SR)",
-        "image": "https://www.lorempixel.com/14/506",
+        "image": "https://flawless.life/wp-content/uploads/2018/06/10-migliori-ristoranti-dehors-milano-osteria-brunello.jpg",
         "VAT": "IT61627994960"
     },
     {
         "Name": "Ristorante Turci",
         "Address": "Vicolo Federigo 27\nSan Toni, 87764 Vibo Valentia (RM)",
-        "image": null,
+        "image": "https://th.bing.com/th/id/R.9c11fafaa5165682fc58b8750c530a9c?rik=%2fS7moBUo5bOLqw&pid=ImgRaw&r=0",
         "VAT": "IT59981290777"
     },
     {
         "Name": "Ristorante Interminei",
         "Address": "Piazza Livia 5\nSperi del friuli, 83953 Savona (CL)",
-        "image": null,
+        "image": "https://a.cdn-hotels.com/gdcs/production48/d483/0f6f0f60-32bd-460e-9ab5-7c748cd37545.jpg",
         "VAT": "IT88269146319"
     }
 ]
