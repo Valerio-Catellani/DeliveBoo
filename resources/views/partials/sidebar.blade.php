@@ -8,20 +8,21 @@
         </div>
         <h2 class="p-3 hype-text-collapse">DeliveBoo</h2>
     </a>
-    @if (session('user_name'))
-        <p>Benvenuto, {{ session('user_name') }}!</p>
-    @endif
     <ul class="nav flex-column">
         <li class="nav-item  {{ Route::currentRouteName() === 'admin.dashboard' ? 'active' : '' }}">
             <a class="nav-link text-white " aria-current="page" href="{{ route('admin.dashboard') }}"><i
                     class="fa-solid fa-home fs-4 pe-3"></i><span class="hype-text-collapse">Dashboard</span></a>
         </li>
-        <li
-            class="nav-item {{ Route::currentRouteName() === 'admin.rooms.index' || Route::currentRouteName() === 'admin.rooms.show' || Route::currentRouteName() === 'admin.rooms.edit' || Route::currentRouteName() === 'admin.rooms.create' ? 'active' : '' }}">
-            <a class="nav-link text-white " aria-current="page"
-                href="{{ route('admin.restaurants.show', $user->slug) }}"><i class="fa-solid fa-tv fs-4 pe-3"></i><span
-                    class="hype-text-collapse">Sale</span></a>
-        </li>
+
+        @if (App\Models\Restaurant::where('user_id', Auth::user()->id)->exists())
+            <li
+                class="nav-item {{ Route::currentRouteName() === 'admin.rooms.index' || Route::currentRouteName() === 'admin.rooms.show' || Route::currentRouteName() === 'admin.rooms.edit' || Route::currentRouteName() === 'admin.rooms.create' ? 'active' : '' }}">
+                <a class="nav-link text-white " aria-current="page"
+                    href="{{ route('admin.restaurants.show', App\Models\Restaurant::where('user_id', Auth::user()->id)->first()->slug) }}"><i
+                        class="fa-solid fa-tv fs-4 pe-3"></i><span class="hype-text-collapse">I miei
+                        Ristoranti</span></a>
+            </li>
+        @endif
         {{--
          <li
             class="nav-item {{ Route::currentRouteName() === 'admin.rooms.index' || Route::currentRouteName() === 'admin.rooms.show' || Route::currentRouteName() === 'admin.rooms.edit' || Route::currentRouteName() === 'admin.rooms.create' ? 'active' : '' }}">

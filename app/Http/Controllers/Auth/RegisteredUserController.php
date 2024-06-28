@@ -41,12 +41,20 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'lastname' => $request->lastname,
+            'slug' => User::generateSlug($request->name, $request->lastname),
             'password' => Hash::make($request->password),
         ]);
 
         event(new Registered($user));
 
         Auth::login($user);
+        $request->session()->regenerate();
+
+        $user = auth()->user();
+        $request->session()->put('user_id', $user->id);
+        $request->session()->put('user_slug', $user->slug);
+        $request->session()->put('user_name', $user->name);
+        $request->session()->put('user_lastname', $user->lastname);
 
         return redirect(RouteServiceProvider::HOME);
     }

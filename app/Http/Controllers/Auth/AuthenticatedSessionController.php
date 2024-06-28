@@ -31,6 +31,7 @@ class AuthenticatedSessionController extends Controller
 
         $user = auth()->user();
         $request->session()->put('user_id', $user->id);
+        $request->session()->put('user_slug', $user->slug);
         $request->session()->put('user_name', $user->name);
         $request->session()->put('user_lastname', $user->lastname);
 

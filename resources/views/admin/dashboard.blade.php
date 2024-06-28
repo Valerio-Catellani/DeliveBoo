@@ -2,7 +2,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="container">
+    {{-- <div class="container">
         <h2 class="fs-4 text-secondary my-4">
             {{ __('Dashboard') }}
         </h2>
@@ -23,5 +23,11 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
+    @if (App\Models\Restaurant::where('user_id', Auth::user()->id)->exists())
+        <p>risto</p>
+    @else
+        <a role="button" class="mine-custom-btn mb-3" href="{{ route('admin.restaurants.create') }}">Aggiungi il tuo Primo
+            ristorante</a>
+    @endif
 @endsection
