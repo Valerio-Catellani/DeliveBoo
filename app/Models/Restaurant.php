@@ -7,12 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 use App\Models\Dish;
 use App\Models\Typology;
+use Illuminate\Support\Str;
 
 class Restaurant extends Model
 {
     use HasFactory;
 
     protected $guarded = [];
+
 
     public function user()
     {

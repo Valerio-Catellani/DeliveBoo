@@ -5,6 +5,8 @@
 
 namespace App\Functions;
 
+use Illuminate\Support\Str;
+
 class Helpers
 {
     public static function getCsvData($path)
@@ -32,5 +34,16 @@ class Helpers
             }
         }
         return $fullTemplate;
+    }
+
+    public static function generateSlug($name, $class)
+    {
+        $slug = Str::slug($name, '-');
+        $count = 1;
+        while ($class::where('slug', $slug)->first()) {
+            $slug = Str::of($name)->slug('-') . "-{$count}";
+            $count++;
+        }
+        return $slug;
     }
 }

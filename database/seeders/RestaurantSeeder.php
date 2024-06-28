@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Restaurant;
 use App\Models\User;
+use App\Functions\Helpers;
 
 class RestaurantSeeder extends Seeder
 {
@@ -29,6 +30,7 @@ class RestaurantSeeder extends Seeder
             $new_Restaurant->address = $restaurant->Address;
             $new_Restaurant->image = $restaurant->image;
             $new_Restaurant->VAT = $restaurant->VAT;
+            $new_Restaurant->slug = Helpers::generateSlug($restaurant->Name, Restaurant::class);
             $new_Restaurant->user_id = $users[$index];
             $new_Restaurant->save();
         }

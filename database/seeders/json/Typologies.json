@@ -1,50 +1,62 @@
 [
     {
         "name": "Italiano",
-        "image": "https://magazine.divoora.ch/images/Spaghetti-allamatriciana-cucina-italiana-ecco-i-piatti-piu-famosi.jpg"
+        "image": "https://magazine.divoora.ch/images/Spaghetti-allamatriciana-cucina-italiana-ecco-i-piatti-piu-famosi.jpg",
+        "color": "#FF5733"
     },
     {
         "name": "Internazionale",
-        "image": "https://www.stella-alpina.com/app/public/files/categoria/i-10-paesi-dove-si-mangia-meglio-nel-mondo-744x445.jpg"
+        "image": "https://www.stella-alpina.com/app/public/files/categoria/i-10-paesi-dove-si-mangia-meglio-nel-mondo-744x445.jpg",
+        "color": "#33FF57"
     },
     {
         "name": "Cinese",
-        "image": "https://blog.foodracers.com/content/images/2021/01/cina_misto.jpeg"
+        "image": "https://blog.foodracers.com/content/images/2021/01/cina_misto.jpeg",
+        "color": "#3357FF"
     },
     {
         "name": "Giapponese",
-        "image": "https://th.bing.com/th/id/OIP.VJmxkwX3vt5f-D_f5g5-7gHaE8?dpr=2&pid=ImgDetMain"
+        "image": "https://th.bing.com/th/id/OIP.VJmxkwX3vt5f-D_f5g5-7gHaE8?dpr=2&pid=ImgDetMain",
+        "color": "#FF33A5"
     },
     {
         "name": "Messicano",
-        "image": "https://www.viaggiaregratis.eu/wp-content/uploads/2020/11/Cucina-Messicana.jpg"
+        "image": "https://www.viaggiaregratis.eu/wp-content/uploads/2020/11/Cucina-Messicana.jpg",
+        "color": "#A533FF"
     },
     {
         "name": "Spagnolo",
-        "image": "https://magazine.divoora.ch/images/piatti-forti-cucina-spagnola-e1572362051851.jpeg"
+        "image": "https://magazine.divoora.ch/images/piatti-forti-cucina-spagnola-e1572362051851.jpeg",
+        "color": "#FF33D4"
     },
     {
         "name": "Indiano",
-        "image": "https://mangiarebene.s3.amazonaws.com/uploads/blog_item/image/1285/mb_asset.jpg"
+        "image": "https://mangiarebene.s3.amazonaws.com/uploads/blog_item/image/1285/mb_asset.jpg",
+        "color": "#FF8F33"
     },
     {
         "name": "Pesce",
-        "image": "https://ciboland.com/wp-content/uploads/2019/09/articolo-pesce-a-valletta-1080x628-1080x628.jpg"
+        "image": "https://ciboland.com/wp-content/uploads/2019/09/articolo-pesce-a-valletta-1080x628-1080x628.jpg",
+        "color": "#33FFC6"
     },
     {
         "name": "Carne",
-        "image": "https://static.cookist.it/wp-content/uploads/sites/21/2020/03/carne-fresca-conservare.jpg"
+        "image": "https://static.cookist.it/wp-content/uploads/sites/21/2020/03/carne-fresca-conservare.jpg",
+        "color": "#C633FF"
     },
     {
         "name": "Pizza",
-        "image": "https://static.wixstatic.com/media/2ed361_e685fcc8aac44ff897747c059fa56df2~mv2.jpg/v1/fill/w_822,h_642,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/2ed361_e685fcc8aac44ff897747c059fa56df2~mv2.jpg"
+        "image": "https://static.wixstatic.com/media/2ed361_e685fcc8aac44ff897747c059fa56df2~mv2.jpg/v1/fill/w_822,h_642,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/2ed361_e685fcc8aac44ff897747c059fa56df2~mv2.jpg",
+        "color": "#FF5733"
     },
     {
         "name": "Vegetariano",
-        "image": "https://th.bing.com/th/id/R.882c82c751d64821b66840625b501f22?rik=xEN4qHWqAhRchA&pid=ImgRaw&r=0"
+        "image": "https://th.bing.com/th/id/R.882c82c751d64821b66840625b501f22?rik=xEN4qHWqAhRchA&pid=ImgRaw&r=0",
+        "color": "#33FF57"
     },
     {
         "name": "Vegano",
-        "image": "https://fe7aeb67f2.clvaw-cdnwnd.com/50e0f053439689cb8ec86156a91efa9d/200000033-38aaf38ab2/700/cucina vegetariana.jpg?ph=fe7aeb67f2"
+        "image": "https://fe7aeb67f2.clvaw-cdnwnd.com/50e0f053439689cb8ec86156a91efa9d/200000033-38aaf38ab2/700/cucina vegetariana.jpg?ph=fe7aeb67f2",
+        "color": "#3357FF"
     }
 ]
