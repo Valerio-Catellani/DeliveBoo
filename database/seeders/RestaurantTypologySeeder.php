@@ -12,8 +12,8 @@ class RestaurantTypologySeeder extends Seeder
      */
     public function run(): void
     {
-        $restaurantTypology = json_decode(file_get_contents(__DIR__ . '\json\Restaurants_Typologies.json'));
-        foreach ($restaurantTypology as $restaurantTypology) {
+        $restaurantTypologys = json_decode(file_get_contents(__DIR__ . '\json\Restaurants_Typologies.json'));
+        foreach ($restaurantTypologys as $restaurantTypology) {
             $new_RestaurantTypology = new RestaurantTypology();
             $new_RestaurantTypology->restaurant_id = $restaurantTypology->restaurant_id;
             $new_RestaurantTypology->typology_id = $restaurantTypology->typology_id;

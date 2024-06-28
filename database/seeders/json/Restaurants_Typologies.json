@@ -17,10 +17,6 @@
     },
     {
         "restaurant_id": 2,
-        "typology_id": 11
-    },
-    {
-        "restaurant_id": 2,
         "typology_id": 2
     },
     {
@@ -44,11 +40,6 @@
         "typology_id": 6
     },
     {
-        "restaurant_id": 4,
-
-        "typology_id": 8
-    },
-    {
         "restaurant_id": 5,
         "typology_id": 9
     },
@@ -70,10 +61,6 @@
     },
     {
         "restaurant_id": 6,
-        "typology_id": 7
-    },
-    {
-        "restaurant_id": 6,
         "typology_id": 6
     },
     {
@@ -89,14 +76,6 @@
         "typology_id": 5
     },
     {
-        "restaurant_id": 7,
-        "typology_id": 3
-    },
-    {
-        "restaurant_id": 7,
-        "typology_id": 10
-    },
-    {
         "restaurant_id": 8,
         "typology_id": 9
     },
@@ -105,20 +84,12 @@
         "typology_id": 1
     },
     {
-        "restaurant_id": 8,
-        "typology_id": 6
-    },
-    {
         "restaurant_id": 9,
         "typology_id": 7
     },
     {
         "restaurant_id": 9,
         "typology_id": 11
-    },
-    {
-        "restaurant_id": 9,
-        "typology_id": 2
     },
     {
         "restaurant_id": 9,
@@ -133,20 +104,8 @@
         "typology_id": 12
     },
     {
-        "restaurant_id": 10,
-        "typology_id": 3
-    },
-    {
         "restaurant_id": 11,
         "typology_id": 10
-    },
-    {
-        "restaurant_id": 11,
-        "typology_id": 1
-    },
-    {
-        "restaurant_id": 11,
-        "typology_id": 7
     },
     {
         "restaurant_id": 12,
@@ -309,10 +268,6 @@
         "typology_id": 7
     },
     {
-        "restaurant_id": 23,
-        "typology_id": 5
-    },
-    {
         "restaurant_id": 24,
         "typology_id": 2
     },
@@ -354,10 +309,6 @@
     },
     {
         "restaurant_id": 26,
-        "typology_id": 10
-    },
-    {
-        "restaurant_id": 26,
         "typology_id": 8
     },
     {
@@ -371,9 +322,5 @@
     {
         "restaurant_id": 27,
         "typology_id": 6
-    },
-    {
-        "restaurant_id": 27,
-        "typology_id": 2
     }
 ]

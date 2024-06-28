@@ -178,5 +178,71 @@
         "lastname": "Bernini",
         "email": "claudia94@vodafone.it",
         "password": ")l2GENDf7a"
+    },
+    {
+        "name": "Mauro",
+        "lastname": "Orsini",
+        "email": "mauro.orsini@example.com",
+        "password": "1Xy^Tz%5oQ"
+    },
+    {
+        "name": "Livia",
+        "lastname": "De Rosa",
+        "email": "livia.derosa@example.com",
+        "password": "R7n3%v@Kd*"
+    },
+    {
+        "name": "Gianfranco",
+        "lastname": "Bellini",
+        "email": "gianfranco.bellini@example.com",
+        "password": "Bz6!7D*qLp"
+    },
+    {
+        "name": "Giovanna",
+        "lastname": "Sorrentino",
+        "email": "giovanna.sorrentino@example.com",
+        "password": "wF3&dJ8*Lf"
+    },
+    {
+        "name": "Luigi",
+        "lastname": "Ruggeri",
+        "email": "luigi.ruggeri@example.com",
+        "password": "Q9y^kV7*Pu"
+    },
+    {
+        "name": "Marta",
+        "lastname": "Grimaldi",
+        "email": "marta.grimaldi@example.com",
+        "password": "J8e*6S9%hX"
+    },
+    {
+        "name": "Sergio",
+        "lastname": "Caruso",
+        "email": "sergio.caruso@example.com",
+        "password": "Z2p^5N7*rG"
+    },
+    {
+        "name": "Francesca",
+        "lastname": "Moretti",
+        "email": "francesca.moretti@example.com",
+        "password": "M5n^8K1*tY"
+    },
+    {
+        "name": "Roberto",
+        "lastname": "Martini",
+        "email": "roberto.martini@example.com",
+        "password": "W6p*7R4!sV"
+    },
+    {
+        "name": "Anna",
+        "lastname": "Esposito",
+        "email": "anna.esposito@example.com",
+        "password": "K8q*9L3%hJ"
+    },
+    {
+        "name": "Giorgio",
+        "lastname": "Barone",
+        "email": "giorgio.barone@example.com",
+        "password": "D5r^6T8*wQ"
     }
 ]

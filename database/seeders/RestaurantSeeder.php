@@ -15,11 +15,11 @@ class RestaurantSeeder extends Seeder
     public function run(): void
     {
         $restaurants = json_decode(file_get_contents(__DIR__ . '\json\Restaurants.json'));
-        $user = User::all('id')->pluck('id')->toArray(); //->pluck('id')->toArray(); serve per restituire un array di id
+        $users = User::all('id')->pluck('id')->toArray(); //->pluck('id')->toArray(); serve per restituire un array di id
 
-        shuffle($user); //li mischia randomicamente
+        shuffle($users); //li mischia randomicamente
 
-        if (count($user) < count($restaurants)) {
+        if (count($users) < count($restaurants)) {
             throw new \Exception('There are not enough users to create all the restaurants');
         }
 
@@ -29,7 +29,7 @@ class RestaurantSeeder extends Seeder
             $new_Restaurant->address = $restaurant->Address;
             $new_Restaurant->image = $restaurant->image;
             $new_Restaurant->VAT = $restaurant->VAT;
-            $new_Restaurant->user_id = $user[$index];
+            $new_Restaurant->user_id = $users[$index];
             $new_Restaurant->save();
         }
     }
