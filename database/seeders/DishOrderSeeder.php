@@ -32,9 +32,6 @@ class DishOrderSeeder extends Seeder
                 $random_id = $all_orders_id[$key];
                 for ($i = 0; $i <  $number_of_dishes_for_each_order; $i++) {
                     $new_dishOrder = new DishOrder();
-                    // dump($dishes_of_restaurant);
-                    // dump(Restaurant::where('id', $restaurant->id)->pluck('name')->toArray());
-                    // dump(Dish::where('restaurant_id', $restaurant->id)->pluck('name')->toArray());
                     $new_dishOrder->dish_id = $dishes_of_restaurant[$i];
                     $new_dishOrder->order_id = $random_id;
                     $new_dishOrder->dish_name = Dish::where('id', $dishes_of_restaurant[$i])->first()->name;

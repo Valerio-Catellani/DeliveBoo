@@ -28,7 +28,11 @@ class RestaurantController extends Controller
     {
         $restaurant = Restaurant::where('user_id', Auth::user()->id)->first();
         if ($restaurant) {
-            return redirect()->route('admin.restaurants.show',  $restaurant->slug);
+            $data = [
+                'user_slug' => Auth::user()->slug,
+                'restaurant_slug' => $restaurant->slug
+            ];
+            return redirect()->route('admin.restaurants.show',  $data);
         } //se l'utente prova a fare il furbo e ad entrare manualmente dentro la create
         return view('admin.restaurants.create');
     }
@@ -68,8 +72,8 @@ class RestaurantController extends Controller
         $new_restaurant->save();
 
         $data = [
+            'user_slug' => Auth::user()->slug,
             'restaurant_slug' => $new_restaurant->slug,
-            'user_slug' => Auth::user()->slug
         ];
         return redirect()->route('admin.restaurants.show', $data);
     }

@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\RestaurantController;
+use App\Http\Controllers\Admin\DishController;
 
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 
@@ -28,6 +29,12 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin/{user_slug}')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('restaurants', RestaurantController::class)->parameters(['restaurants' => 'restaurant_slug']);
+     //http://127.0.0.1:8000/admin/valerio-cdddd/restaurants/da-zio-luciano-1
+    Route::resource('dishes', RestaurantController::class)->parameters(['dishes' => 'dish_slug']);
+     //http://127.0.0.1:8000/admin/valerio-cdddd/dishes/pizza-margherita
+     Route::resource('restaurants/{restaurant_slug}/dishes', DishController::class)->parameters(['dishes' => 'dish_slug']);
+    //http://127.0.0.1:8000/admin/valerio-cdddd/restaurants/da-zio-luciano-1/dishes/pizza-margherita
+
     //altre rotte...
 });
 
@@ -41,5 +48,8 @@ Route::middleware('auth')->group(function () {
 require __DIR__ . '/auth.php';
 
 Route::fallback(function () {
-    return redirect()->route('admin.dashboard', ['user_slug' => Auth::user()->slug]);
+    $data = [
+        'user_slug' => Auth::user()->slug
+    ];
+    return redirect()->route('admin.dashboard', $data);
 });
