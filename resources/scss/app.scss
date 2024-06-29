@@ -1,5 +1,6 @@
 @use "./partials/variables" as *;
 @use "./partials/hype_utility" as *;
+@use "./partials/registration" as *;
 
 $fa-font-path: "../fonts/webfonts" !default;
 
@@ -15,6 +16,10 @@ body {
     font-family: "Amita", serif;
     font-weight: 400;
     font-style: normal;
+}
+
+#app {
+    overflow: hidden;
 }
 
 .mine-custom-btn {
