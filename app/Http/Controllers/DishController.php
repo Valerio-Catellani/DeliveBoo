@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Auth\StoreDishRequest;
 use App\Models\Dish;
 use Illuminate\Http\Request;
-
+use App\Models\Restaurant;
+use Illuminate\Support\Facades\Auth;
+use App\Functions\Helpers;
 class DishController extends Controller
 {
     /**
@@ -12,7 +15,10 @@ class DishController extends Controller
      */
     public function index()
     {
-        //
+        $restaurant = Restaurant::where('user_id', Auth::user()->id)->first();
+        $restaurant_id = $restaurant->id;
+        $dishes = Dish::where('restaurant_id', $restaurant_id)->with('restaurant')->get();
+        return view('admin.dishes.index', compact('dishes'));
     }
 
     /**
@@ -20,15 +26,34 @@ class DishController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.dishes.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreDishRequest $request)
     {
-        //
+     $data_store = $request->validated(); 
+
+     $new_dish = new Dish();
+     $new_dish->name = $data_store['name'];
+     $new_dish->description = $data_store['description'];
+     $new_dish->price = $data_store['price'];
+    //  $new_dish->image = $data_store['image'];
+     $new_dish->ingredients = $data_store['ingredients'];
+    //  if($data_store['visible']) {
+    //     $new_dish->visible = $data_store['visible'];
+    //  }
+     $new_dish->restaurant_id = Auth::user()->restaurant->id;
+     $new_dish->slug = Helpers::generateSlug($data_store['name'], Dish::class);
+     
+    $new_dish->save();
+    $data = [
+        'restaurant_slug' => Auth::user()->restaurant->slug,
+        'user_slug' => Auth::user()->slug
+    ];
+    return redirect()->route('admin.dishes.index', $data);
     }
 
     /**

@@ -33,6 +33,11 @@
                         class="hype-text-collapse">I miei
                         Ristoranti</span></a>
             </li>
+            <li class="nav-item ">
+                <a class="nav-link text-white " aria-current="page"
+                    href="{{ route('admin.dishes.index', $data) }}"><i class="fa-solid fa-user fs-4 pe-3"></i><span
+                        class="hype-text-collapse">Il mio menù</span></a>
+            </li>
         @endif
         {{--
          <li
