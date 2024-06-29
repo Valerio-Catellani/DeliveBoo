@@ -1,10 +1,12 @@
 @php
     $restaurant = App\Models\Restaurant::where('user_id', Auth::user()->id)->first();
     $user = Auth::user();
+    if ($restaurant) {
     $data = [
         'restaurant_slug' => $restaurant->slug,
         'user_slug' => $user->slug,
     ];
+    };
 @endphp
 
 <nav id='sidebar' class=" navbar-dark position-relative sidebar-risize">
