@@ -46,4 +46,28 @@ class Helpers
         }
         return $slug;
     }
+
+
+    public static function generateResponse($response)
+    {
+        if ($response) {
+
+            return response()->json(
+                [
+                    'status' => 'success',
+                    'message' => 'ok',
+                    'results' => $response
+                ],
+                200
+            );
+        } else {
+            return response()->json(
+                [
+                    'status' => 'error',
+                    'message' => 'error'
+                ],
+                400
+            );
+        }
+    }
 }
