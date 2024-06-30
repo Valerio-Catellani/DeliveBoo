@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Order;
 use App\Models\Restaurant;
+use App\Functions\Helpers;
 use Faker\Generator as Faker;
 
 class OrderSeeder extends Seeder
@@ -20,7 +21,9 @@ class OrderSeeder extends Seeder
        $restaurants = Restaurant::All();
        $number_of_restaurants = count($restaurants);
 
-        for ($i = 0; $i < $number_of_restaurants*3; $i++) {
+       $number_of_orders = Helpers::numberOfOrders();
+
+        for ($i = 0; $i < $number_of_restaurants*$number_of_orders ; $i++) {
             $new_order = new Order();
 
             $new_order->customer_name = $faker->firstName();

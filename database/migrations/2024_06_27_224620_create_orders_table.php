@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('customer_address');
             $table->string('customer_phone')->nullable();
             $table->string('customer_email');
+            $table->string('slug')->unique()->nullable();
             $table->decimal('total_price', 6, 2);
             $table->timestamps();
         });

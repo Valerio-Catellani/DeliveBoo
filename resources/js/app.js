@@ -81,3 +81,33 @@ document.querySelectorAll('#hype-sidebar-collapse').forEach((element) => {
         HypeSidebar.classList.toggle('sidebard-collapse');
     })
 })
+
+
+
+//register-animation
+// document.querySelectorAll('#register-user-button1').forEach((element) => {
+//     element.addEventListener('click', (event) => {
+//         event.preventDefault();
+//         const UserData = {
+//             name: document.getElementById('name').value,
+//             lastname: document.getElementById('lastname').value,
+//             email: document.getElementById('email').value,
+//             password: document.getElementById('password').value,
+//             password_confirmation: document.getElementById('password-confirm').value
+//         }
+//         registration();
+//         async function registration() {
+//             try {
+//                 // Esegui una richiesta POST usando Axios o fetch
+//                 const response = await axios.post('/api/registeruser', UserData);
+//                 console.log(response.data); // Gestisci la risposta dal server, se necessario
+//                 alert('Registrazione completata con successo!');
+//                 // Puoi fare altre azioni dopo la registrazione, come reindirizzare l'utente
+
+//             } catch (error) {
+//                 console.error('Errore durante la registrazione:', error);
+//                 // Gestisci gli errori qui, ad esempio mostrando un messaggio di errore all'utente
+//             }
+//         }
+//     })
+// })
