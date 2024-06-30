@@ -9,6 +9,11 @@ use Illuminate\Support\Str;
 
 class Helpers
 {
+
+    public static function numberOfOrders() {
+        return 3;
+    }
+
     public static function getCsvData($path)
     {
         $file_stream = fopen($path, "r");

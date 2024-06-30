@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Restaurant;
+use App\Models\Typology;
+use App\Models\User;
 
 use App\Functions\Helpers;
 use Carbon\Carbon;
@@ -13,7 +15,7 @@ use Carbon\Carbon;
 
 class RestaurantController extends Controller
 {
-    public function index(Request $request)
+    public function findRestaurants(Request $request)
     {
 
         //pass array of typologies get all restaurants with that typologies (prova con ctrl+click su endpoint)
@@ -42,7 +44,15 @@ class RestaurantController extends Controller
             //infine otteniamo i risultati dal db
             $restaurants = $restaurantsQuery->paginate(10);
         }
-        //http://127.0.0.1:8000/api/get-restaurants
+
+        //http://127.0.0.1:8000/api/get-restaurants?user-slug=tonino-marino
+        else if ($request->query('user-slug')) {
+
+            $userSlug = $request->query('user-slug');
+            $user = User::where('slug', $userSlug)->first();
+            $restaurants = Restaurant::where('user_id', $user->id)->with('user', 'typologies', 'dishes')->paginate(10);
+        }
+        //http://127.0.0.1:8000/api/get-restaurants/ristorante-onisto
         else {
             $restaurants = Restaurant::with('user', 'typologies', 'dishes')->paginate(10);
         }
@@ -60,14 +70,14 @@ class RestaurantController extends Controller
             return response()->json(
                 [
                     'status' => 'error',
-                    'message' => 'error'
+                    'message' => 'Nessun Ristorante Trovato'
                 ],
                 400
             );
         }
     }
 
-    public function show($slug)
+    public function findSingleRestaurant($slug)
     {
         $restaurant = Restaurant::where('slug', $slug)
             ->with('user', 'typologies', 'dishes')
@@ -86,7 +96,7 @@ class RestaurantController extends Controller
             return response()->json(
                 [
                     'status' => 'error',
-                    'message' => 'error'
+                    'message' => 'Nessun Ristorante Trovato'
                 ],
                 400
             );

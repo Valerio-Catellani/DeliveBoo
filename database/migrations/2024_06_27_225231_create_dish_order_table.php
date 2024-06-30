@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('dish_name');
             $table->integer('dish_quantity')->default(1);
             $table->decimal('dish_price', 6, 2);
-            $table->date('order_date');
+            $table->dateTime('order_date');
             $table->timestamps();
         });
     }
