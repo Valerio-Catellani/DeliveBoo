@@ -7,7 +7,6 @@ use App\Http\Controllers\Admin\RestaurantController;
 use App\Http\Controllers\Admin\DishController;
 
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
-use App\Http\Controllers\Admin\DishController;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\Route;
