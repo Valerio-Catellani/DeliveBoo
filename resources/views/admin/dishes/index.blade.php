@@ -17,7 +17,9 @@
 @section('content')
 
     <section class="container py-5">
-
+    @if(session()->has('message'))
+    <div class="alert alert-success mt-3">{{session()->get('message')}}</div>
+    @endif
         <div class="container rounded-2 hype-shadow-white p-0 overflow-hidden">
             <h2 class="text-center">Piatti del: {{ $restaurant->name }}</h2>
             @if ($dishes)
