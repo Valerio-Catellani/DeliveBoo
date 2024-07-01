@@ -24,7 +24,7 @@ class StoreDishRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'max:255'],
             'description' => ['required'],
-            'price' => ['required', 'numeric'],
+            'price' => ['required', 'numeric', 'min:0', 'max:9999.99'],
             'image' => ['image'],
             'ingredients' => ['required'],
             'visible' => ['boolean'],
@@ -39,6 +39,8 @@ class StoreDishRequest extends FormRequest
             'price.required' => 'Inserisci il prezzo del piatto',
             'image.image' => 'L\'immagine deve essere un file immagine',
             'price.numeric' => 'Il prezzo deve essere un numero',
+            'price.min' => 'Il prezzo deve essere superiore a 0',
+            'price.max' => 'Il prezzo deve essere inferiore a 9999.99',
             'visible.required' => 'Seleziona se il piatto deve essere visibile o meno',
             'ingredients.required' => 'Inserisci gli ingredienti del piatto',
         ];

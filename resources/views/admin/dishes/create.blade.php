@@ -66,7 +66,7 @@
 
                 <div class="mb-3 @error('price') err-animation @enderror">
                     <label for="price" class="form-label text-white">Prezzo</label>
-                    <input type="number" step="0.01" class="form-control @error('price') is-invalid err-animation @enderror"
+                    <input type="number" min="0" max="9999" class="form-control @error('price') is-invalid err-animation @enderror"
                         id="price" name="price" value="{{ old('price') }}" required>
                     @error('price')
                         <div class="alert alert-danger">{{ $message }}</div>
