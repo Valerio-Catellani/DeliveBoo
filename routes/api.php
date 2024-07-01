@@ -31,5 +31,6 @@ Route::get('get-dishes', [DishController::class, 'findDishes']);
 Route::get('get-dishes/{slug}', [DishController::class, 'findSingleDish']);
 Route::get('get-orders', [OrderController::class, 'findOrders']);
 Route::get('get-orders/{id}', [OrderController::class, 'findSingleOrder']);
+Route::get('get-orders', [OrderController::class, 'findOrders']);
 
 
