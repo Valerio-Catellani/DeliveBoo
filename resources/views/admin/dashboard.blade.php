@@ -28,18 +28,17 @@
         @if (App\Models\Restaurant::where('user_id', Auth::user()->id)->exists())
             <div id="restaurant-dashboard" class="container">
                 <div class="row">
-                    <div class="col col-lg-8">
-                        <div class="w-100"><canvas id="acquisitions-line"></canvas></div>
-                    </div>
                     <div class="col-4">
                         <input type="month" id="datepicker">
-
                     </div>
-                    <div class="col-8 mx-auto">
-                        <div class="w-100"><canvas id="acquisitions"></canvas></div>
-                    </div>
-                    <div class="col-4 mx-auto">
+                    <div class="col-6">
                         <div class="w-100"><canvas id="acquisitions-donat"></canvas></div>
+                    </div>
+                    <div class="col-10 mx-auto">
+                        <div class="w-100"><canvas id="acquisitions-line"></canvas></div>
+                    </div>
+                    <div class="col-10 mx-auto">
+                        <div class="w-100"><canvas id="acquisitions"></canvas></div>
                     </div>
                 </div>
             </div>

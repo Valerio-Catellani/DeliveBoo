@@ -10,8 +10,9 @@ use Illuminate\Support\Str;
 class Helpers
 {
 
-    public static function numberOfOrders() {
-        return 3;
+    public static function numberOfOrders()
+    {
+        return 30;
     }
 
     public static function getCsvData($path)

@@ -7,10 +7,10 @@ import { ColumnChart, LineChart, DonatChart, getData } from './chartjs.js';
 
 //Dashboard
 if (document.getElementById('restaurant-dashboard')) {
+    await getData();
     ColumnChart();
     DonatChart();
     LineChart();
-    getData();
 }
 
 

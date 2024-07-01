@@ -31,6 +31,7 @@ class OrderSeeder extends Seeder
             $new_order->customer_address = $faker->address();
             $new_order->customer_phone = $faker->phoneNumber();
             $new_order->customer_email = $faker->email();
+            $new_order->order_date = $faker->dateTimeBetween('-1 month', '+1 month');
             $new_order->total_price = 0.00;
 
             $new_order->save();

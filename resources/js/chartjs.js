@@ -1,25 +1,35 @@
 import Chart from 'chart.js/auto'
 
+const info = {
+    user_id: document.getElementById('dashboard').getAttribute('data-user-id'),
+    total_gain: 0,
+    orders: {},
+    dishes: {}
+}
+
+
+function convertDateToItalianFormat(dateString) {
+    const [year, month, day] = dateString.split('-');
+    return `${day} / ${month}`;
+}
+
+
 const ColumnChart = (async function () {
-    const data = [
-        { year: 2010, count: 10 },
-        { year: 2011, count: 20 },
-        { year: 2012, count: 15 },
-        { year: 2013, count: 25 },
-        { year: 2014, count: 22 },
-        { year: 2015, count: 30 },
-        { year: 2016, count: 28 },
-    ];
+
+    const data = Object.entries(info.orders).map(([day, order]) => ({
+        day: convertDateToItalianFormat(day),
+        count: order.number_of_orders
+    }));;
 
     new Chart(
         document.getElementById('acquisitions'),
         {
             type: 'bar',
             data: {
-                labels: data.map(row => row.year),
+                labels: data.map(row => row.day),
                 datasets: [
                     {
-                        label: 'Acquisitions by year',
+                        label: 'Ordinazioni per Giorno',
                         data: data.map(row => row.count)
                     }
                 ]
@@ -28,54 +38,68 @@ const ColumnChart = (async function () {
     );
 });
 
-
-
-
-
+async function loadImage(src) {
+    return new Promise((resolve) => {
+        const img = new Image();
+        img.onload = () => resolve(img);
+        img.src = src;
+    });
+}
 
 const DonatChart = (async function () {
+    const entries = Object.values(info.dishes);
+    const images = await Promise.all(entries.map(entry => loadImage(entry.image)));
+
     const data = {
-        labels: [
-            'Red',
-            'Green',
-            'Yellow',
-            'Grey',
-            'Blue'
-        ],
+        labels: entries.map(entry => entry.name),
         datasets: [{
-            label: 'My First Dataset',
-            data: [11, 16, 7, 3, 14],
-            backgroundColor: [
-                'rgb(255, 99, 132)',
-                'rgb(75, 192, 192)',
-                'rgb(255, 205, 86)',
-                'rgb(201, 203, 207)',
-                'rgb(54, 162, 235)'
-            ]
+            label: 'Ordinazioni per Piatti',
+            data: entries.map(entry => entry.numbers_of_ordinations),
+            backgroundColor: images.map(img => {
+                const pattern = document.createElement('canvas').getContext('2d').createPattern(img, 'repeat');
+                return pattern;
+            })
         }]
     };
 
-    new Chart(
-        document.getElementById('acquisitions-donat'),
-        {
-            type: 'polarArea',
-            data: data,
-            options: {}
+    const ctx = document.getElementById('acquisitions-donat').getContext('2d');
+    new Chart(ctx, {
+        type: 'doughnut',
+        data: data,
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    enabled: true
+                }
+            },
+            elements: {
+                arc: {
+                    backgroundColor: (ctx) => {
+                        const index = ctx.dataIndex;
+                        const img = images[index];
+                        const pattern = ctx.chart.ctx.createPattern(img, 'repeat');
+                        return pattern;
+                    }
+                }
+            }
         }
-    );
-});
-
-
+    });
+})
 
 
 
 const LineChart = (async function () {
-    const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+    const labels = Object.values(info.orders).map(order => order.day_of_ordination);
+
     const data = {
         labels: labels,
         datasets: [{
-            label: 'My First Dataset',
-            data: [65, 59, 80, 81, 56, 55, 40],
+            label: 'Entrate Giornaliere',
+            data: Object.values(info.orders).map(order => order.total_price),
             fill: false,
             borderColor: 'rgb(75, 192, 192)',
             tension: 0.1
@@ -96,16 +120,63 @@ async function getData() {
     const date = new Date().getMonth() + 1;
     const user_id = document.getElementById('dashboard').getAttribute('data-user-id');
     console.log(user_id);
+
+    function getDaysInMonth(month, year) {
+        return new Date(year, month, 0).getDate();
+    }
+
+    // Ottieni il numero di giorni nel mese corrente
+    const year = new Date().getFullYear();
+    const daysInMonth = getDaysInMonth(date, year);
+
+    // Crea un oggetto con le date del mese corrente come chiavi
+    for (let day = 1; day <= daysInMonth; day++) {
+        const dayString = `${year}-${String(date).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+        info.orders[dayString] = {
+            number_of_orders: 0,
+            total_price: 0,
+            day_of_ordination: convertDateToItalianFormat(dayString)
+        };
+    }
+
+
     try {
         const response = await axios.get('/api/get-orders', {
             params: { month: date, user_id: user_id }
         })
-        console.log(response.data);
+        const resp = response.data.results
+        info.total_gain = resp.total_price;
+
+        for (let day = 1; day <= daysInMonth; day++) {
+            const dayString = `${year}-${String(date).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+            resp.number_of_orders.forEach(order => {
+                if (order.day === dayString) {
+                    info.orders[dayString].day_of_ordination = convertDateToItalianFormat(dayString)
+                    info.orders[dayString].number_of_orders = order.number_of_orders //! afgggiungi la logica qui
+                    info.orders[dayString].total_price = order.total_price //! afgggiungi la logica qui
+                }
+            })
+        }
+
+        resp.dishes.forEach(dish => {
+            if (!info.dishes[dish.name]) {
+                info.dishes[dish.name] = {
+                    'name': dish.name,
+                    'numbers_of_ordinations': 0,
+                    'image': dish.image,
+                    'id': dish.id
+                };
+            }
+
+            dish.orders.forEach(order => {
+                info.dishes[dish.name].numbers_of_ordinations += order.dish_quantity;
+            });
+        });
+        console.log(info);
+        getDataForColumnChart()
     } catch {
 
     }
-
-    console.log(date);
 }
 
 

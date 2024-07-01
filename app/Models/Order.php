@@ -19,7 +19,7 @@ class Order extends Model
 
     public function dishes()
     {
-        return $this->belongsToMany(Dish::class)->withPivot('dish_name', 'dish_price', 'dish_quantity', 'order_date')->withTimestamps();
+        return $this->belongsToMany(Dish::class)->withPivot('dish_name', 'dish_price', 'dish_quantity')->withTimestamps();
     }
 
 
