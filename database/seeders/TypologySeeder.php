@@ -14,7 +14,7 @@ class TypologySeeder extends Seeder
      */
     public function run(): void
     {
-        $typologies = json_decode(file_get_contents(__DIR__ . '\json\Typologies.json'));
+        $typologies = json_decode(file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . 'json' . DIRECTORY_SEPARATOR . 'Typologies.json'));
         foreach ($typologies as $typology) {
             $new_typology = new Typology();
             $new_typology->name = $typology->name;

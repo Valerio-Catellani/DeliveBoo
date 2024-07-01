@@ -16,7 +16,7 @@ class DishSeeder extends Seeder
     public function run(): void
     {
         $restaurants = Restaurant::with('typologies')->get();
-        $all_dishes = json_decode(file_get_contents(__DIR__ . '\json\Dishes.json'));
+        $all_dishes = json_decode(file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . 'json' . DIRECTORY_SEPARATOR . 'Dishes.json'));
 
         foreach ($restaurants as $restaurant) {
             $typologies_of_restaurant = [];
