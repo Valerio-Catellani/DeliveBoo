@@ -19,9 +19,13 @@ if (document.getElementById('restaurant-dashboard')) {
 
 
 
-//MODAL ELIMINATE
+
+
+
+
 document.querySelectorAll('.element-delete').forEach((element) => {
     element.addEventListener('click', (event) => {
+        console.log('elimino');
         event.preventDefault();
         const ElementId = element.getAttribute('data-element-id');
         const ElementName = element.getAttribute('data-element-title');
@@ -50,7 +54,7 @@ function createModal(ElementId, ElementName) {
     modal.setAttribute('aria-labelledby', 'exampleModalLabel');
     modal.setAttribute('aria-hidden', 'true');
     let tmp = `<div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content container-table text-white hype-shadow-white">
+            <div class="modal-content container-table hype-shadow-white">
               <div class="modal-header">
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Cancellazione elemento: ${ElementName} - id: ${ElementId}</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
