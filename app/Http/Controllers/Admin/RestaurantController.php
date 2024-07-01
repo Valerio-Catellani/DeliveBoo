@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Restaurant;
 use App\Http\Controllers\Controller;
 use App\Functions\Helpers;
+use App\Http\Requests\StoreRestaurantRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Storage;
 
@@ -28,7 +29,11 @@ class RestaurantController extends Controller
     {
         $restaurant = Restaurant::where('user_id', Auth::user()->id)->first();
         if ($restaurant) {
-            return redirect()->route('admin.restaurants.show',  $restaurant->slug);
+            $data = [
+                'user_slug' => Auth::user()->slug,
+                'restaurant_slug' => $restaurant->slug
+            ];
+            return redirect()->route('admin.restaurants.show',  $data);
         } //se l'utente prova a fare il furbo e ad entrare manualmente dentro la create
         return view('admin.restaurants.create');
     }
@@ -36,26 +41,11 @@ class RestaurantController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreRestaurantRequest $request)
     {
-        $validate = $request->validate([
-            'name' => 'required|string|min:3|max:255',
-            'address' => 'required|string|min:3|max:255',
-            'VAT' => 'required|string|size:11',
-        ], [
-            'name.required' => 'Il nome è obbligatorio',
-            'name.min' => 'Il nome deve avere almeno 3 caratteri',
-            'name.max' => 'Il nome deve avere massimo 255 caratteri',
-            'address.required' => 'L\'indirizzo è obbligatorio',
-            'address.min' => 'L\'indirizzo deve avere almeno 3 caratteri',
-            'address.max' => 'L\'indirizzo deve avere massimo 255 caratteri',
-            'VAT.required' => 'Il codice fiscale è obbligatorio',
-            'VAT.size' => 'Il codice fiscale deve avere 11 caratteri',
-        ]);
+        $validate = $request->validated();
 
         $validate['slug'] = Helpers::generateSlug($validate['name'], Restaurant::class);
-
-
         $validate['user_id'] = Auth::user()->id;
 
         if ($request->hasFile('image')) {
@@ -68,8 +58,8 @@ class RestaurantController extends Controller
         $new_restaurant->save();
 
         $data = [
+            'user_slug' => Auth::user()->slug,
             'restaurant_slug' => $new_restaurant->slug,
-            'user_slug' => Auth::user()->slug
         ];
         return redirect()->route('admin.restaurants.show', $data);
     }

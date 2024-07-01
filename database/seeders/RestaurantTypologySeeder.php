@@ -17,9 +17,9 @@ class RestaurantTypologySeeder extends Seeder
 
         $all_restaurants = Restaurant::all();
         $all_typologies = Typology::all('id')->pluck('id')->toArray(); //->pluck('id')->toArray(); serve per restituire un array di id
-        shuffle($all_typologies);
         
         foreach($all_restaurants as $restaurant) {
+            shuffle($all_typologies);
             for($index = 0; $index < rand(2,3); $index++) {
                 $new_RestaurantTypology = new RestaurantTypology();
                 $new_RestaurantTypology->restaurant_id = $restaurant->id;

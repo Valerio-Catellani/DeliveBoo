@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+
 use App\Http\Requests\StoreDishRequest;
 use App\Models\Dish;
 use App\Http\Controllers\Controller;
@@ -11,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Functions\Helpers;
 use Illuminate\Support\Facades\Storage;
 
+
 class DishController extends Controller
 {
     /**
@@ -18,15 +20,18 @@ class DishController extends Controller
      */
     public function index()
     {
+
         $restaurant = Restaurant::where('user_id', Auth::user()->id)->first();
         $restaurant_id = $restaurant->id;
         $dishes = Dish::where('restaurant_id', $restaurant_id)->with('restaurant')->get();
         return view('admin.dishes.index', compact('dishes'));
+
     }
 
     /**
      * Show the form for creating a new resource.
      */
+
     public function create($user_slug, $restaurant_slug)
     {
         $restaurant = Restaurant::where('slug', $restaurant_slug)->first();
@@ -36,11 +41,13 @@ class DishController extends Controller
         } else {
             return redirect()->route('admin.dashboard', ['user_slug' => Auth::user()->slug]);
         }
+
     }
 
     /**
      * Store a newly created resource in storage.
      */
+
     public function store(StoreDishRequest $request)
     {
         $data_store = $request->validated();
@@ -67,11 +74,13 @@ class DishController extends Controller
             'user_slug' => Auth::user()->slug
         ];
         return redirect()->route('admin.dishes.index', $data);
+
     }
 
     /**
      * Display the specified resource.
      */
+
     public function show($user_slug, $restaurant_slug, $dish_slug)
     {
         $restaurant = Restaurant::where('slug', $restaurant_slug)->first();
@@ -83,11 +92,13 @@ class DishController extends Controller
         } else {
             return redirect()->route('admin.dashboard', ['user_slug' => Auth::user()->slug]);
         }
+
     }
 
     /**
      * Show the form for editing the specified resource.
      */
+
     public function edit($user_slug, $restaurant_slug, $dish_slug)
     {
         $restaurant = Restaurant::where('slug', $restaurant_slug)->first();
@@ -105,11 +116,13 @@ class DishController extends Controller
         } else {
             return redirect()->route('admin.dashboard', ['user_slug' => Auth::user()->slug]);
         }
+
     }
 
     /**
      * Update the specified resource in storage.
      */
+
     public function update(StoreDishRequest $request, $user_slug, $restaurant_slug, $dish_slug)
     {
 
@@ -121,11 +134,13 @@ class DishController extends Controller
             'user_slug' => Auth::user()->slug
         ];
         return redirect()->route('admin.dishes.index', $data);
+
     }
 
     /**
      * Remove the specified resource from storage.
      */
+
     public function destroy($user_slug, $restaurant_slug, $dish_slug)
     {
         $restaurant = Restaurant::where('slug', $restaurant_slug)->first();
@@ -138,5 +153,6 @@ class DishController extends Controller
         } else {
             return redirect()->route('admin.dashboard', ['user_slug' => Auth::user()->slug]);
         }
+
     }
 }

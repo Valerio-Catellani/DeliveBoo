@@ -43,7 +43,7 @@ class DishSeeder extends Seeder
                     $new_dish->price = $random_dish->prezzo + $random_price_increment;
                     $new_dish->image = $random_dish->immagine;
                     $new_dish->ingredients = $random_dish->ingredienti;
-                    $new_dish->slug = Helpers::generateSlug($random_dish->nome, Dish::class);
+                    $new_dish->slug = Dish::generateSlugForDish($random_dish->nome, $restaurant->slug);
                     $new_dish->visible = true;
                     $new_dish->restaurant_id = $restaurant->id;
                     $new_dish->save();

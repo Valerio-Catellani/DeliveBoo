@@ -1,0 +1,16 @@
+@use "./variables" as *;
+@use "./hype_utility" as *;
+
+@import "~bootstrap/scss/bootstrap";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+
+// #registration-card {
+//     position: relative;
+//     left: 150vw;
+//     transform: translateX(-150vw);
+//     transition: transform 0.5s ease-out;
+//     transition-delay: 1s;
+// }
