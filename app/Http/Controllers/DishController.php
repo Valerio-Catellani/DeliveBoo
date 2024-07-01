@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Restaurant;
 use Illuminate\Support\Facades\Auth;
 use App\Functions\Helpers;
+use Illuminate\Support\Facades\Storage;
 class DishController extends Controller
 {
     /**
@@ -47,7 +48,11 @@ class DishController extends Controller
     //  }
      $new_dish->restaurant_id = Auth::user()->restaurant->id;
      $new_dish->slug = Helpers::generateSlug($data_store['name'], Dish::class);
-     
+     if ($request->hasFile('image')) {
+        $name = $request->image->getClientOriginalName();
+        $path = Storage::putFileAs('dishes_images', $request->image, $name);
+        $new_dish->image = $path;        
+    }  
     $new_dish->save();
     $data = [
         'restaurant_slug' => Auth::user()->restaurant->slug,
