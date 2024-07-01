@@ -29,9 +29,6 @@ const ColumnChart = (async function () {
 });
 
 
-function getData() {
-    
-}
 
 
 
@@ -94,4 +91,22 @@ const LineChart = (async function () {
     );
 })
 
-export { ColumnChart, DonatChart, LineChart }
+async function getData() {
+
+    const date = new Date().getMonth() + 1;
+    const user_id = document.getElementById('dashboard').getAttribute('data-user-id');
+    console.log(user_id);
+    try {
+        const response = await axios.get('/api/get-orders', {
+            params: { month: date, user_id: user_id }
+        })
+        console.log(response.data);
+    } catch {
+
+    }
+
+    console.log(date);
+}
+
+
+export { ColumnChart, DonatChart, LineChart, getData }

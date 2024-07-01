@@ -24,7 +24,7 @@
             </div>
         </div>
     </div> --}}
-    <main id="dashboard">
+    <main id="dashboard" data-user-id="{{ Auth::user()->id }}">
         @if (App\Models\Restaurant::where('user_id', Auth::user()->id)->exists())
             <div id="restaurant-dashboard" class="container">
                 <div class="row">
@@ -32,7 +32,7 @@
                         <div class="w-100"><canvas id="acquisitions-line"></canvas></div>
                     </div>
                     <div class="col-4">
-                        <input type="month" id="select-date" name="date">
+                        <input type="month" id="datepicker">
 
                     </div>
                     <div class="col-8 mx-auto">

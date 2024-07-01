@@ -33,7 +33,8 @@
 </body>
 <script src="//js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-<script src="../../../node_modules/vanilla-js-datepicker/dist/js/datepicker.min.js"></script>
+
+
 <script type="text/javascript">
     bkLib.onDomLoaded(nicEditors.allTextAreas);
 </script>

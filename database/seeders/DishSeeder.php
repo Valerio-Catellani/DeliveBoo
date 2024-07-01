@@ -30,7 +30,7 @@ class DishSeeder extends Seeder
 
             //count($filtered_dishes)
             $random_number_of_dishes = rand(7, count($filtered_dishes));
-            $random_price_increment = rand(1, 4);
+            $random_price_increment = rand(-2, 4);
 
             for ($i = 0; $i < $random_number_of_dishes; $i++) {
                 if ($filtered_dishes && count($filtered_dishes) > 0) {

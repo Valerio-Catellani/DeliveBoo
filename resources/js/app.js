@@ -2,13 +2,15 @@ import "./bootstrap";
 import "~resources/scss/app.scss";
 import * as bootstrap from "bootstrap";
 import.meta.glob(["../img/**", "../fonts/**"]);
-import { ColumnChart, LineChart, DonatChart } from './chartjs.js';
 
-//
+import { ColumnChart, LineChart, DonatChart, getData } from './chartjs.js';
+
+//Dashboard
 if (document.getElementById('restaurant-dashboard')) {
     ColumnChart();
     DonatChart();
     LineChart();
+    getData();
 }
 
 
@@ -17,8 +19,7 @@ if (document.getElementById('restaurant-dashboard')) {
 
 
 
-
-
+//MODAL ELIMINATE
 document.querySelectorAll('.element-delete').forEach((element) => {
     element.addEventListener('click', (event) => {
         event.preventDefault();
