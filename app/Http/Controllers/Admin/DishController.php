@@ -74,30 +74,69 @@ class DishController extends Controller
      */
     public function show($user_slug, $restaurant_slug, $dish_slug)
     {
-        dd($dish_slug);
+        $restaurant = Restaurant::where('slug', $restaurant_slug)->first();
+
+        if ($restaurant->user_id == Auth::user()->id) {
+
+            $dish = Dish::where('slug', $dish_slug)->first();
+            return view('admin.dishes.show', compact('dish'));
+        } else {
+            return redirect()->route('admin.dashboard', ['user_slug' => Auth::user()->slug]);
+        }
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Dish $dish)
+    public function edit($user_slug, $restaurant_slug, $dish_slug)
     {
-        //
+        $restaurant = Restaurant::where('slug', $restaurant_slug)->first();
+
+        if ($restaurant->user_id == Auth::user()->id) {
+
+            $dish = Dish::where('slug', $dish_slug)->first();
+            $data = [
+                'restaurant_slug' => Auth::user()->restaurant->slug,
+                'user_slug' => Auth::user()->slug,
+                'dish_slug' => $dish->slug
+            ];
+
+            return view('admin.dishes.edit', compact('dish', 'data'));
+        } else {
+            return redirect()->route('admin.dashboard', ['user_slug' => Auth::user()->slug]);
+        }
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Dish $dish)
+    public function update(StoreDishRequest $request, $user_slug, $restaurant_slug, $dish_slug)
     {
-        //
+
+        $data_update = $request->validated();
+        $dish = Dish::where('slug', $dish_slug)->first();
+        $dish->update($data_update);
+        $data = [
+            'restaurant_slug' => Auth::user()->restaurant->slug,
+            'user_slug' => Auth::user()->slug
+        ];
+        return redirect()->route('admin.dishes.index', $data);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Dish $dish)
+    public function destroy($user_slug, $restaurant_slug, $dish_slug)
     {
-        //
+        $restaurant = Restaurant::where('slug', $restaurant_slug)->first();
+
+        if ($restaurant->user_id == Auth::user()->id) {
+
+            $dish = Dish::where('slug', $dish_slug)->first();
+            $dish->delete();
+            return redirect()->route('admin.dishes.index', ['user_slug' => Auth::user()->slug, 'restaurant_slug' => $restaurant_slug]);
+        } else {
+            return redirect()->route('admin.dashboard', ['user_slug' => Auth::user()->slug]);
+        }
     }
 }
