@@ -173,7 +173,7 @@ async function getData() {
             });
         });
         console.log(info);
-        getDataForColumnChart()
+        document.getElementById('total_price').innerHTML = `Guadagni Totali Mensili:  ${info.total_gain} €`
     } catch {
 
     }
