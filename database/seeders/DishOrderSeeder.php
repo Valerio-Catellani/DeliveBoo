@@ -36,7 +36,7 @@ class DishOrderSeeder extends Seeder
                     $new_dishOrder->dish_id = $dishes_of_restaurant[$i];
                     $new_dishOrder->order_id = $random_id;
                     $new_dishOrder->dish_name = Dish::where('id', $dishes_of_restaurant[$i])->first()->name;
-                    $new_dishOrder->dish_quantity = rand(1, 3);
+                    $new_dishOrder->dish_quantity = rand(-4, 4);
                     $new_dishOrder->dish_price = (Dish::where('id', $dishes_of_restaurant[$i])->first()->price) * $new_dishOrder->dish_quantity;
                     Order::where('id', $random_id)->update([
                         'total_price' => Order::where('id', $random_id)->first()->total_price + $new_dishOrder->dish_price,

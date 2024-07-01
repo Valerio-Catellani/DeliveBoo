@@ -21,7 +21,7 @@ class OrderController extends Controller
         else {
             $orders = Order::select('id', 'total_price', 'created_at')
                 ->with(['dishes' => function ($query) {
-                    $query->select('dishes.id', 'dishes.name', 'dishes.slug', 'restaurant_id', 'order_id', 'price'); // Carica solo i campi necessari dai piatti
+                    $query->select('dishes.id', 'dishes.name', 'dishes.slug', 'dishes.image', 'restaurant_id', 'order_id', 'price'); // Carica solo i campi necessari dai piatti
                 }, 'dishes.restaurant' => function ($query) {
                     $query->select('restaurants.id', 'name'); // Carica l'ID e il nome del ristorante
                 }])
@@ -48,7 +48,7 @@ class OrderController extends Controller
         }
     }
 
-    // http://127.0.0.1:8000/api/get-orders/1
+    // http://127.0.0.1:8000/api/get-orders/ristorante-altera-order-1
     public function findSingleOrder($slug)
     {
         $order = Order::where('slug', $slug)

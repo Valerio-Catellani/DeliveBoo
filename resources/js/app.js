@@ -2,6 +2,22 @@ import "./bootstrap";
 import "~resources/scss/app.scss";
 import * as bootstrap from "bootstrap";
 import.meta.glob(["../img/**", "../fonts/**"]);
+import { ColumnChart, LineChart, DonatChart } from './chartjs.js';
+
+//
+if (document.getElementById('restaurant-dashboard')) {
+    ColumnChart();
+    DonatChart();
+    LineChart();
+}
+
+
+
+
+
+
+
+
 
 document.querySelectorAll('.element-delete').forEach((element) => {
     element.addEventListener('click', (event) => {
