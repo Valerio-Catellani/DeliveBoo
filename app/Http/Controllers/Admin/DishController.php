@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\Auth\StoreDishRequest;
+use App\Http\Requests\StoreDishRequest;
 use App\Models\Dish;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -10,6 +10,7 @@ use App\Models\Restaurant;
 use Illuminate\Support\Facades\Auth;
 use App\Functions\Helpers;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Controllers\Controller;
 class DishController extends Controller
 {
     /**
@@ -28,7 +29,14 @@ class DishController extends Controller
      */
     public function create()
     {
+        $restaurant = Restaurant::where('user_id', Auth::user()->id)->first();
+        if ($restaurant) {
         return view('admin.dishes.create');
+        }
+        else {
+            dd('Non sei autorizzato');
+        }
+
     }
 
     /**
@@ -65,9 +73,9 @@ class DishController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Dish $dish)
+    public function show( $user_slug, $restaurant_slug, $dish_slug)
     {
-        //
+        dd($dish_slug);
     }
 
     /**
