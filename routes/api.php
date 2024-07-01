@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\RegisteredUserController;
 use App\Http\Controllers\Api\RestaurantController;
 use App\Http\Controllers\Api\DishController;
+use App\Http\Controllers\Api\TypologyController;
 use App\Http\Controllers\Api\OrderController;
 
 /*
@@ -31,6 +32,6 @@ Route::get('get-dishes', [DishController::class, 'findDishes']);
 Route::get('get-dishes/{slug}', [DishController::class, 'findSingleDish']);
 Route::get('get-orders', [OrderController::class, 'findOrders']);
 Route::get('get-orders/{id}', [OrderController::class, 'findSingleOrder']);
-Route::get('get-orders', [OrderController::class, 'findOrders']);
+Route::get('get-typologies', [TypologyController::class, 'findTypologies']);
 
 
