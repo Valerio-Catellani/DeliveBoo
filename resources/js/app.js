@@ -48,7 +48,7 @@ document.querySelectorAll('.element-delete').forEach((element) => {
         });
     })
 })
-function createModal(ElementName) {
+function createModal(ElementId, ElementName) {
     const modal = document.createElement('div');
     modal.classList.add('modal', 'fade');
     modal.setAttribute('id', 'hype-modal');
