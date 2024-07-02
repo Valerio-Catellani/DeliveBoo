@@ -48,7 +48,7 @@ document.querySelectorAll('.element-delete').forEach((element) => {
         });
     })
 })
-function createModal(ElementId, ElementName) {
+function createModal(ElementName) {
     const modal = document.createElement('div');
     modal.classList.add('modal', 'fade');
     modal.setAttribute('id', 'hype-modal');
@@ -58,11 +58,11 @@ function createModal(ElementId, ElementName) {
     let tmp = `<div class="modal-dialog modal-dialog-centered">
             <div class="modal-content container-table hype-shadow-white">
               <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Cancellazione elemento: ${ElementName} - id: ${ElementId}</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Cancellazione elemento: ${ElementName}</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                Sei sicuro di voler eliminare l'elemento con id: ${ElementId} e titolo: ${ElementName}?
+                Sei sicuro di voler eliminare <strong>${ElementName}</strong> ?
               </div>
               <div class="modal-footer">
                 <button type="button" class="mine-custom-btn min-custom-btn-grey" data-bs-dismiss="modal">No, torna indietro</button>
