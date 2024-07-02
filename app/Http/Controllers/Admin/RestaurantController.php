@@ -46,6 +46,7 @@ class RestaurantController extends Controller
      */
     public function store(StoreRestaurantRequest $request)
     {
+        
         $validate = $request->validated();
 
         $validate['slug'] = Helpers::generateSlug($validate['name'], Restaurant::class);
