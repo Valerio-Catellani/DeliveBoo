@@ -5,7 +5,9 @@ import.meta.glob(["../img/**", "../fonts/**"]);
 
 import { ColumnChart, LineChart, DonatChart, getData } from './chartjs.js';
 
+
 //Dashboard
+
 if (document.getElementById('restaurant-dashboard')) {
     await getData();
     ColumnChart();
