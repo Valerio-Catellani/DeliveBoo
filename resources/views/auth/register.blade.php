@@ -6,7 +6,6 @@
             <div class="col-md-8">
                 <div id="registration-card" class="card my-4">
                     <div class="card-header">Registrazione Nuovo Utente</div>
-
                     <div class="card-body">
                         <div class="user-registration">
                             <form id="registration-form" method="POST" action="{{ route('register') }}"
@@ -109,9 +108,9 @@
                         <div class="mb-3 @error('address') err-animation @enderror">
                             <label for="address" class="form-label ">Indirizzo Ristorante<span
                                     class="fw-bold">*</span></label>
-                            <input type="text" class="form-control @error('address') is-invalid err-animation @enderror"
-                                id="address" name="address" value="{{ old('address') }}" required maxlength="255"
-                                minlength="3">
+                            <input type="text"
+                                class="form-control @error('address') is-invalid err-animation @enderror" id="address"
+                                name="address" value="{{ old('address') }}" required maxlength="255" minlength="3">
                             @error('address')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror

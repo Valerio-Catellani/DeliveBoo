@@ -6,16 +6,22 @@ import.meta.glob(["../img/**", "../fonts/**"]);
 import { ColumnChart, LineChart, DonatChart, getData } from './chartjs.js';
 
 
-//Dashboard
+//DASHBOARD CHARTJS
 if (document.getElementById('restaurant-dashboard')) {
     await getData();
-    ColumnChart();
-    DonatChart();
-    LineChart();
 }
 
+document.querySelectorAll('#chartjs-date-picker').forEach((element) => {
+    element.addEventListener('change', (event) => {
+        const date = event.target.value.split('-');
+        const year = parseInt(date[0], 10);
+        const month = parseInt(date[1]);
+        getData(month, year);
+    })
+})
 
-//REGISTRATION
+
+//REGISTRATION CONTROLLI
 document.querySelectorAll('#register-user-button').forEach((element) => {
     element.addEventListener('click', (event) => {
         event.preventDefault();
@@ -44,6 +50,7 @@ document.querySelectorAll('#register-user-button').forEach((element) => {
                 field.classList.add('is-invalid', 'err-animation');
             }
         })
+
 
         //contorllo che le password siano uguali
         if (password.value !== confirmPassword.value) {

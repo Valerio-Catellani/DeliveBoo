@@ -18,23 +18,21 @@ class OrderController extends Controller
 {
     public function findOrders(Request $request)
     {
-        if ($request->query('month')) {
+        if ($request->query('month') && $request->query('year') && $request->query('user_id')) {
             // Ottieni il ristorante associato all'utente autenticato
-            //http://127.0.0.1:8000/api/get-orders?month=7&user_id=2
-
-
             $month = $request->query('month');
+            $year = $request->query('year');
             $user_id = $request->query('user_id');
-            $restaurant =  Restaurant::where('user_id', $user_id)->first();
-
+            $restaurant = Restaurant::where('user_id', $user_id)->first();
 
             if (!$restaurant) {
                 return response()->json(['error' => 'Restaurant not found'], 404);
             }
 
-            // Numero totale di ordini nel mese specificato per il ristorante
+            // Numero totale di ordini nel mese e anno specificati per il ristorante
             $ordersGroupedByDay = Order::selectRaw('DATE(order_date) as day, COUNT(*) as number_of_orders, SUM(total_price) as total_price')
                 ->whereMonth('order_date', $month)
+                ->whereYear('order_date', $year)
                 ->whereHas('dishes', function ($query) use ($restaurant) {
                     $query->where('restaurant_id', $restaurant->id);
                 })
@@ -42,36 +40,27 @@ class OrderController extends Controller
                 ->orderBy('day', 'asc')
                 ->get();
 
-
-            // Guadagno totale nel mese specificato per il ristorante
+            // Guadagno totale nel mese e anno specificati per il ristorante
             $total_price = Order::whereHas('dishes', function ($query) use ($restaurant) {
                 $query->where('restaurant_id', $restaurant->id);
             })->whereMonth('order_date', $month)
+                ->whereYear('order_date', $year)
                 ->sum('total_price');
 
-            // Ottenere i piatti venduti nel mese specificato con quantità
+            // Ottenere i piatti venduti nel mese e anno specificati con quantità
             $dishes = Dish::where('restaurant_id', $restaurant->id)
-                ->whereHas('orders', function ($query) use ($month) {
-                    $query->whereMonth('orders.order_date', $month);
+                ->whereHas('orders', function ($query) use ($month, $year) {
+                    $query->whereMonth('orders.order_date', $month)
+                        ->whereYear('orders.order_date', $year);
                 })
-                ->with(['orders' => function ($query) use ($month) {
+                ->with(['orders' => function ($query) use ($month, $year) {
                     $query->select('dish_quantity')
-                        ->whereMonth('orders.order_date', $month);
+                        ->whereMonth('orders.order_date', $month)
+                        ->whereYear('orders.order_date', $year);
                 }])
                 ->get();
 
-            // Calcolare la quantità totale per ogni piatto
-            $dish_data = $dishes->map(function ($dish) {
-                $total_quantity = $dish->orders->sum('pivot.quantity');
-                return [
-                    'dish_id' => $dish->id,
-                    'dish_name' => $dish->name, // Assumendo che il modello Dish abbia un campo 'name'
-                    'dish_image' => $dish->image, // Assumendo che il modello Dish abbia un campo 'image'
-                    'total_quantity' => $total_quantity
-                ];
-            });
-
-            // // Restituisci i dati come un array associativo
+            // Restituisci i dati come un array associativo
             $orders = [
                 'number_of_orders' => $ordersGroupedByDay,
                 'total_price' => $total_price,

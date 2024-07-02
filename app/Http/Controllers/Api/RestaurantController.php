@@ -22,7 +22,6 @@ class RestaurantController extends Controller
         // 1- http://127.0.0.1:8000/api/get-restaurants?typology=cinese                   ------          ottieni tutti i ristoranti di tipo cinese
         // 2- http://127.0.0.1:8000/api/get-restaurants?typology=cinese,pesce            --------         ottieni tutti i ristoranti di tipo cinese || pesce
         // 3- http://127.0.0.1:8000/api/get-restaurants?typology=cinese,pesce&match=all    -------        ottieni tutti i ristoranti di tipo cinese && pesce
-
         if ($request->query('typology')) {
             $typologies = explode(',', $request->query('typology')); //recupero le tiplogie e le inserisco all'interno di un array
 
@@ -45,6 +44,7 @@ class RestaurantController extends Controller
             $restaurants = $restaurantsQuery->paginate(10);
         }
 
+
         //http://127.0.0.1:8000/api/get-restaurants?user-slug=tonino-marino
         else if ($request->query('user-slug')) {
 
@@ -52,10 +52,14 @@ class RestaurantController extends Controller
             $user = User::where('slug', $userSlug)->first();
             $restaurants = Restaurant::where('user_id', $user->id)->with('user', 'typologies', 'dishes')->paginate(10);
         }
-        //http://127.0.0.1:8000/api/get-restaurants/ristorante-onisto
+
+
+        //http://127.0.0.1:8000/api/get-restaurants
         else {
             $restaurants = Restaurant::with('user', 'typologies', 'dishes')->paginate(10);
         }
+
+
 
         if ($restaurants) {
             return response()->json(
