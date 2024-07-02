@@ -1,7 +1,6 @@
 import Chart from 'chart.js/auto'
 
 const info = {
-    user_id: document.getElementById('dashboard').getAttribute('data-user-id'),
     total_gain: 0,
     orders: {},
     dishes: {}
