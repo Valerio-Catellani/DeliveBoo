@@ -27,11 +27,23 @@ document.querySelectorAll('#register-user-button').forEach((element) => {
         const checkboxes = document.querySelectorAll('.typologies-input');
         const atLeastOneChecked = Array.from(checkboxes).some((checkbox) => checkbox.checked);
         const checkBoxDiv = document.getElementById('typology_id');
+        const requredFileds = document.querySelectorAll('[required]');
 
         //reset
         document.querySelectorAll('.alert-danger').forEach((errorBox) => {
             errorBox.remove();
         });
+
+        //controllo che tutti i campi siano compilati
+        requredFileds.forEach((field) => {
+            if (!field.value) {
+                const errorBox = document.createElement('div');
+                errorBox.classList.add('alert', 'alert-danger', 'err-animation');
+                errorBox.innerHTML = 'Tutti i campi con * sono obbligatori';
+                field.parentNode.insertBefore(errorBox, field.nextSibling);
+                field.classList.add('is-invalid', 'err-animation');
+            }
+        })
 
         //contorllo che le password siano uguali
         if (password.value !== confirmPassword.value) {

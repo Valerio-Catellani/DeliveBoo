@@ -131,8 +131,8 @@
                         <div class="mb-5 @error('phone') err-animation @enderror">
                             <label for="phone" class="form-label">Recapito Telefonico</label>
                             <input type="text" class="form-control @error('phone') is-invalid err-animation @enderror"
-                                id="phone" name="phone" value="{{ old('phone') }}" required pattern="\d{10}"
-                                title="La partita IVA deve essere esattamente di 10 cifre">
+                                id="phone" name="phone" value="{{ old('phone') }}" pattern="\d{10}"
+                                title="il numero di telefono deve essere di 10 cifre">
                             @error('phone')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror

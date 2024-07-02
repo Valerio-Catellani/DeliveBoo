@@ -48,7 +48,7 @@ class RegisteredUserController extends Controller
                 'password' => ['required', 'confirmed', Rules\Password::defaults()],
                 'rest_name' => ['required', 'string', 'min:3', 'max:255'],
                 'address' => ['required', 'string', 'min:3', 'max:255'],
-                'phone' => ['string', 'min:10', 'max:10'],
+                'phone' => ['nullable', 'min:10', 'max:10'],
                 'typologies' => ['required', 'array', 'min:1'],
                 'VAT' => ['required', 'unique:restaurants', 'string', 'size:11'],
             ],
@@ -130,11 +130,11 @@ class RegisteredUserController extends Controller
             'image' => $validated['image'],
             'VAT' => $validated['VAT'],
         ]);
-        
+
         if ($validated['typologies']) {
             $new_restaurant->typologies()->attach($request->typologies);
         }
-        
+
         $new_restaurant->save();
 
         // event(new Registered($user));
