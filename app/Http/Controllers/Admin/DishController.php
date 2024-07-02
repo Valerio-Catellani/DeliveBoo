@@ -39,7 +39,7 @@ class DishController extends Controller
         if ($restaurant->user_id == Auth::user()->id) {
             return view('admin.dishes.create');
         } else {
-            return redirect()->route('admin.dashboard', ['user_slug' => Auth::user()->slug]);
+            return view('admin.errors.404');
         }
 
     }
@@ -90,7 +90,7 @@ class DishController extends Controller
             $dish = Dish::where('slug', $dish_slug)->first();
             return view('admin.dishes.show', compact('dish'));
         } else {
-            return redirect()->route('admin.dashboard', ['user_slug' => Auth::user()->slug]);
+            return view('admin.errors.404');
         }
 
     }
@@ -114,7 +114,7 @@ class DishController extends Controller
 
             return view('admin.dishes.edit', compact('dish', 'data'));
         } else {
-            return redirect()->route('admin.dashboard', ['user_slug' => Auth::user()->slug]);
+            return view('admin.errors.404');
         }
 
     }
@@ -151,7 +151,7 @@ class DishController extends Controller
             $dish->delete();
             return redirect()->route('admin.dishes.index', ['user_slug' => Auth::user()->slug, 'restaurant_slug' => $restaurant_slug])->with('message', 'Piatto eliminato con successo!');
         } else {
-            return redirect()->route('admin.dashboard', ['user_slug' => Auth::user()->slug]);
+            return view('admin.errors.404');
         }
 
     }

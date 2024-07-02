@@ -11,7 +11,7 @@ class DashboardController extends Controller
     public function index($slug)
     {
         if ($slug != Auth::user()->slug) {
-            return redirect()->route('admin.dashboard', ['user_slug' => Auth::user()->slug]);
+            return view('admin.errors.404');
         };
         return view('admin.dashboard', ['user_slug' => Auth::user()->slug]);
     }
