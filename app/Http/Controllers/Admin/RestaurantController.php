@@ -93,7 +93,7 @@ class RestaurantController extends Controller
             return view('admin.restaurants.show', $data);
         }
 
-        return redirect()->route('admin.dashboard', ['user_slug' => $user_slug]);
+        return view('admin.errors.404');
     }
 
     /**
