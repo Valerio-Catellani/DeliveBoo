@@ -84,6 +84,7 @@
                         </div>
                     </div>
                 @endforeach
+
             </div>
         @else
             <p>Non ci sono piatti nel ristorante</p>
