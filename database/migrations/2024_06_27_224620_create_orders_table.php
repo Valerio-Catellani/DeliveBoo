@@ -19,10 +19,12 @@ return new class extends Migration
             $table->string('customer_phone')->nullable();
             $table->string('customer_email');
             $table->string('slug')->unique()->nullable();
+            $table->dateTime('order_date');
             $table->decimal('total_price', 6, 2);
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.

@@ -764,7 +764,7 @@
         "nome": "Bistecca Fiorentina",
         "immagine": "http://www.chizzocute.it/wp-content/uploads/2016/07/bistecca-fiorentina-1024x678.jpg",
         "descrizione": "Bistecca di manzo alla griglia servita con olio d'oliva e rosmarino.",
-        "prezzo": "28.00",
+        "prezzo": "22.00",
         "categoria": "Carne",
         "ingredienti": "bistecca di manzo, olio d'oliva, rosmarino",
         "visibile": "Si"
@@ -814,7 +814,7 @@
         "nome": "Pizza Quattro Stagioni",
         "immagine": "https://i0.wp.com/www.piccolericette.net/piccolericette/wp-content/uploads/2016/07/3017_Pizza.jpg?resize=895%2C616&ssl=1",
         "descrizione": "Pizza divisa in quattro sezioni con pomodoro, mozzarella, prosciutto, funghi, carciofi e olive.",
-        "prezzo": "14.00",
+        "prezzo": "6.00",
         "categoria": "Pizza",
         "ingredienti": "salsa di pomodoro, mozzarella, prosciutto, funghi, carciofi, olive",
         "visibile": "Si"
@@ -824,7 +824,7 @@
         "nome": "Pizza Diavola",
         "immagine": "https://wips.plug.it/cips/buonissimo.org/cms/2023/02/pizza-alla-diavola.jpg?w=713&a=c&h=407",
         "descrizione": "Pizza piccante con salsa di pomodoro, mozzarella, salame piccante e peperoncino.",
-        "prezzo": "13.00",
+        "prezzo": "6.00",
         "categoria": "Pizza",
         "ingredienti": "salsa di pomodoro, mozzarella, salame piccante, peperoncino",
         "visibile": "Si"
@@ -834,7 +834,7 @@
         "nome": "Calzone",
         "immagine": "https://i2.wp.com/www.piccolericette.net/piccolericette/wp-content/uploads/2020/09/4460_Calzoni.jpg?zoom=2&resize=595%2C410&ssl=1",
         "descrizione": "Calzone ripieno di salsa di pomodoro, mozzarella, prosciutto e funghi.",
-        "prezzo": "11.00",
+        "prezzo": "5.00",
         "categoria": "Pizza",
         "ingredienti": "salsa di pomodoro, mozzarella, prosciutto, funghi",
         "visibile": "Si"
@@ -844,7 +844,7 @@
         "nome": "Pizza Capricciosa",
         "immagine": "https://wips.plug.it/cips/buonissimo.org/cms/2019/04/pizza-capricciosa.jpg?w=713&a=c&h=407",
         "descrizione": "Pizza con salsa di pomodoro, mozzarella, prosciutto cotto, funghi, carciofi e olive.",
-        "prezzo": "12.00",
+        "prezzo": "8.00",
         "categoria": "Pizza",
         "ingredienti": "salsa di pomodoro, mozzarella, prosciutto cotto, funghi, carciofi, olive",
         "visibile": "Si"

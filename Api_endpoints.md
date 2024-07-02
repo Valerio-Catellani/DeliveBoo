@@ -54,7 +54,18 @@ http://127.0.0.1:8000/api/get-dishes/ristorante-onisto-noodles-alla-pechinese
 http://127.0.0.1:8000/api/get-orders
 
 # Ottieni tutti i dettagli di un ordine specifico passando lo slug (ristorante-altera-order-1) [con dish, e quantità]
-http://127.0.0.1:8000/api/get-orders/ristorante-altera-order-1
+http://127.0.0.1:8000/api/get-orders/ristorante-cuda-order-1
 
 
 ```
+
+
+## Endpoints for Orders
+
+```bash
+# Ottieni tutte le tipologie nel nel db con i ristoranti
+http://127.0.0.1:8000/api/get-typologies
+
+
+```
+

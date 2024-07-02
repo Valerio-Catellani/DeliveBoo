@@ -20,6 +20,8 @@ class OrderController extends Controller
     {
         if ($request->query('month')) {
             // Ottieni il ristorante associato all'utente autenticato
+            //http://127.0.0.1:8000/api/get-orders?month=7&user_id=2
+
 
             $month = $request->query('month');
             $user_id = $request->query('user_id');
@@ -31,27 +33,30 @@ class OrderController extends Controller
             }
 
             // Numero totale di ordini nel mese specificato per il ristorante
-            $number_of_orders = Order::whereMonth('created_at', $month)
+            $ordersGroupedByDay = Order::selectRaw('DATE(order_date) as day, COUNT(*) as number_of_orders, SUM(total_price) as total_price')
+                ->whereMonth('order_date', $month)
                 ->whereHas('dishes', function ($query) use ($restaurant) {
                     $query->where('restaurant_id', $restaurant->id);
                 })
-                ->count();
+                ->groupBy(DB::raw('DATE(order_date)'))
+                ->orderBy('day', 'asc')
+                ->get();
 
 
             // Guadagno totale nel mese specificato per il ristorante
             $total_price = Order::whereHas('dishes', function ($query) use ($restaurant) {
                 $query->where('restaurant_id', $restaurant->id);
-            })->whereMonth('created_at', $month)
+            })->whereMonth('order_date', $month)
                 ->sum('total_price');
 
-            // // Ottenere i piatti venduti nel mese specificato con quantità
+            // Ottenere i piatti venduti nel mese specificato con quantità
             $dishes = Dish::where('restaurant_id', $restaurant->id)
                 ->whereHas('orders', function ($query) use ($month) {
-                    $query->whereMonth('orders.created_at', $month);
+                    $query->whereMonth('orders.order_date', $month);
                 })
                 ->with(['orders' => function ($query) use ($month) {
                     $query->select('dish_quantity')
-                        ->whereMonth('orders.created_at', $month);
+                        ->whereMonth('orders.order_date', $month);
                 }])
                 ->get();
 
@@ -68,14 +73,14 @@ class OrderController extends Controller
 
             // // Restituisci i dati come un array associativo
             $orders = [
-                'number_of_orders' => $number_of_orders,
+                'number_of_orders' => $ordersGroupedByDay,
                 'total_price' => $total_price,
                 'dishes' => $dishes
             ];
         }
         // http://127.0.0.1:8000/api/get-orders
         else {
-            $orders = Order::select('id', 'total_price', 'created_at')
+            $orders = Order::select('id', 'total_price', 'order_date')
                 ->with(['dishes' => function ($query) {
                     $query->select('dishes.id', 'dishes.name', 'dishes.slug', 'dishes.image', 'restaurant_id', 'order_id', 'price'); // Carica solo i campi necessari dai piatti
                 }, 'dishes.restaurant' => function ($query) {
@@ -108,7 +113,7 @@ class OrderController extends Controller
     public function findSingleOrder($slug)
     {
         $order = Order::where('slug', $slug)
-            ->select('id', 'total_price', 'created_at')
+            ->select('id', 'total_price', 'order_date')
             ->with(['dishes' => function ($query) {
                 $query->select('dishes.id', 'dishes.name', 'dishes.slug', 'restaurant_id', 'order_id', 'price'); // Carica solo i campi necessari dai piatti
             }, 'dishes.restaurant' => function ($query) {

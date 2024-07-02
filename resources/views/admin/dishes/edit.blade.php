@@ -63,10 +63,12 @@
                     @enderror
                 </div>
 
+
                 <div class="mb-3 @error('image') err-animation @enderror">
                     <label for="image" class="form-label">Immagine Piatto</label>
                     <input type="file" accept="image/*" class="form-control upload_image" name="image" value="{{ $dish->image }}">
                     @error('image')
+
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>

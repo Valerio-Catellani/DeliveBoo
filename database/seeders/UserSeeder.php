@@ -13,7 +13,7 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        $users = json_decode(file_get_contents(__DIR__ . '\json\users.json'));
+        $users = json_decode(file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . 'json' . DIRECTORY_SEPARATOR . 'users.json'));
         foreach ($users as $user) {
             $new_user = new User();
             $new_user->name = $user->name;
@@ -25,3 +25,4 @@ class UserSeeder extends Seeder
         }
     }
 }
+/* $restaurants = jsondecode(fileget_contents(__DIR . DIRECTORY_SEPARATOR . 'json' . DIRECTORY_SEPARATOR . 'Restaurants.json')); */

@@ -40,6 +40,22 @@
                     @enderror
                 </div>
 
+
+                <div class="mb-3">
+                    <label for="typology_id" class="form-label text-white">Seleziona una o più Tipologie</label>
+                    <div id="typology_id">
+                        @foreach ($typologies as $typology)
+                            <div class="form-check form-check-inline text-white">
+                                <input class="form-check-input" type="checkbox" name="typologies[]" id="inlineCheckbox1"
+                                    value="{{ $typology->id }}"
+                                    {{ in_array($typology->id, old('typologies', [])) ? 'checked' : '' }}>
+                                <label class="form-check-label" for="inlineCheckbox1">{{ $typology->name }}</label>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+
+
                 <div class="mb-3 @error('image') err-animation @enderror d-flex gap-5 align-items-center">
                     <div class="w-25 text-center">
                         <img id="uploadPreview" class="w-100 uploadPreview" width="100" src="/images/placeholder.png"

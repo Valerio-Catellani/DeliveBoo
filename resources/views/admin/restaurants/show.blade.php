@@ -2,7 +2,6 @@
 @extends('layouts.admin')
 
 
-
 @section('content')
     <section class="container py-5">
 
@@ -33,51 +32,21 @@
                         <h5 class="mb-4">{{ $restaurant->address }}</h5>
                         <h3>Partita IVA</h3>
                         <h5 class="mb-4">{{ $restaurant->VAT }}</h5>
+                        <h3>Tipologie</h3>
+                        @foreach ($typologies as $typology)
+                            <h2><span class="badge text-bg-secondary"
+                                    style="background-color:{{ $typology->color }} !important">{{ $typology->name }}</span>
+                            </h2>
+                        @endforeach
                         <div class="d-flex justify-content-center align-items-center gap-5 mt-auto">
-                            <a href="{{ route('admin.dashboard', session('user_slug')) }}">
-                                <i role="button" type="submit"
-                                    class="fa-solid fa-arrow-left fs-1 text-white hype-text-shadow hype-hover-size"></i>
+                            <a class="btn btn-light" href="{{ route('admin.dashboard', session('user_slug')) }}">
+                                Torna alla HomePage
                             </a>
-                            {{-- <a href="{{ route('admin.restaurants.edit', $restaurant->slug) }}">
-                                <i role="button" type="submit"
-                                    class="fa-solid fa-pen-to-square fs-1 text-active-tertiary hype-text-shadow hype-hover-size"></i>
-                            </a>
-                            <form id="delete-form" action="{{ route('admin.restaurants.destroy', $restaurant->slug) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button class="element-delete default-button text-active-primary hype-text-shadow fs-1"
-                                    type="submit" data-element-id="{{ $restaurant->id }}"
-                                    data-element-title="{{ $restaurant->name }}">
-                                    <i class="fa-solid fa-trash-can "></i>
-                                </button>
-                            </form> --}}
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        {{-- 
-        @foreach ($groupedProjections as $day => $projections)
-            <div id="{{ $day }}" class="date-section my-5">
-                <h2 class="pt-5">Tutte le proiezioni per il giorno: {{ \Carbon\Carbon::parse($day)->format('d/m/Y') }}
-                </h2>
-                @foreach ($projections as $projection)
-                    @include('partials.table-restricted-projection', $projections)
-                @endforeach
-                @if ($projections->count() < $slots->count())
-                    <form method="get" action="{{ route('admin.projections.create') }}">
-                        <input type="hidden" name="restaurant_id" value="{{ $room->id }}">
-                        <input type="hidden" name="date" value="{{ $day }}">
-                        <button type="submit" class="mine-custom-btn mb-3">Aggiungi una Proiezione per il giorno:
-                            {{ \Carbon\Carbon::parse($day)->format('d/m/Y') }}</button>
-                    </form>
-                @endif
-            </div>
-        @endforeach --}}
-
-        {{-- @foreach ($projections as $projection)
-            @include('partials.table-slot-room-projection-movie', ['projection' => $projection])
-        @endforeach --}}
-
     </section>
 @endsection

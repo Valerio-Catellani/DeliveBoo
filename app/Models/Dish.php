@@ -21,7 +21,7 @@ class Dish extends Model
 
     public function orders()
     {
-        return $this->belongsToMany(Order::class)->withPivot('dish_name', 'dish_price', 'dish_quantity', 'order_date')->withTimestamps();
+        return $this->belongsToMany(Order::class)->withPivot('dish_name', 'dish_price', 'dish_quantity')->withTimestamps();
     }
 
     public static function generateSlugForDish($dishName, $restaurantSlug)

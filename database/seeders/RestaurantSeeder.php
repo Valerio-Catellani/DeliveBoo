@@ -16,7 +16,7 @@ class RestaurantSeeder extends Seeder
      */
     public function run(Faker $faker): void
     {
-        $restaurants = json_decode(file_get_contents(__DIR__ . '\json\Restaurants.json'));
+        $restaurants = json_decode(file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . 'json' . DIRECTORY_SEPARATOR .  'Restaurants.json'));
         $users = User::all('id')->pluck('id')->toArray(); //->pluck('id')->toArray(); serve per restituire un array di id
 
         shuffle($users); //li mischia randomicamente
