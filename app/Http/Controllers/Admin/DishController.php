@@ -128,6 +128,15 @@ class DishController extends Controller
 
         $data_update = $request->validated();
         $dish = Dish::where('slug', $dish_slug)->first();
+        if ($request->hasFile('image')) {
+            if ($dish->image) {
+                Storage::delete($dish->image);
+            }
+            $name = $request->image->getClientOriginalName();
+            $path = Storage::putFileAs('dishes_images', $request->image, $name);
+            $data_update['image'] = $path;
+            
+        }
         $dish->update($data_update);
         $data = [
             'restaurant_slug' => Auth::user()->restaurant->slug,
