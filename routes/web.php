@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\RestaurantController;
+use App\Http\Controllers\Payment\PaymentController;
 use App\Http\Controllers\Admin\DishController;
 
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
@@ -23,6 +24,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/payment', [PaymentController::class, 'createToken']);
+//http://127.0.0.1:8000/payment
+Route::post('/payment', [PaymentController::class, 'processPayment']);
+Route::get('/csrf-token', function () {
+    return response()->json(['csrfToken' => csrf_token()]);
+});
 
 
 Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin/{user_slug}')->group(function () {
@@ -45,6 +52,10 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+
+
+
 
 require __DIR__ . '/auth.php';
 
