@@ -25,7 +25,6 @@ class DishController extends Controller
         $restaurant_id = $restaurant->id;
         $dishes = Dish::where('restaurant_id', $restaurant_id)->with('restaurant')->get();
         return view('admin.dishes.index', compact('dishes'));
-
     }
 
     /**
@@ -41,7 +40,6 @@ class DishController extends Controller
         } else {
             return view('admin.errors.404');
         }
-
     }
 
     /**
@@ -74,7 +72,6 @@ class DishController extends Controller
             'user_slug' => Auth::user()->slug
         ];
         return redirect()->route('admin.dishes.index', $data)->with('message', 'Nuovo piatto creato con successo!');
-
     }
 
     /**
@@ -92,7 +89,6 @@ class DishController extends Controller
         } else {
             return view('admin.errors.404');
         }
-
     }
 
     /**
@@ -116,7 +112,6 @@ class DishController extends Controller
         } else {
             return view('admin.errors.404');
         }
-
     }
 
     /**
@@ -135,7 +130,9 @@ class DishController extends Controller
             $name = $request->image->getClientOriginalName();
             $path = Storage::putFileAs('dishes_images', $request->image, $name);
             $data_update['image'] = $path;
-            
+        }
+        if (!$request['visible']) {
+            $data_update['visible'] = 0;
         }
         $dish->update($data_update);
         $data = [
@@ -143,7 +140,6 @@ class DishController extends Controller
             'user_slug' => Auth::user()->slug
         ];
         return redirect()->route('admin.dishes.index', $data)->with('message', 'Piatto modificato con successo!');
-
     }
 
     /**
@@ -162,6 +158,5 @@ class DishController extends Controller
         } else {
             return view('admin.errors.404');
         }
-
     }
 }

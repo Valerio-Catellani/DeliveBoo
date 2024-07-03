@@ -27,15 +27,16 @@
         </li>
 
         @if ($restaurant)
-            <li class="nav-item ">
+            <li class="nav-item {{ Route::currentRouteName() === 'admin.restaurants.show' ? 'active' : '' }}">
                 <a class="nav-link text-white " aria-current="page"
-                    href="{{ route('admin.restaurants.show', $data) }}"><i class="fa-solid fa-utensils fs-4 pe-3"></i><span
-                        class="hype-text-collapse">I miei
+                    href="{{ route('admin.restaurants.show', $data) }}"><i
+                        class="fa-solid fa-utensils fs-4 pe-3"></i><span class="hype-text-collapse">I miei
                         Ristoranti</span></a>
             </li>
-            <li class="nav-item ">
+            <li
+                class="nav-item {{ Route::currentRouteName() === 'admin.dishes.index' || Route::currentRouteName() === 'admin.dishes.show' || Route::currentRouteName() === 'admin.dishes.edit' || Route::currentRouteName() === 'admin.dishes.create' ? 'active' : '' }}">
                 <a class="nav-link text-white " aria-current="page" href="{{ route('admin.dishes.index', $data) }}">
-                <i class="fa-solid fa-pizza-slice fs-4 pe-3"></i><span class="hype-text-collapse">Il mio menù</span>
+                    <i class="fa-solid fa-pizza-slice fs-4 pe-3"></i><span class="hype-text-collapse">Il mio menù</span>
                 </a>
             </li>
         @endif

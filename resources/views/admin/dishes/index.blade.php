@@ -14,9 +14,16 @@
 
 @section('content')
     <section class="container py-5">
-        <div class="d-flex flex-column flex-lg-row justify-content-between align-items-center mb-3">
-            <h2 class="text-center">Piatti del: {{ $restaurant->name }}</h2>
-            <button class="btn btn-success" onclick="location.href='{{ route('admin.dishes.create', $data) }}'">
+        @if (session()->has('message'))
+            <div class="alert alert-success">
+                {{ session()->get('message') }}
+            </div>
+        @endif
+        <div class="d-flex flex-column mb-3 align-items-baseline">
+            <h2 class="text-center hype-text-shadow display-3 fw-bold title-primary my-3 w-100">Piatti del
+                {{ $restaurant->name }}</h2>
+            <button class="btn btn-success hype-hover-size my-3"
+                onclick="location.href='{{ route('admin.dishes.create', $data) }}'">
                 <i class="fa-solid fa-plus"></i> Aggiungi Piatto
             </button>
         </div>
@@ -27,7 +34,8 @@
                         <th class="col-2 d-none d-xl-table-cell">Immagine</th>
                         <th class="col-2">Nome</th>
                         <th class="col-2 d-none d-xl-table-cell">Descrizione</th>
-                        <th class="col-2">Prezzo</th>
+                        <th class="col-1">Prezzo</th>
+                        <th class="col-1 d-none d-xl-table-cell">Visibile</th>
                         <th class="col-4">Azioni</th>
                     </tr>
                 </thead>
@@ -46,22 +54,24 @@
                             <td class="align-middle d-none d-xl-table-cell">
                                 @if (isset($dish->image) && strpos($dish->image, 'http') === 0)
                                     <img src="{{ $dish->image }}" class="img-fluid" alt="dsih image"
-                                        style="max-height: 100px;">
+                                        style="height: 200px; width:200px">
                                 @else
                                     <img src="{{ asset('storage/' . $dish->image) }}" class="img-fluid" alt="dish image"
-                                        style="max-height: 70px;">
+                                        style="height: 200px; width:200px">
                                 @endif
                             </td>
                             <td class="align-middle">{{ $dish->name }}</td>
                             <td class="align-middle d-none d-xl-table-cell">{{ $dish->description }}</td>
                             <td class="align-middle">{{ $dish->price }}€</td>
+                            <td class="align-middle d-none d-xl-table-cell">{{ $dish->visible ? 'Si' : 'No' }}</td>
+
                             <td class="align-middle">
                                 <div class="d-flex justify-content-center gap-2">
-                                    <button class="btn btn-primary"
+                                    <button class="btn btn-primary hype-hover-size"
                                         onclick="location.href='{{ route('admin.dishes.show', $data_dish_slug) }}'">
                                         <i class="fa-solid fa-eye"></i> Mostra
                                     </button>
-                                    <button class="btn btn-warning"
+                                    <button class="btn btn-warning hype-hover-size"
                                         onclick="location.href='{{ route('admin.dishes.edit', $data_dish_slug) }}'">
                                         <i class="fa-solid fa-edit"></i> Modifica
                                     </button>
@@ -69,7 +79,7 @@
                                         method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button class="btn btn-danger element-delete" type="submit"
+                                        <button class="btn btn-danger element-delete  hype-hover-size" type="submit"
                                             data-element-id="{{ $dish->id }}"
                                             data-element-title="{{ $dish->name }}">
                                             <i class="fa-solid fa-trash"></i> Elimina

@@ -64,6 +64,6 @@ Route::fallback(function () {
         $data = [
             'user_slug' => Auth::user()->slug
         ];
-        return redirect()->route('admin.dashboard', $data);
+        return view('admin.errors.404');
     }
 });

@@ -19,7 +19,7 @@
     @vite(['resources/js/app.js'])
 </head>
 
-<body>
+<body class="background-primary">
     <div id="admin" class="sepia-gradient">
         @include('partials.sidebar')
         <div id="wrapper">

@@ -23,3 +23,16 @@ $cursor: pointer;
 .example-color {
     background-color: #cecece;
 }
+
+.background-primary {
+    background: rgb(0, 0, 0);
+    background: linear-gradient(
+        149deg,
+        rgba(0, 0, 0, 0) 36%,
+        rgba(247, 148, 0, 0.5) 100%
+    );
+}
+
+.title-primary {
+    color: $title-primary;
+}

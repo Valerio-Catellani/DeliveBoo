@@ -35,7 +35,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 col-xxl-6 mt-5 mt-xxl-0">
+                        <div class="col-12 col-xxl-6 my-5 mt-xxl-0">
                             <p class="text-center fst-italic">Distribuzione Ordinazione Piatti</p>
                             <div class="loader-container d-flex justify-content-center">
                                 @include('partials.loader')
@@ -45,14 +45,14 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12 col-xxl-6 mx-auto mt-5 mt-xxl-1">
+                    <div class="col-12 col-xxl-8 mx-auto my-5 mt-xxl-1">
                         <p class="text-center fst-italic">Entrate Giornaliere</p>
                         <div class="loader-container d-flex justify-content-center">
                             @include('partials.loader')
                         </div>
                         <div class="w-100"><canvas id="acquisitions-line" class="chart"></canvas></div>
                     </div>
-                    <div class="col-12 col-xxl-6 mx-auto mt-5 mt-xxl-1">
+                    <div class="col-12 col-xxl-8 mx-auto mt-5 mt-xxl-1">
                         <p class="text-center fst-italic">Ordini Giornalieri</p>
                         <div class="loader-container d-flex justify-content-center">
                             @include('partials.loader')
