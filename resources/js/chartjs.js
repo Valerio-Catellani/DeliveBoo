@@ -1,11 +1,17 @@
 import Chart from 'chart.js/auto'
 
-const info = {
+let info = {
+    total_number_of_orders: 0,
     total_gain: 0,
     orders: {},
     dishes: {}
 }
 
+const charts = {
+    column: '',
+    donat: '',
+    line: ''
+}
 
 function convertDateToItalianFormat(dateString) {
     const [year, month, day] = dateString.split('-');
@@ -14,27 +20,35 @@ function convertDateToItalianFormat(dateString) {
 
 
 const ColumnChart = (async function () {
+    if (charts.column) {
+        charts.column.destroy();
+        charts.column = '';
+        ColumnChart();
+    } else {
+        const data = Object.entries(info.orders).map(([day, order]) => ({
+            day: convertDateToItalianFormat(day),
+            count: order.number_of_orders
+        }));;
 
-    const data = Object.entries(info.orders).map(([day, order]) => ({
-        day: convertDateToItalianFormat(day),
-        count: order.number_of_orders
-    }));;
-
-    new Chart(
-        document.getElementById('acquisitions'),
-        {
-            type: 'bar',
-            data: {
-                labels: data.map(row => row.day),
-                datasets: [
-                    {
-                        label: 'Ordinazioni per Giorno',
-                        data: data.map(row => row.count)
-                    }
-                ]
+        charts.column = new Chart(
+            document.getElementById('acquisitions'),
+            {
+                type: 'bar',
+                data: {
+                    labels: data.map(row => row.day),
+                    datasets: [
+                        {
+                            label: 'Ordinazioni per Giorno',
+                            data: data.map(row => row.count)
+                        }
+                    ]
+                }
             }
-        }
-    );
+        );
+
+    }
+
+
 });
 
 async function loadImage(src) {
@@ -46,91 +60,138 @@ async function loadImage(src) {
 }
 
 const DonatChart = (async function () {
-    const entries = Object.values(info.dishes);
-    const images = await Promise.all(entries.map(entry => loadImage(entry.image)));
+    if (charts.donat) {
+        charts.donat.destroy();
+        charts.donat = '';
+        DonatChart();
+    } else {
+        const entries = Object.values(info.dishes);
+        const images = await Promise.all(entries.map(entry => loadImage(entry.image)));
 
-    const data = {
-        labels: entries.map(entry => entry.name),
-        datasets: [{
-            label: 'Ordinazioni per Piatti',
-            data: entries.map(entry => entry.numbers_of_ordinations),
-            backgroundColor: images.map(img => {
-                const pattern = document.createElement('canvas').getContext('2d').createPattern(img, 'repeat');
-                return pattern;
-            })
-        }]
-    };
+        const data = {
+            labels: entries.map(entry => entry.name),
+            datasets: [{
+                label: 'Ordinazioni per Piatti',
+                data: entries.map(entry => entry.numbers_of_ordinations),
+                backgroundColor: images.map(img => {
+                    const pattern = document.createElement('canvas').getContext('2d').createPattern(img, 'repeat');
+                    return pattern;
+                })
+            }]
+        };
 
-    const ctx = document.getElementById('acquisitions-donat').getContext('2d');
-    new Chart(ctx, {
-        type: 'doughnut',
-        data: data,
-        options: {
-            responsive: true,
-            plugins: {
-                legend: {
-                    display: false
+        const ctx = document.getElementById('acquisitions-donat').getContext('2d');
+        charts.donat = new Chart(ctx, {
+            type: 'doughnut',
+            data: data,
+            options: {
+                cutout: '0%',
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        enabled: true
+                    }
                 },
-                tooltip: {
-                    enabled: true
-                }
-            },
-            elements: {
-                arc: {
-                    backgroundColor: (ctx) => {
-                        const index = ctx.dataIndex;
-                        const img = images[index];
-                        const pattern = ctx.chart.ctx.createPattern(img, 'repeat');
-                        return pattern;
+                elements: {
+                    arc: {
+                        backgroundColor: (ctx) => {
+                            const index = ctx.dataIndex;
+                            const img = images[index];
+                            const pattern = ctx.chart.ctx.createPattern(img, 'repeat');
+                            return pattern;
+                        }
                     }
                 }
             }
-        }
-    });
+        });
+    }
 })
-
-
 
 const LineChart = (async function () {
-    const labels = Object.values(info.orders).map(order => order.day_of_ordination);
+    if (charts.line) {
+        charts.line.destroy();
+        charts.line = '';
+        LineChart();
+    } else {
+        const labels = Object.values(info.orders).map(order => order.day_of_ordination);
 
-    const data = {
-        labels: labels,
-        datasets: [{
-            label: 'Entrate Giornaliere',
-            data: Object.values(info.orders).map(order => order.total_price),
-            fill: false,
-            borderColor: 'rgb(75, 192, 192)',
-            tension: 0.1
-        }]
+        const data = {
+            labels: labels,
+            datasets: [{
+                label: 'Entrate Giornaliere',
+                data: Object.values(info.orders).map(order => order.total_price),
+                fill: false,
+                borderColor: 'rgb(75, 192, 192)',
+                tension: 0.1
+            }]
+        }
+
+        charts.line = new Chart(
+            document.getElementById('acquisitions-line'),
+            {
+                type: 'line',
+                data: data
+            }
+        );
     }
 
-    new Chart(
-        document.getElementById('acquisitions-line'),
-        {
-            type: 'line',
-            data: data
-        }
-    );
 })
 
-async function getData() {
 
-    const date = new Date().getMonth() + 1;
-    const user_id = document.getElementById('dashboard').getAttribute('data-user-id');
-    console.log(user_id);
+function reset() {
+    info = {
+        total_number_of_orders: 0,
+        total_gain: 0,
+        orders: {},
+        dishes: {}
+    }
 
+    document.querySelectorAll('.loader-container').forEach((element) => {
+        element.classList.remove('d-none');
+    })
+
+    document.querySelectorAll('.chart').forEach((element) => {
+        element.classList.add('d-none');
+    })
+
+}
+
+
+
+async function getData(month = new Date().getMonth() + 1, year = new Date().getFullYear()) {
+
+    reset();
+
+    let params = {
+        user_id: document.getElementById('dashboard').getAttribute('data-user-id'),
+        month: month,
+        year: year
+    }
     function getDaysInMonth(month, year) {
         return new Date(year, month, 0).getDate();
     }
 
-    // Ottieni il numero di giorni nel mese corrente
-    const year = new Date().getFullYear();
-    const daysInMonth = getDaysInMonth(date, year);
+    function calcolaOrdiniTotali(orders) {
+        let totaleOrdini = 0;
 
-    // Crea un oggetto con le date del mese corrente come chiavi
+        for (let data in orders) {
+            if (orders.hasOwnProperty(data)) {
+                totaleOrdini += orders[data].number_of_orders;
+            }
+        }
+
+        return totaleOrdini;
+    }
+
+    // Ottieni il numero di giorni nel mese corrente
+    const daysInMonth = getDaysInMonth(month, year);
+
+    // Crea un oggetto con le month del mese corrente come chiavi
     for (let day = 1; day <= daysInMonth; day++) {
-        const dayString = `${year}-${String(date).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+        const dayString = `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
         info.orders[dayString] = {
             number_of_orders: 0,
             total_price: 0,
@@ -141,13 +202,13 @@ async function getData() {
 
     try {
         const response = await axios.get('/api/get-orders', {
-            params: { month: date, user_id: user_id }
+            params
         })
         const resp = response.data.results
         info.total_gain = resp.total_price;
 
         for (let day = 1; day <= daysInMonth; day++) {
-            const dayString = `${year}-${String(date).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+            const dayString = `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
             resp.number_of_orders.forEach(order => {
                 if (order.day === dayString) {
                     info.orders[dayString].day_of_ordination = convertDateToItalianFormat(dayString)
@@ -171,10 +232,24 @@ async function getData() {
                 info.dishes[dish.name].numbers_of_ordinations += order.dish_quantity;
             });
         });
-        console.log(info);
+        info.total_number_of_orders = calcolaOrdiniTotali(info.orders);
         document.getElementById('total_price').innerHTML = `Guadagni Totali Mensili:  ${info.total_gain} €`
+        document.getElementById('total_ordinations').innerHTML = `Ordinazioni Totali Mensili:  ${info.total_number_of_orders}`
+        document.getElementById('current_month').innerHTML = `${month}/${year}`
+        document.querySelectorAll('.chart').forEach((element) => {
+            element.classList.remove('d-none');
+        })
+
+        ColumnChart();
+        DonatChart();
+        LineChart();
+
     } catch {
 
+    } finally {
+        document.querySelectorAll('.loader-container').forEach((element) => {
+            element.classList.add('d-none');
+        })
     }
 }
 

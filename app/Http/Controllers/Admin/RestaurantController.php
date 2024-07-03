@@ -46,6 +46,7 @@ class RestaurantController extends Controller
      */
     public function store(StoreRestaurantRequest $request)
     {
+        
         $validate = $request->validated();
 
         $validate['slug'] = Helpers::generateSlug($validate['name'], Restaurant::class);
@@ -93,7 +94,7 @@ class RestaurantController extends Controller
             return view('admin.restaurants.show', $data);
         }
 
-        return redirect()->route('admin.dashboard', ['user_slug' => $user_slug]);
+        return view('admin.errors.404');
     }
 
     /**

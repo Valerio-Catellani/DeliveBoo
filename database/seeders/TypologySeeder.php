@@ -20,6 +20,7 @@ class TypologySeeder extends Seeder
             $new_typology->name = $typology->name;
             $new_typology->image = $typology->image;
             $new_typology->color = $typology->color;
+            $new_typology->icon = $typology->icon;
             $new_typology->slug = Helpers::generateSlug($typology->name, Typology::class);
             $new_typology->save();
         }

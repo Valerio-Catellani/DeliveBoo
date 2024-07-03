@@ -3,31 +3,146 @@ import "~resources/scss/app.scss";
 import * as bootstrap from "bootstrap";
 import.meta.glob(["../img/**", "../fonts/**"]);
 
-import { ColumnChart, LineChart, DonatChart, getData } from './chartjs.js';
+import { getData } from './chartjs.js';
 
 
-//Dashboard
-
+//DASHBOARD CHARTJS
 if (document.getElementById('restaurant-dashboard')) {
     await getData();
-    ColumnChart();
-    DonatChart();
-    LineChart();
 }
 
+document.querySelectorAll('#chartjs-date-picker').forEach((element) => {
+    element.addEventListener('change', (event) => {
+        if (!event.target.value) {
+            const currentDate = new Date();
+            const currentMonth = String(currentDate.getMonth() + 1).padStart(2, '0');
+            const currentYear = currentDate.getFullYear();
+            element.value = `${currentYear}-${currentMonth}`;
+            getData(currentMonth, currentYear);
+        } else {
+            const date = event.target.value.split('-');
+            const year = parseInt(date[0], 10);
+            const month = parseInt(date[1]);
+            getData(month, year);
+        }
+    })
+})
+
+
+//REGISTRATION CONTROLLI
+document.querySelectorAll('#register-user-button').forEach((element) => {
+    element.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        //prendo i valori
+        const Form = document.getElementById('registration-form');
+        const password = document.getElementById('password');
+        const confirmPassword = document.getElementById('password-confirm');
+        const checkboxes = document.querySelectorAll('.typologies-input');
+        const atLeastOneChecked = Array.from(checkboxes).some((checkbox) => checkbox.checked);
+        const checkBoxDiv = document.getElementById('typology_id');
+        const requredFileds = document.querySelectorAll('[required]');
+
+        //reset
+        document.querySelectorAll('.alert-danger').forEach((errorBox) => {
+            errorBox.remove();
+        });
+
+        //controllo che tutti i campi siano compilati
+        requredFileds.forEach((field) => {
+            if (!field.value) {
+                const errorBox = document.createElement('div');
+                errorBox.classList.add('alert', 'alert-danger', 'err-animation');
+                errorBox.innerHTML = 'Tutti i campi con * sono obbligatori';
+                field.parentNode.insertBefore(errorBox, field.nextSibling);
+                field.classList.add('is-invalid', 'err-animation');
+            }
+        })
+
+
+        //contorllo che le password siano uguali
+        if (password.value !== confirmPassword.value) {
+            const errorBox1 = document.createElement('div');
+            errorBox1.classList.add('alert', 'alert-danger', 'err-animation');
+            errorBox1.innerHTML = 'Le password non coincidono';
+
+            const errorBox2 = document.createElement('div');
+            errorBox2.classList.add('alert', 'alert-danger', 'err-animation');
+            errorBox2.innerHTML = 'Le password non coincidono';
+
+            // Inserire i messaggi di errore dopo i campi di input
+            password.parentNode.insertBefore(errorBox1, password.nextSibling);
+            confirmPassword.parentNode.insertBefore(errorBox2, confirmPassword.nextSibling);
+
+            // Aggiungere la classe di errore ai campi di input
+            password.classList.add('is-invalid', 'err-animation');
+            confirmPassword.classList.add('is-invalid', 'err-animation');
+        }
+
+        //controllo che almeno un checkbox sia checked
+        if (!atLeastOneChecked) {
+            const errorBox = document.createElement('div');
+            errorBox.classList.add('alert', 'alert-danger', 'err-animation');
+            errorBox.innerHTML = 'Seleziona almeno una tipologia';
+            checkBoxDiv.parentNode.insertBefore(errorBox, checkBoxDiv.nextSibling);
+            checkBoxDiv.classList.add('is-invalid', 'err-animation');
+        }
+
+        if (password.value === confirmPassword.value && atLeastOneChecked) {
+            createConfirmModal();
+        }
+
+
+        function createConfirmModal() {
+            const HypeModal = document.createElement('div');
+            HypeModal.classList.add('modal', 'fade');
+            HypeModal.setAttribute('id', 'hype-modal');
+            HypeModal.setAttribute('tabindex', '-1');
+            HypeModal.setAttribute('aria-labelledby', 'exampleModalLabel');
+            HypeModal.setAttribute('aria-hidden', 'true');
+            let tmp = `<div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content container-table hype-shadow-white">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Conferma i Dati Inseriti</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        I dati inseriti, una volta inviati, non possono essere più modificati. Sicuro di volerli inviare?
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="mine-custom-btn min-custom-btn-grey" data-bs-dismiss="modal">No, Torna Indietro</button>
+                        <button type="button" class="mine-custom-btn modal-save-button bg-danger">Si, Invia</button>
+                      </div>
+                    </div>
+                  </div>`
+            HypeModal.innerHTML = tmp;
+            document.body.appendChild(HypeModal);
+            const myModal = new bootstrap.Modal(HypeModal)
+            myModal.show();
+            const btnSave = HypeModal.querySelector('.modal-save-button')
+            btnSave.addEventListener('click', () => {
+                Form.submit();
+                HypeModal.remove();
+            })
+            const buttons = Array.from(HypeModal.getElementsByTagName('button'));
+            buttons.forEach((button) => {
+                button.addEventListener('click', () => {
+                    HypeModal.remove();
+                });
+            });
+        }
+
+    })
+})
 
 
 
 
 
 
-
-
-
-
+//modals
 document.querySelectorAll('.element-delete').forEach((element) => {
     element.addEventListener('click', (event) => {
-        console.log('elimino');
         event.preventDefault();
         const ElementId = element.getAttribute('data-element-id');
         const ElementName = element.getAttribute('data-element-title');
@@ -58,11 +173,11 @@ function createModal(ElementId, ElementName) {
     let tmp = `<div class="modal-dialog modal-dialog-centered">
             <div class="modal-content container-table hype-shadow-white">
               <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Cancellazione elemento: ${ElementName} - id: ${ElementId}</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Cancellazione elemento: ${ElementName}</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                Sei sicuro di voler eliminare l'elemento con id: ${ElementId} e titolo: ${ElementName}?
+                Sei sicuro di voler eliminare <strong>${ElementName}</strong> ?
               </div>
               <div class="modal-footer">
                 <button type="button" class="mine-custom-btn min-custom-btn-grey" data-bs-dismiss="modal">No, torna indietro</button>
@@ -106,31 +221,3 @@ document.querySelectorAll('#hype-sidebar-collapse').forEach((element) => {
 })
 
 
-
-//register-animation
-// document.querySelectorAll('#register-user-button1').forEach((element) => {
-//     element.addEventListener('click', (event) => {
-//         event.preventDefault();
-//         const UserData = {
-//             name: document.getElementById('name').value,
-//             lastname: document.getElementById('lastname').value,
-//             email: document.getElementById('email').value,
-//             password: document.getElementById('password').value,
-//             password_confirmation: document.getElementById('password-confirm').value
-//         }
-//         registration();
-//         async function registration() {
-//             try {
-//                 // Esegui una richiesta POST usando Axios o fetch
-//                 const response = await axios.post('/api/registeruser', UserData);
-//                 console.log(response.data); // Gestisci la risposta dal server, se necessario
-//                 alert('Registrazione completata con successo!');
-//                 // Puoi fare altre azioni dopo la registrazione, come reindirizzare l'utente
-
-//             } catch (error) {
-//                 console.error('Errore durante la registrazione:', error);
-//                 // Gestisci gli errori qui, ad esempio mostrando un messaggio di errore all'utente
-//             }
-//         }
-//     })
-// })
