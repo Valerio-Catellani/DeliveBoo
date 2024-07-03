@@ -14,19 +14,19 @@
 
 @section('content')
     <section class="container py-5">
-        <div class="d-flex justify-content-between align-items-center mb-3">
+        <div class="d-flex flex-column flex-lg-row justify-content-between align-items-center mb-3">
             <h2 class="text-center">Piatti del: {{ $restaurant->name }}</h2>
             <button class="btn btn-success" onclick="location.href='{{ route('admin.dishes.create', $data) }}'">
                 <i class="fa-solid fa-plus"></i> Aggiungi Piatto
             </button>
         </div>
         @if ($dishes && count($dishes) > 0)
-            <table class="table table-bordered table-striped text-center">
+            <table class="table table-bordered table-striped text-center hype-unselectable">
                 <thead>
                     <tr>
-                        <th class="col-2">Immagine</th>
+                        <th class="col-2 d-none d-xl-table-cell">Immagine</th>
                         <th class="col-2">Nome</th>
-                        <th class="col-2">Descrizione</th>
+                        <th class="col-2 d-none d-xl-table-cell">Descrizione</th>
                         <th class="col-2">Prezzo</th>
                         <th class="col-4">Azioni</th>
                     </tr>
@@ -43,15 +43,17 @@
                             }
                         @endphp
                         <tr>
-                            <td class="align-middle">
+                            <td class="align-middle d-none d-xl-table-cell">
                                 @if (isset($dish->image) && strpos($dish->image, 'http') === 0)
-                                    <img src="{{ $dish->image }}" class="img-fluid" alt="dsih image" style="max-height: 100px;">
+                                    <img src="{{ $dish->image }}" class="img-fluid" alt="dsih image"
+                                        style="max-height: 100px;">
                                 @else
-                                    <img src="{{ asset('storage/' . $dish->image) }}" class="img-fluid" alt="dish image" style="max-height: 70px;">
+                                    <img src="{{ asset('storage/' . $dish->image) }}" class="img-fluid" alt="dish image"
+                                        style="max-height: 70px;">
                                 @endif
                             </td>
                             <td class="align-middle">{{ $dish->name }}</td>
-                            <td class="align-middle">{{ $dish->description }}</td>
+                            <td class="align-middle d-none d-xl-table-cell">{{ $dish->description }}</td>
                             <td class="align-middle">{{ $dish->price }}€</td>
                             <td class="align-middle">
                                 <div class="d-flex justify-content-center gap-2">
@@ -68,7 +70,8 @@
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-danger element-delete" type="submit"
-                                            data-element-id="{{ $dish->id }}" data-element-title="{{ $dish->name }}">
+                                            data-element-id="{{ $dish->id }}"
+                                            data-element-title="{{ $dish->name }}">
                                             <i class="fa-solid fa-trash"></i> Elimina
                                         </button>
                                     </form>
