@@ -286,242 +286,54 @@ body {
   height: 100px;
 }
 
-/* bottono di cancellazione show dish */
 
-.button {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: rgb(255, 69, 69);
-  border: none;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
-  cursor: pointer;
-  transition-duration: 0.3s;
-  overflow: hidden;
-  position: relative;
-}
-
-.svgIcon {
-  width: 12px;
-  transition-duration: 0.3s;
-}
-
-.svgIcon path {
-  fill: white;
-}
-
-.button:hover {
-  width: 140px;
-  border-radius: 50px;
-  transition-duration: 0.3s;
-  background-color: rgb(255, 69, 69);
-  align-items: center;
-}
-
-.button:hover .svgIcon {
-  width: 50px;
-  transition-duration: 0.3s;
-  transform: translateY(60%);
-}
-
-.button::before {
-  position: absolute;
-  top: -20px;
-  content: "Delete";
-  color: white;
-  transition-duration: 0.3s;
-  font-size: 2px;
-}
-
-.button:hover::before {
-  font-size: 13px;
-  opacity: 1;
-  transform: translateY(30px);
-  transition-duration: 0.3s;
-}
-
-/* create button */
-
-.Btn {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  width: 50px;
-  height: 50px;
-  border-radius: calc(50px / 2);
-  border: none;
-  cursor: pointer;
-
-  overflow: hidden;
-  transition-duration: 0.3s;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
-  background: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
-}
-
-/* plus sign */
-.sign {
-  width: 100%;
-  font-size: 2.2em;
-  color: white;
-  transition-duration: 0.3s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* text */
-.text {
-  position: absolute;
-  right: 0%;
-  width: 0%;
-  opacity: 0;
-  color: white;
-  font-size: 1.4em;
-  font-weight: 500;
-  transition-duration: 0.3s;
-}
-
-/* hover effect on button width */
-.Btn:hover {
-  width: 125px;
-  transition-duration: 0.3s;
-}
-
-.Btn:hover .sign {
-  width: 30%;
-  transition-duration: 0.3s;
-  padding-left: 15px;
-}
-
-/* hover effect button's text */
-.Btn:hover .text {
-  opacity: 1;
-  width: 70%;
-  transition-duration: 0.3s;
-  padding-right: 15px;
-}
-
-/* button click effect*/
-.Btn:active {
-  transform: translate(2px, 2px);
-}
-
-/* edit button */
-.edit-button {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: rgb(43, 93, 255);
-  border: none;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
-  cursor: pointer;
-  transition-duration: 0.3s;
-  overflow: hidden;
-  position: relative;
-  text-decoration: none !important;
-}
-
-.edit-svgIcon {
-  width: 17px;
-  transition-duration: 0.3s;
-}
-
-.edit-svgIcon path {
-  fill: white;
-}
-
-.edit-button:hover {
-  width: 120px;
-  border-radius: 50px;
-  transition-duration: 0.3s;
-  background-color: rgb(43, 93, 255);
-  align-items: center;
-}
-
-.edit-button:hover .edit-svgIcon {
-  width: 20px;
-  transition-duration: 0.3s;
-  transform: translateY(60%);
-  -webkit-transform: rotate(360deg);
-  -moz-transform: rotate(360deg);
-  -o-transform: rotate(360deg);
-  -ms-transform: rotate(360deg);
-  transform: rotate(360deg);
-}
-
-.edit-button::before {
-  display: none;
-  content: "Edit";
-  color: white;
-  transition-duration: 0.3s;
-  font-size: 2px;
-}
-
-.edit-button:hover::before {
-  display: block;
-  padding-right: 10px;
-  font-size: 13px;
-  opacity: 1;
-  transform: translateY(0px);
-  transition-duration: 0.3s;
-}
-
-/* button show */
-.button-show {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 8px 12px;
-  gap: 2px;
-  height: 100%;
-  width: 85%;
-  border: none;
-  background: #0c007a3d;
-  border-radius: 20px;
-  cursor: pointer;
-}
-
-.lable {
-  line-height: 22px;
-  font-size: 19px;
-  color: #0400ff;
-  font-family: sans-serif;
-  letter-spacing: 1px;
-}
-
-.button-show:hover {
-  background: #000dff62;
-}
-
-.button-show:hover .svg-icon {
-  animation: lr 1s linear infinite;
-}
-
-@keyframes lr {
-  0% {
-    transform: translateX(0);
+/* sezione animata con icona utente e messaggi */
+  #btn-message {
+    --text-color: #000;
+    --bg-color-sup: #d2d2d2;
+    --bg-color: #f4f4f4;
+    --bg-hover-color: #ffffff;
+    --online-status: #00da00;
+    --font-size: 16px;
+    --btn-transition: all 0.2s ease-out;
   }
-
-  25% {
-    transform: translateX(-1px);
+  
+  .button-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font: 400 var(--font-size) Helvetica Neue, sans-serif;
+    box-shadow: 0 0 2.17382px rgba(0,0,0,.049),0 1.75px 6.01034px rgba(0,0,0,.07),0 3.63px 14.4706px rgba(0,0,0,.091),0 22px 48px rgba(0,0,0,.14);
+    background-color: var(--bg-color);
+    border-radius: 68px;
+    cursor: pointer;
+    padding: 6px 10px 6px 6px;
+    width: fit-content;
+    height: 40px;
+    border: 0;
+    overflow: hidden;
+    position: relative;
+    transition: var(--btn-transition);
   }
-
-  75% {
-    transform: translateX(1px);
+  
+  .button-message:hover {
+    height: 56px;
+    padding: 8px 20px 8px 8px;
+    background-color: var(--bg-hover-color);
+    transition: var(--btn-transition);
   }
-
-  100% {
-    transform: translateX(0);
+  
+  .button-message:active {
+    transform: scale(0.99);
   }
-}
+  
+  .content-avatar {
+    width: 30px;
+    height: 30px;
+    margin: 0;
+    transition: var(--btn-transition);
+    position: relative;
+
 
 /* button del main */
 .button-del-main {
@@ -758,11 +570,12 @@ body {
   }
 }
 
-/* form */
-img {
-  max-width: 100%;
-  display: block;
-}
+
+/* stile del form di aggiunta e modifica*/
+  img {
+    max-width: 100%;
+    display: block;
+    }
 
 input {
   border-radius: 0;
@@ -821,8 +634,9 @@ input {
 }
 
 textarea {
-  max-width: 90%;
-}
+
+    max-width: 100%;
+    }
 
 .action-button {
   font: inherit;
@@ -867,7 +681,8 @@ textarea {
   }
 }
 
-/* btn logout */
+/* bottone di logout della nav-bar */
+
 .Btn-logout {
   display: flex;
   align-items: center;
@@ -1028,10 +843,23 @@ textarea {
   img{
   
   }
+
+
+/* card di dettaglio nella show */
+  .card-custom {
+    max-width: 900px;
+    margin: 0 auto;
+    img {
+        height: 250px;
+        padding: 3px;
+        object-fit: cover;
+    }
+
 }
 
 @media (max-width: 768px) {
   #details-resturant {
     width: 80%;
   }
+
 }
