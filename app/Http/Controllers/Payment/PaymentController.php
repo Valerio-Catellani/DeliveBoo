@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Payment;
 
 use App\Services\BraintreeService;
 use App\Http\Controllers\Controller;
+use App\Providers\RouteServiceProvider;
+use Illuminate\Support\Facades\Log;
+
 use Illuminate\Http\Request;
 
 class PaymentController extends Controller
