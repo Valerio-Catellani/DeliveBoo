@@ -1,4 +1,3 @@
-
 @php
     $restaurant = App\Models\Restaurant::where('user_id', Auth::user()->id)->first();
     $user = Auth::user();
@@ -7,7 +6,6 @@
         'restaurant_slug' => $restaurant->slug,
         'user_slug' => $user->slug,
         'user_slug' => session('user_slug')
-
     ];
     };
 @endphp
@@ -18,7 +16,6 @@
 
 @section('content')
     <section class="container">
-
         <div class="card-form-main">
             <div class="card-image">    
                 <h2 class="card-heading text-light">
@@ -29,6 +26,11 @@
             <form id="comic-form" class="card-form" action="{{ route('admin.dishes.store', $data) }}"
                 method="POST" enctype="multipart/form-data">
                 @csrf
+
+                <div class="alert alert-warning d-flex align-items-center" role="alert">
+                    <i class="fa-solid fa-exclamation-circle me-2"></i>
+                    Tutti i campi sono obbligatori.
+                </div>
 
                 <div class="mb-3 @error('name') err-animation @enderror">
                     <label for="name" class="form-label">Nome piatto</label>
@@ -41,7 +43,7 @@
 
                 <div class="mb-3 @error('price') err-animation @enderror">
                     <label for="price" class="form-label">Prezzo</label>
-                    <input type="number" step="0.01" class="form-control @error('price') is-invalid err-animation @enderror"
+                    <input type="number" step="0.01" min="0" class="form-control @error('price') is-invalid err-animation @enderror"
                         id="price" name="price" value="{{ old('price') }}" required>
                     @error('price')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -70,7 +72,6 @@
                     <label for="image" class="form-label">Immagine Piatto</label>
                     <input type="file" accept="image/*" class="form-control upload_image" name="image" value="{{ old('image') }}">
                     @error('image')
-
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>

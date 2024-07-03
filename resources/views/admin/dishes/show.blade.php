@@ -15,6 +15,12 @@ $data = [
 
 @section('content')
 <section class="container py-5">
+<div class="d-flex justify-content-between align-items-center mb-3">
+            <h2 class="text-center">Piatto del: {{ $restaurant->name }}</h2>
+            <button class="btn btn-success" onclick="location.href='{{ route('admin.dishes.create', $data) }}'">
+                <i class="fa-solid fa-plus"></i> Aggiungi Piatto
+            </button>
+        </div>
 <div class="card card-custom">
     @if (isset($dish->image) && strpos($dish->image, 'http') === 0)
     <img src="{{ $dish->image }}" class="card-img-top " alt="...">
@@ -67,10 +73,6 @@ $data = [
         </svg>
     </button>
     </div>
-    <button class="Btn position-absolute top-0 end-0 m-2" onclick="location.href='{{ route('admin.dishes.create', $data) }}'" >
-        <div class="sign">+</div>
-        <div class="text">Piatto</div>
-    </button>
     </div>
 </div>
 </section>
