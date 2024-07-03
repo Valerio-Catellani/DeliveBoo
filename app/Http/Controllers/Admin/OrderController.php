@@ -15,12 +15,14 @@ class OrderController extends Controller
         
         $restaurant = Restaurant::where('slug', $restaurant_slug)->first();
         if ($restaurant && $restaurant->user_id == Auth::user()->id) {
+            
 
-            $$bills = Order::with('dishes')->whereHas('dishes', function ($query) use ($restaurant) {
+            $bills = Order::with('dishes')->whereHas('dishes', function ($query) use ($restaurant) {
                 $query->where('restaurant_id', $restaurant->id);
             })->get();
             if (count($bills) > 0) {
-                dd($bills);
+                $arrayPiatti = $bills->dishes;
+                return view('admin.bills.index', compact('bills', 'arrayPiatti'));
             } else {
                 dd('non hai ancora ricevuto ordini');
             }
