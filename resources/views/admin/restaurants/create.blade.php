@@ -8,8 +8,8 @@
         <div class="container rounded-2 hype-shadow-white p-5 container-table example-color">
             <h1 class="text-center hype-text-shadow text-white fw-bolder">Aggiungi un Ristorante</h1>
 
-            <form id="comic-form" action="{{ route('admin.restaurants.store', ['user_slug' => session('user_slug')]) }}"
-                method="POST" enctype="multipart/form-data">
+            <form id="comic-form" action="{{ route('admin.restaurants.store', Auth::user()->slug) }}" method="POST"
+                enctype="multipart/form-data">
                 @csrf
 
                 <div class="mb-3 @error('name') err-animation @enderror">

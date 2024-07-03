@@ -5,7 +5,6 @@
     $data = [
         'restaurant_slug' => $restaurant->slug,
         'user_slug' => $user->slug,
-        'user_slug' => session('user_slug')
     ];
     };
 @endphp
