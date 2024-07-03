@@ -21,7 +21,8 @@ class RestaurantController extends Controller
         //pass array of typologies get all restaurants with that typologies (prova con ctrl+click su endpoint)
         // 1- http://127.0.0.1:8000/api/get-restaurants?typology=cinese                   ------          ottieni tutti i ristoranti di tipo cinese
         // 2- http://127.0.0.1:8000/api/get-restaurants?typology=cinese,pesce            --------         ottieni tutti i ristoranti di tipo cinese || pesce
-        // 3- http://127.0.0.1:8000/api/get-restaurants?typology=cinese,pesce&match=all    -------        ottieni tutti i ristoranti di tipo cinese && pesce
+        // 3- http://127.0.0.1:8000/api/get-restaurants?typology=cinese,pesce&match=all
+        //    http://127.0.0.1:8000/api/get-restaurants?typologies=internazionale,cinese&match=all    -------        ottieni tutti i ristoranti di tipo cinese && pesce
         if ($request->query('typology')) {
             $typologies = explode(',', $request->query('typology')); //recupero le tiplogie e le inserisco all'interno di un array
 

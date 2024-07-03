@@ -22,8 +22,11 @@ class TypologyController extends Controller
 
         // http://127.0.0.1:8000/api/get-typologies
 
-        $typologies = Typology::with('restaurants')->get();
-
+        if ($request->has('restaurant')) {
+            $typologies = Typology::with('restaurants')->paginate(10);
+        } else {
+            $typologies = Typology::paginate(10);
+        }
         if ($typologies) {
             return response()->json(
                 [
