@@ -12,7 +12,8 @@ class Helpers
 
     public static function numberOfOrders()
     {
-        return 60;
+        //default 3
+        return 3;
     }
 
     public static function getCsvData($path)
