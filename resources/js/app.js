@@ -3,7 +3,7 @@ import "~resources/scss/app.scss";
 import * as bootstrap from "bootstrap";
 import.meta.glob(["../img/**", "../fonts/**"]);
 
-import { ColumnChart, LineChart, DonatChart, getData } from './chartjs.js';
+import { getData } from './chartjs.js';
 
 
 //DASHBOARD CHARTJS
@@ -13,10 +13,18 @@ if (document.getElementById('restaurant-dashboard')) {
 
 document.querySelectorAll('#chartjs-date-picker').forEach((element) => {
     element.addEventListener('change', (event) => {
-        const date = event.target.value.split('-');
-        const year = parseInt(date[0], 10);
-        const month = parseInt(date[1]);
-        getData(month, year);
+        if (!event.target.value) {
+            const currentDate = new Date();
+            const currentMonth = String(currentDate.getMonth() + 1).padStart(2, '0');
+            const currentYear = currentDate.getFullYear();
+            element.value = `${currentYear}-${currentMonth}`;
+            getData(currentMonth, currentYear);
+        } else {
+            const date = event.target.value.split('-');
+            const year = parseInt(date[0], 10);
+            const month = parseInt(date[1]);
+            getData(month, year);
+        }
     })
 })
 

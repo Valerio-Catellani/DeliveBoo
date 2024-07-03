@@ -23,19 +23,19 @@
                                 @endif
                                 <div class="card-body" style="overflow-y: auto">
                                     <h1 class="card-title display-6 mb-1">{{ $restaurant->name }}</h1>
-                                    <p>Proprietario: {{ $restaurant->user->name }}</p>
+                                    <p>Proprietario: {{ $restaurant->user->name }} {{ $restaurant->user->lastname }}</p>
                                     <hr>
                                     <p>Resoconto Amministrativo per il mese: <span id='current_month'
                                             class="fw-bold"></span></p>
                                     <h5 id='total_price' class="card-subtitle mb-3"></h5>
                                     <h5 id='total_ordinations' class="card-subtitle mb-3"></h5>
                                     <hr>
-                                    <p>Effettua una ricerca per mese:</p>
+                                    <label for="chartjs-date-picker">Effettua una ricerca per mese:</label>
                                     <input type="month" id="chartjs-date-picker" value="{{ date('Y-m') }}">
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 col-xxl-6">
+                        <div class="col-12 col-xxl-6 mt-5 mt-xxl-0">
                             <p class="text-center fst-italic">Distribuzione Ordinazione Piatti</p>
                             <div class="loader-container d-flex justify-content-center">
                                 @include('partials.loader')
@@ -45,14 +45,14 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12 col-xxl-6 mx-auto">
+                    <div class="col-12 col-xxl-6 mx-auto mt-5 mt-xxl-1">
                         <p class="text-center fst-italic">Entrate Giornaliere</p>
                         <div class="loader-container d-flex justify-content-center">
                             @include('partials.loader')
                         </div>
                         <div class="w-100"><canvas id="acquisitions-line" class="chart"></canvas></div>
                     </div>
-                    <div class="col-12 col-xxl-6 mx-auto">
+                    <div class="col-12 col-xxl-6 mx-auto mt-5 mt-xxl-1">
                         <p class="text-center fst-italic">Ordini Giornalieri</p>
                         <div class="loader-container d-flex justify-content-center">
                             @include('partials.loader')
