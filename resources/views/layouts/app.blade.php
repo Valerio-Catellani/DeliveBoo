@@ -23,10 +23,10 @@
     <div id="app">
         <nav id="admin-nav" class="navbar navbar-expand-md shadow-sm">
             <div class="container">
-                <a href="{{ url('/') }}" class="navbar-brand"  href="#">
+                <a href="{{ url('http://localhost:5174/') }}" class="navbar-brand" href="#">
                     <img src="/images/logo-trasparente.png" alt="logo delivebool">
                 </a>
-                    {{-- config('app.name', 'Laravel') --}}
+                {{-- config('app.name', 'Laravel') --}}
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
