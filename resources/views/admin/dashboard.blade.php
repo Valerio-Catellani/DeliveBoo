@@ -10,6 +10,7 @@
         @if ($restaurant)
             <div id="restaurant-dashboard" class=" mx-auto p-5 d-flex flex-column gap-5">
                 <div class="container">
+                    <h2 class="mb-5 display-2">Bentornato {{ Auth::user()->name }} {{ Auth::user()->lastname }}</h2>
                     <div class="row">
                         <div class="col-12 col-xxl-6">
                             <div class="card card-custom bg-white border-white border-0 h-100">
@@ -36,28 +37,28 @@
                             </div>
                         </div>
                         <div class="col-12 col-xxl-6 my-5 mt-xxl-0">
-                            <p class="text-center fst-italic">Distribuzione Ordinazione Piatti</p>
+                            <p class="text-center fs-3 fst-italic">Distribuzione Ordinazione Piatti</p>
                             <div class="loader-container d-flex justify-content-center">
                                 @include('partials.loader')
                             </div>
                             <div class="w-100"><canvas id="acquisitions-donat" class="chart"></canvas></div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-xxl-8 mx-auto my-5 mt-xxl-1">
-                        <p class="text-center fst-italic">Entrate Giornaliere</p>
-                        <div class="loader-container d-flex justify-content-center">
-                            @include('partials.loader')
+                    <div class="row py-5">
+                        <div class="col-12 col-xxl-10 mx-auto my-5 mt-xxl-1">
+                            <p class="text-center fs-3 fst-italic">Entrate Giornaliere</p>
+                            <div class="loader-container d-flex justify-content-center">
+                                @include('partials.loader')
+                            </div>
+                            <div class="w-100"><canvas id="acquisitions-line" class="chart"></canvas></div>
                         </div>
-                        <div class="w-100"><canvas id="acquisitions-line" class="chart"></canvas></div>
-                    </div>
-                    <div class="col-12 col-xxl-8 mx-auto mt-5 mt-xxl-1">
-                        <p class="text-center fst-italic">Ordini Giornalieri</p>
-                        <div class="loader-container d-flex justify-content-center">
-                            @include('partials.loader')
+                        <div class="col-12 col-xxl-10 mx-auto mt-5 mt-xxl-1">
+                            <p class="text-center fs-3 fst-italic">Ordini Giornalieri</p>
+                            <div class="loader-container d-flex justify-content-center">
+                                @include('partials.loader')
+                            </div>
+                            <div class="w-100"><canvas id="acquisitions" class="chart"></canvas></div>
                         </div>
-                        <div class="w-100"><canvas id="acquisitions" class="chart"></canvas></div>
                     </div>
                 </div>
             </div>

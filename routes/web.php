@@ -61,9 +61,6 @@ require __DIR__ . '/auth.php';
 
 Route::fallback(function () {
     if (Auth::check()) {
-        $data = [
-            'user_slug' => Auth::user()->slug
-        ];
-        return view('admin.errors.404');
+        return redirect()->route('admin.dashboard', Auth::user()->slug);;
     }
 });

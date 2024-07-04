@@ -148,7 +148,7 @@ class RegisteredUserController extends Controller
         $request->session()->put('user_name', $user->name);
         $request->session()->put('user_lastname', $user->lastname);
 
-        return redirect(RouteServiceProvider::HOME);
+        return redirect()->route('admin.dashboard', Auth::user()->slug);
     }
 
     public function checkRegistration(Request $request)

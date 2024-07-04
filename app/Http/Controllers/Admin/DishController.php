@@ -71,7 +71,7 @@ class DishController extends Controller
             'restaurant_slug' => Auth::user()->restaurant->slug,
             'user_slug' => Auth::user()->slug
         ];
-        return redirect()->route('admin.dishes.index', $data)->with('message', 'Nuovo piatto creato con successo!');
+        return redirect()->route('admin.dishes.index', $data)->with('message', 'Nuovo piatto: ' . $new_dish->name . ' creato con successo!');
     }
 
     /**
@@ -139,7 +139,7 @@ class DishController extends Controller
             'restaurant_slug' => Auth::user()->restaurant->slug,
             'user_slug' => Auth::user()->slug
         ];
-        return redirect()->route('admin.dishes.index', $data)->with('message', 'Piatto modificato con successo!');
+        return redirect()->route('admin.dishes.index', $data)->with('message', 'Piatto: "' . $dish->name . '" modificato con successo!');
     }
 
     /**
@@ -154,7 +154,7 @@ class DishController extends Controller
 
             $dish = Dish::where('slug', $dish_slug)->first();
             $dish->delete();
-            return redirect()->route('admin.dishes.index', ['user_slug' => Auth::user()->slug, 'restaurant_slug' => $restaurant_slug])->with('message', 'Piatto eliminato con successo!');
+            return redirect()->route('admin.dishes.index', ['user_slug' => Auth::user()->slug, 'restaurant_slug' => $restaurant_slug])->with('message', 'Piatto: "' . $dish->name . '" eliminato con successo!');
         } else {
             return view('admin.errors.404');
         }

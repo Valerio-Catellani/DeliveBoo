@@ -51,7 +51,7 @@
                             }
                         @endphp
                         <tr>
-                            <td class="align-middle d-none d-xl-table-cell">
+                            <td class="align-middle d-none d-xl-table-cell {{ $dish->visible ? '' : 'opacity-50' }} }}">
                                 @if (isset($dish->image) && strpos($dish->image, 'http') === 0)
                                     <img src="{{ $dish->image }}" class="img-fluid" alt="dsih image"
                                         style="height: 200px; width:200px">
@@ -60,14 +60,16 @@
                                         style="height: 200px; width:200px">
                                 @endif
                             </td>
-                            <td class="align-middle">{{ $dish->name }}</td>
-                            <td class="align-middle d-none d-xl-table-cell">{{ $dish->description }}</td>
-                            <td class="align-middle">{{ $dish->price }}€</td>
-                            <td class="align-middle d-none d-xl-table-cell">{{ $dish->visible ? 'Si' : 'No' }}</td>
+                            <td class="align-middle {{ $dish->visible ? '' : 'opacity-50' }} }}">{{ $dish->name }}</td>
+                            <td class="align-middle d-none d-xl-table-cell {{ $dish->visible ? '' : 'opacity-50' }} }}">
+                                {{ $dish->description }}</td>
+                            <td class="align-middle {{ $dish->visible ? '' : 'opacity-50' }} }}">{{ $dish->price }}€</td>
+                            <td class="align-middle d-none d-xl-table-cell {{ $dish->visible ? '' : 'opacity-50' }} }}">
+                                {{ $dish->visible ? 'Si' : 'No' }}</td>
 
-                            <td class="align-middle">
+                            <td class="align-middle {{ $dish->visible ? '' : 'bg-opacity-50' }} }}">
                                 <div class="d-flex justify-content-center gap-2">
-                                    <button class="btn btn-primary hype-hover-size"
+                                    <button class="btn btn-primary hype-hover-size "
                                         onclick="location.href='{{ route('admin.dishes.show', $data_dish_slug) }}'">
                                         <i class="fa-solid fa-eye"></i> Mostra
                                     </button>
