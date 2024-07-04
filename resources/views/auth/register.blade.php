@@ -174,7 +174,7 @@
                                 </div>
                                 <div class="w-75">
                                     <input type="file" accept="image/*" class="form-control upload_image"
-                                        name="image" value="{{ old('image') }}">
+                                        name="image" value="{{ old('image') }}" >
                                     @error('image')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
