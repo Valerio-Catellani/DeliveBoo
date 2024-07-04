@@ -955,7 +955,7 @@ textarea {
 }
 /* stile login */
 
-#login, #registration-card,  {
+#login, #registration-card {
 
 background: rgba(0, 0, 0, 0.466);
 border-radius: 16px;
@@ -969,6 +969,8 @@ a {
     color: whitesmoke;
 }
 }
+
+/* stile barra naviagazione login-signup */
 
 #admin-nav {
     background: rgba(255, 255, 255, 0.466);
