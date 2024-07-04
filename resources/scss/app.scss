@@ -974,14 +974,11 @@ a {
 
 #admin-nav {
     background: rgba(255, 255, 255, 0.466);
-
+    height: 60px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 backdrop-filter: blur(20px);
 -webkit-backdrop-filter: blur(20px);
 color: white;
-
-
-
 }
 
 /* stile app blade */
@@ -989,6 +986,11 @@ color: white;
     background-image: url(/images/bg.png);
     background-repeat: repeat; 
     background-color: black
+}
+
+/* stile logo */
+.navbar-brand {
+    width: 80px;
 }
 
 
