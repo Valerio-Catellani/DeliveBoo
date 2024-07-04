@@ -23,11 +23,8 @@
     <div id="app">
         <nav id="admin-nav" class="navbar navbar-expand-md shadow-sm">
             <div class="container">
-                <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
-                <a class="navbar-brand" style="color: #B7450A; line-height: 16px" href="#">DeliveBoo <br> Partener</a>
+                <a href="{{ url('/') }}" class="navbar-brand " style="color: #B7450A; line-height: 15px" href="#">DeliveBoo <br> Partener</a>
                     {{-- config('app.name', 'Laravel') --}}
-                </a>
-
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

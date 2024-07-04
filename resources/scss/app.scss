@@ -956,7 +956,6 @@ textarea {
 /* stile login */
 
 #login, #registration-card {
-
 background: rgba(0, 0, 0, 0.466);
 border-radius: 16px;
 box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -964,6 +963,7 @@ backdrop-filter: blur(20px);
 -webkit-backdrop-filter: blur(20px);
 color: white;
 font-weight: 800;
+padding: 20px;
 
 a {
     color: whitesmoke;
