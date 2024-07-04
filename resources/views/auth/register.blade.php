@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div id="registration-card" class="card my-4">
-                    <div class="card-header">Registrazione Nuovo Utente</div>
+                    <div class="card-header display-6 fw-bold">Registrazione Nuovo Utente</div>
                     <div class="card-body">
                         <div class="alert alert-warning" role="alert">
                             <span class="text-danger fw-bold">*</span> I campi contrassegnati sono obbligatori.
@@ -96,7 +96,8 @@
 
                         </div>
 
-                        <h1 class="text-center hype-text-shadow text-white fw-bolder">Aggiungi un Ristorante</h1>
+                        <h1 class="display-6 fw-bold">Aggiungi un Ristorante</h1>
+                        <hr>
 
                         <div class="mb-3 @error('rest_name') err-animation @enderror">
                             <label for="rest_name" class="form-label">Nome Ristorante<span class="text-danger fw-bold">*</span></label>
