@@ -7,6 +7,9 @@
                 <div id="registration-card" class="card my-4">
                     <div class="card-header">Registrazione Nuovo Utente</div>
                     <div class="card-body">
+                        <div class="alert alert-warning" role="alert">
+                            <span class="text-danger fw-bold">*</span> I campi contrassegnati sono obbligatori.
+                        </div>
                         <div class="user-registration">
                             <form id="registration-form" method="POST" action="{{ route('register') }}"
                                 enctype="multipart/form-data">
@@ -14,7 +17,7 @@
 
                                 <div class="mb-4 row">
                                     <label for="name" class="col-md-4 col-form-label text-md-right">Nome<span
-                                            class="fw-bold"><span class="fw-bold">*</span></span>
+                                            class="text-danger fw-bold">*</span>
                                     </label>
 
                                     <div class="col-md-6">
@@ -32,7 +35,7 @@
 
                                 <div class="mb-4 row">
                                     <label for="lastname" class="col-md-4 col-form-label text-md-right">Cognome<span
-                                            class="fw-bold">*</span></label>
+                                            class="text-danger fw-bold">*</span></label>
 
                                     <div class="col-md-6">
                                         <input id="lastname" type="text"
@@ -49,7 +52,7 @@
 
                                 <div class="mb-4 row">
                                     <label for="email" class="col-md-4 col-form-label text-md-right">Indirizzo
-                                        Email<span class="fw-bold">*</span></label>
+                                        Email<span class="text-danger fw-bold">*</span></label>
 
                                     <div class="col-md-6">
                                         <input id="email" type="email"
@@ -66,7 +69,7 @@
 
                                 <div class="mb-4 row">
                                     <label for="password" class="col-md-4 col-form-label text-md-right">Password<span
-                                            class="fw-bold">*</span></label>
+                                            class="text-danger fw-bold">*</span></label>
 
                                     <div class="col-md-6">
                                         <input id="password" type="password"
@@ -83,7 +86,7 @@
 
                                 <div class="mb-4 row">
                                     <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Conferma
-                                        Password<span class="fw-bold">*</span></label>
+                                        Password<span class="text-danger fw-bold">*</span></label>
 
                                     <div class="col-md-6">
                                         <input id="password-confirm" type="password" class="form-control"
@@ -96,7 +99,7 @@
                         <h1 class="text-center hype-text-shadow text-white fw-bolder">Aggiungi un Ristorante</h1>
 
                         <div class="mb-3 @error('rest_name') err-animation @enderror">
-                            <label for="rest_name" class="form-label">Nome Ristorante<span class="fw-bold">*</span></label>
+                            <label for="rest_name" class="form-label">Nome Ristorante<span class="text-danger fw-bold">*</span></label>
                             <input type="text"
                                 class="form-control @error('rest_name') is-invalid err-animation @enderror" id="rest_name"
                                 name="rest_name" value="{{ old('rest_name') }}" required maxlength="255" minlength="3">
@@ -107,7 +110,7 @@
 
                         <div class="mb-3 @error('address') err-animation @enderror">
                             <label for="address" class="form-label ">Indirizzo Ristorante<span
-                                    class="fw-bold">*</span></label>
+                                    class="text-danger fw-bold">*</span></label>
                             <input type="text"
                                 class="form-control @error('address') is-invalid err-animation @enderror" id="address"
                                 name="address" value="{{ old('address') }}" required maxlength="255" minlength="3">
@@ -117,7 +120,7 @@
                         </div>
 
                         <div class="mb-3 @error('VAT') err-animation @enderror">
-                            <label for="VAT" class="form-label">Partita IVA<span class="fw-bold">*</span></label>
+                            <label for="VAT" class="form-label">Partita IVA<span class="text-danger fw-bold">*</span></label>
                             <input type="text" class="form-control @error('VAT') is-invalid err-animation @enderror"
                                 id="VAT" name="VAT" value="{{ old('VAT') }}" required pattern="\d{11}"
                                 title="La partita IVA deve essere esattamente di 11 cifre">
@@ -140,7 +143,7 @@
 
                         <div class="mb-5">
                             <label for="typology_id" class="form-label">
-                                Tipologie<span class="fw-bold">*</span>
+                                Tipologie<span class="text-danger fw-bold">*</span>
                                 <p class="small mb-0">Puoi selezionarne più d'una</p>
                             </label>
                             <div id="typology_id">
@@ -177,10 +180,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        <h6 class="fw-bold my-5">* I campi contrassegnati sono Obbligatori</h6>
-
-
 
                         <div class="mb-2 mx-auto d-flex justify-content-center">
                             <button id="register-user-button" type="submit" class="mine-custom-btn mb-3">

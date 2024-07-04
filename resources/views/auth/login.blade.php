@@ -4,14 +4,14 @@
     <div class="container mt-4">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
+                <div class="card" id="login">
                     <div class="card-header">Accedi</div>
 
-                    <div class="card-body">
+                    <div class="card-body" style="">
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
 
-                            <div class="mb-4 row">
+                            <div class="mb-4 row" style="">
                                 <label for="email" class="col-md-4 col-form-label text-md-right">Indirizzo E-Mail</label>
 
                                 <div class="col-md-6">
