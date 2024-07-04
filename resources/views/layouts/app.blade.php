@@ -23,7 +23,9 @@
     <div id="app">
         <nav id="admin-nav" class="navbar navbar-expand-md shadow-sm">
             <div class="container">
-                <a href="{{ url('/') }}" class="navbar-brand " style="color: #B7450A; line-height: 15px" href="#">DeliveBoo <br> Partener</a>
+                <a href="{{ url('/') }}" class="navbar-brand"  href="#">
+                    <img src="/images/logo-trasparente.png" alt="logo delivebool">
+                </a>
                     {{-- config('app.name', 'Laravel') --}}
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"

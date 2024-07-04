@@ -975,11 +975,12 @@ textarea {
 
 #admin-nav {
     background: rgba(255, 255, 255, 0.466);
-
+    height: 60px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    color: white;
+
+backdrop-filter: blur(20px);
+-webkit-backdrop-filter: blur(20px);
+color: white;
 }
 
 /* stile app blade */
@@ -989,3 +990,10 @@ textarea {
     background-size: cover;
     background-attachment: fixed;
 }
+
+
+/* stile logo */
+.navbar-brand {
+    width: 80px;
+}
+
