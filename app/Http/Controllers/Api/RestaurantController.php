@@ -42,7 +42,7 @@ class RestaurantController extends Controller
             }
 
             //infine otteniamo i risultati dal db
-            $restaurants = $restaurantsQuery->paginate(10);
+            $restaurants = $restaurantsQuery->paginate(50);
         }
 
 

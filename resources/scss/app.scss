@@ -955,19 +955,20 @@ textarea {
 }
 /* stile login */
 
-#login, #registration-card {
-background: rgba(0, 0, 0, 0.466);
-border-radius: 16px;
-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-backdrop-filter: blur(20px);
--webkit-backdrop-filter: blur(20px);
-color: white;
-font-weight: 800;
-padding: 20px;
+#login,
+#registration-card {
+    background: rgba(0, 0, 0, 0.466);
+    border-radius: 16px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    color: white;
+    font-weight: 800;
+    padding: 20px;
 
-a {
-    color: whitesmoke;
-}
+    a {
+        color: whitesmoke;
+    }
 }
 
 /* stile barra naviagazione login-signup */
@@ -976,20 +977,15 @@ a {
     background: rgba(255, 255, 255, 0.466);
 
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-backdrop-filter: blur(20px);
--webkit-backdrop-filter: blur(20px);
-color: white;
-
-
-
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    color: white;
 }
 
 /* stile app blade */
 #app-blade {
     background-image: url(/images/bg.png);
-    background-repeat: repeat; 
-    background-color: black
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
-
-
-
