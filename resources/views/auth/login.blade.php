@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container mt-4">
-        <div class="row justify-content-center">
+        <div class="row justify-content-center h-100 align-items-center">
             <div class="col-md-8">
                 <div class="card" id="login">
                     <div class="card-header fw-bold display-6">Accedi</div>
