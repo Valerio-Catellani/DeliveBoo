@@ -167,9 +167,9 @@
 
                         <div class="mb-5 @error('image') err-animation @enderror">
                             <label for="image" class="form-label">Immagine Ristorante</label>
-                            <div class="d-flex gap-5 align-items-center">
+                            <div class="d-flex gap-5 align-items-center rounded-2">
                                 <div class="w-25 text-center">
-                                    <img id="uploadPreview" class="w-100 uploadPreview" width="100"
+                                    <img id="uploadPreview" class="w-100 rounded-4 uploadPreview" width="100"
                                         src="/images/placeholder.png" alt="preview">
                                 </div>
                                 <div class="w-75">
