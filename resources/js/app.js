@@ -250,7 +250,7 @@ function createModal(ElementId, ElementName) {
 document.querySelectorAll('.upload_image').forEach((element) => {
 
     element.addEventListener('change', (event) => {
-        //console.log(image.files[0]);
+
         //prendo l'elemento dove visualizzare la preview
         const preview = event.target.parentElement.parentElement.querySelector('.w-25').children[0];
         //creao un nuovo oggetto di tipo FileReader

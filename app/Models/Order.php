@@ -26,8 +26,9 @@ class Order extends Model
     public static function generateSlugForOrder($restaurantSlug)
     {
         $baseSlug  = Str::slug("{$restaurantSlug}-order-");
-        $slug = $baseSlug;
+        //$slug = $baseSlug;
         $count = 1;
+        $slug = "{$baseSlug}-{$count}";
         while (Order::where('slug', $slug)->exists()) {
             $slug = "{$baseSlug}-{$count}";
             $count++;

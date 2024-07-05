@@ -49,6 +49,7 @@ class RegisteredUserController extends Controller
                 'rest_name' => ['required', 'string', 'min:3', 'max:255'],
                 'address' => ['required', 'string', 'min:3', 'max:255'],
                 'phone' => ['nullable', 'min:10', 'max:10'],
+                'image' => ['nullable', 'image'],
                 'typologies' => ['required', 'array', 'min:1'],
                 'VAT' => ['required', 'unique:restaurants', 'string', 'size:11'],
             ],

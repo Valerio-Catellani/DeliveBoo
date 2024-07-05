@@ -27,6 +27,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/payment', [PaymentController::class, 'createToken']);
 //http://127.0.0.1:8000/payment
 Route::post('/payment', [PaymentController::class, 'processPayment']);
+
 Route::get('/csrf-token', function () {
     return response()->json(['csrfToken' => csrf_token()]);
 });

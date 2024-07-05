@@ -8,93 +8,73 @@
                     <div class="card-header display-6 fw-bold">Registrazione Nuovo Utente</div>
                     <div class="card-body">
                         <div class="alert fw-light" role="alert">
-                            
-                            <span>*</span> I campi contrassegnati sono obbligatori.
                         </div>
                         <div class="user-registration">
                             <form id="registration-form" method="POST" action="{{ route('register') }}"
                                 enctype="multipart/form-data">
                                 @csrf
 
-                                <div class="mb-4 row">
-                                    <label for="name" class="col-md-4 col-form-label text-md-right">Nome<span
-                                            class="text-white fw-light"> *</span>
-                                    </label>
-
-                                    <div class="col-md-6">
-                                        <input id="name" type="text"
-                                            class="form-control @error('name') is-invalid @enderror" name="name"
-                                            value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                        @error('name')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
+                                <div class="mb-3 @error('name') err-animation @enderror">
+                                    <label for="name" class="form-label">Nome<span class="text-white fw-light">
+                                            *</span></label>
+                                    <input type="text"
+                                        class="form-control @error('name') is-invalid err-animation @enderror"
+                                        id="name" name="name" value="{{ old('name') }}" required
+                                        autocomplete="name" autofocus>
+                                    @error('name')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
 
-                                <div class="mb-4 row">
-                                    <label for="lastname" class="col-md-4 col-form-label text-md-right">Cognome<span
-                                    class="text-white fw-light"> *</span></label>
-
-                                    <div class="col-md-6">
-                                        <input id="lastname" type="text"
-                                            class="form-control @error('lastname') is-invalid @enderror" name="lastname"
-                                            value="{{ old('lastname') }}" required autocomplete="lastname" autofocus>
-
-                                        @error('lastname')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
+                                <div class="mb-3 @error('lastname') err-animation @enderror">
+                                    <label for="lastname" class="form-label">Cognome<span class="text-white fw-light">
+                                            *</span></label>
+                                    <input type="text"
+                                        class="form-control @error('lastname') is-invalid err-animation @enderror"
+                                        id="lastname" name="lastname" value="{{ old('lastname') }}" required
+                                        autocomplete="lastname" autofocus>
+                                    @error('lastname')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
 
-                                <div class="mb-4 row">
-                                    <label for="email" class="col-md-4 col-form-label text-md-right">Indirizzo
-                                        Email<span class="text-white fw-light"> *</span></label>
-
-                                    <div class="col-md-6">
-                                        <input id="email" type="email"
-                                            class="form-control @error('email') is-invalid @enderror" name="email"
-                                            value="{{ old('email') }}" required autocomplete="email">
-
-                                        @error('email')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
+                                <div class="mb-3 @error('email') err-animation @enderror">
+                                    <label for="email" class="form-label">Indirizzo E-Mail<span
+                                            class="text-white fw-light">
+                                            *</span></label>
+                                    <input type="email"
+                                        class="form-control @error('email') is-invalid err-animation @enderror"
+                                        id="email" name="email" value="{{ old('email') }}" required
+                                        autocomplete="email">
+                                    @error('email')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
 
-                                <div class="mb-4 row">
-                                    <label for="password" class="col-md-4 col-form-label text-md-right">Password<span
-                                    class="text-white fw-light"> *</span></label>
-
-                                    <div class="col-md-6">
-                                        <input id="password" type="password"
-                                            class="form-control @error('password') is-invalid @enderror" name="password"
-                                            required autocomplete="new-password">
-
-                                        @error('password')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
+                                <div class="mb-3 @error('password') err-animation @enderror">
+                                    <label for="password" class="form-label">Password<span class="text-white fw-light">
+                                            *</span></label>
+                                    <input type="password"
+                                        class="form-control @error('password') is-invalid err-animation @enderror"
+                                        id="password" name="password" value="{{ old('password') }}" required
+                                        autocomplete="new-password">
+                                    @error('password')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
 
-                                <div class="mb-4 row">
-                                    <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Conferma
-                                        Password<span class="text-white fw-light"> *</span></label>
-
-                                    <div class="col-md-6">
-                                        <input id="password-confirm" type="password" class="form-control"
-                                            name="password_confirmation" required autocomplete="new-password">
-                                    </div>
+                                <div class="mb-3 @error('password_confirmation') err-animation @enderror">
+                                    <label for="password_confirmation" class="form-label">Conferma Password<span
+                                            class="text-white fw-light">
+                                            *</span></label>
+                                    <input type="password"
+                                        class="form-control @error('password_confirmation') is-invalid err-animation @enderror"
+                                        id="password-confirm" name="password_confirmation"
+                                        value="{{ old('password_confirmation') }}" required autocomplete="new-password">
+                                    @error('password_confirmation')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
-
                         </div>
 
                         <h1 class="display-6 fw-bold">Aggiungi un Ristorante</h1>
@@ -102,7 +82,8 @@
 
                         <div class="mb-3 @error('rest_name') err-animation @enderror">
 
-                            <label for="rest_name" class="form-label">Nome<span class="text-white fw-light"> *</span></label>
+                            <label for="rest_name" class="form-label">Nome<span class="text-white fw-light">
+                                    *</span></label>
                             <input type="text"
                                 class="form-control @error('rest_name') is-invalid err-animation @enderror" id="rest_name"
                                 name="rest_name" value="{{ old('rest_name') }}" required maxlength="255" minlength="3">
@@ -112,8 +93,8 @@
                         </div>
 
                         <div class="mb-3 @error('address') err-animation @enderror">
-                            <label for="address" class="form-label ">Indirizzo Ristorante<span
-                                    class="text-danger fw-bold"> *</span></label>
+                            <label for="address" class="form-label ">Indirizzo<span class="text-white fw-bold">
+                                    *</span></label>
                             <input type="text" class="form-control @error('address') is-invalid err-animation @enderror"
                                 id="address" name="address" value="{{ old('address') }}" required maxlength="255"
                                 minlength="3">
@@ -125,7 +106,8 @@
 
                         <div class="mb-3 @error('VAT') err-animation @enderror">
 
-                            <label for="VAT" class="form-label">Partita IVA<span class="text-white fw-light"> *</span></label>
+                            <label for="VAT" class="form-label">Partita IVA<span class="text-white fw-light">
+                                    *</span></label>
                             <input type="text" class="form-control @error('VAT') is-invalid err-animation @enderror"
                                 id="VAT" name="VAT" value="{{ old('VAT') }}" required pattern="\d{11}"
                                 title="La partita IVA deve essere esattamente di 11 cifre">
@@ -169,20 +151,19 @@
                         </div>
 
 
-                        <div class="mb-5 @error('image') err-animation @enderror">
-                            <label for="image" class="form-label">Immagine Ristorante</label>
-                            <div class="d-flex gap-5 align-items-center rounded-2">
-                                <div class="w-25 text-center">
-                                    <img id="uploadPreview" class="w-100 rounded-4 uploadPreview" width="100"
-                                        src="/images/placeholder.png" alt="preview">
-                                </div>
-                                <div class="w-75">
-                                    <input type="file" accept="image/*" class="form-control upload_image"
-                                        name="image" value="{{ old('image') }}" >
-                                    @error('image')
-                                        <div class="alert alert-danger">{{ $message }}</div>
-                                    @enderror
-                                </div>
+
+                        <div class="mb-5 @error('image') err-animation @enderror d-flex gap-5 align-items-center">
+                            <div class="w-25 text-center">
+                                <img id="uploadPreview" class="w-100 uploadPreview" width="100"
+                                    src="{{ old('image', '/images/placeholder.png') }}" alt="preview">
+                            </div>
+                            <div class="w-75">
+                                <label for="image" class="form-label text-white">Immagine Ristorante</label>
+                                <input type="file" accept="image/*" class="form-control upload_image" name="image"
+                                    value="{{ old('image') }}">
+                                @error('image')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
 
