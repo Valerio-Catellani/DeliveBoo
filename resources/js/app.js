@@ -42,6 +42,9 @@ document.querySelectorAll('#register-user-button').forEach((element) => {
         const atLeastOneChecked = Array.from(checkboxes).some((checkbox) => checkbox.checked);
         const checkBoxDiv = document.getElementById('typology_id');
         const requredFileds = document.querySelectorAll('[required]');
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/;
+
+        let blockAll = false;
 
         //reset
         document.querySelectorAll('.alert-danger').forEach((errorBox) => {
@@ -50,12 +53,64 @@ document.querySelectorAll('#register-user-button').forEach((element) => {
 
         //controllo che tutti i campi siano compilati
         requredFileds.forEach((field) => {
-            if (!field.value) {
+            console.log(field.id);
+            if (!field.checkValidity()) {
                 const errorBox = document.createElement('div');
                 errorBox.classList.add('alert', 'alert-danger', 'err-animation');
-                errorBox.innerHTML = 'Tutti i campi con * sono obbligatori';
+                let validationMessage = '';
+                switch (field.id) {
+                    case 'name':
+                        if (field.value.length === 0) {
+                            validationMessage = 'Il campo Nome e\' obbligatorio';
+                        } else {
+                            validationMessage = 'Il campo Nome deve avere almeno 3 caratteri';
+                        }
+                        break;
+                    case 'lastname':
+                        if (field.value.length === 0) {
+                            validationMessage = 'Il campo Cognome e\' obbligatorio';
+                        } else {
+                            validationMessage = 'Il campo Cognome deve avere almeno 3 caratteri';
+                        }
+                        break;
+                    case 'email':
+                        if (field.value.length === 0) {
+                            validationMessage = 'Il campo E-Mail e\' obbligatorio';
+                        } else if (!emailPattern.test(field.value)) {
+                            validationMessage = 'Il campo E-Mail non e\' valido';
+                        }
+                        break;
+                    case 'password':
+                        validationMessage = 'Il campo Password e\' obbligatorio';
+                        break;
+                    case 'password-confirm':
+                        validationMessage = 'Il campo Conferma Password e\' obbligatorio';
+                        break;
+                    case 'typology_id':
+                        validationMessage = 'Seleziona almeno una tipologia';
+                        break;
+                    case 'rest_name':
+                        validationMessage = 'Il campo Nome Ristorante e\' obbligatorio';
+                        break;
+                    case 'address':
+                        validationMessage = 'Il campo Indirizzo e\' obbligatorio';
+                        break;
+                    case 'VAT':
+                        if (field.value.length === 0) {
+                            validationMessage = 'Il campo Parita Iva e\' obbligatorio';
+                        } else {
+                            validationMessage = 'Il campo Parita Iva deve avere almeno 11 caratteri';
+                        }
+                        break;
+                    case 'phone':
+                        validationMessage = 'Il campo Telefono deve essere almeno di 10 caratteri';
+                        break;
+
+                }
+                errorBox.innerHTML = validationMessage;
                 field.parentNode.insertBefore(errorBox, field.nextSibling);
                 field.classList.add('is-invalid', 'err-animation');
+                blockAll = true;
             }
         })
 
@@ -88,49 +143,49 @@ document.querySelectorAll('#register-user-button').forEach((element) => {
             checkBoxDiv.classList.add('is-invalid', 'err-animation');
         }
 
-        if (password.value === confirmPassword.value && atLeastOneChecked) {
-            createConfirmModal();
+        if (password.value === confirmPassword.value && atLeastOneChecked && !blockAll) {
+            Form.submit();
         }
 
 
-        function createConfirmModal() {
-            const HypeModal = document.createElement('div');
-            HypeModal.classList.add('modal', 'fade');
-            HypeModal.setAttribute('id', 'hype-modal');
-            HypeModal.setAttribute('tabindex', '-1');
-            HypeModal.setAttribute('aria-labelledby', 'exampleModalLabel');
-            HypeModal.setAttribute('aria-hidden', 'true');
-            let tmp = `<div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content container-table hype-shadow-white">
-                      <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Conferma i Dati Inseriti</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                        I dati inseriti, una volta inviati, non possono essere più modificati. Sicuro di volerli inviare?
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="mine-custom-btn min-custom-btn-grey" data-bs-dismiss="modal">No, Torna Indietro</button>
-                        <button type="button" class="mine-custom-btn modal-save-button bg-danger">Si, Invia</button>
-                      </div>
-                    </div>
-                  </div>`
-            HypeModal.innerHTML = tmp;
-            document.body.appendChild(HypeModal);
-            const myModal = new bootstrap.Modal(HypeModal)
-            myModal.show();
-            const btnSave = HypeModal.querySelector('.modal-save-button')
-            btnSave.addEventListener('click', () => {
-                Form.submit();
-                HypeModal.remove();
-            })
-            const buttons = Array.from(HypeModal.getElementsByTagName('button'));
-            buttons.forEach((button) => {
-                button.addEventListener('click', () => {
-                    HypeModal.remove();
-                });
-            });
-        }
+        // function createConfirmModal() {
+        //     const HypeModal = document.createElement('div');
+        //     HypeModal.classList.add('modal', 'fade');
+        //     HypeModal.setAttribute('id', 'hype-modal');
+        //     HypeModal.setAttribute('tabindex', '-1');
+        //     HypeModal.setAttribute('aria-labelledby', 'exampleModalLabel');
+        //     HypeModal.setAttribute('aria-hidden', 'true');
+        //     let tmp = `<div class="modal-dialog modal-dialog-centered">
+        //             <div class="modal-content container-table hype-shadow-white">
+        //               <div class="modal-header">
+        //                 <h1 class="modal-title fs-5" id="exampleModalLabel">Conferma i Dati Inseriti</h1>
+        //                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        //               </div>
+        //               <div class="modal-body">
+        //                 I dati inseriti, una volta inviati, non possono essere più modificati. Sicuro di volerli inviare?
+        //               </div>
+        //               <div class="modal-footer">
+        //                 <button type="button" class="mine-custom-btn min-custom-btn-grey" data-bs-dismiss="modal">No, Torna Indietro</button>
+        //                 <button type="button" class="mine-custom-btn modal-save-button bg-danger">Si, Invia</button>
+        //               </div>
+        //             </div>
+        //           </div>`
+        //     HypeModal.innerHTML = tmp;
+        //     document.body.appendChild(HypeModal);
+        //     const myModal = new bootstrap.Modal(HypeModal)
+        //     myModal.show();
+        //     const btnSave = HypeModal.querySelector('.modal-save-button')
+        //     btnSave.addEventListener('click', () => {
+        //         Form.submit();
+        //         HypeModal.remove();
+        //     })
+        //     const buttons = Array.from(HypeModal.getElementsByTagName('button'));
+        //     buttons.forEach((button) => {
+        //         button.addEventListener('click', () => {
+        //             HypeModal.remove();
+        //         });
+        //     });
+        // }
 
     })
 })

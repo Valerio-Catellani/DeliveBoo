@@ -100,7 +100,8 @@
                         <hr>
 
                         <div class="mb-3 @error('rest_name') err-animation @enderror">
-                            <label for="rest_name" class="form-label">Nome Ristorante<span class="text-danger fw-bold">*</span></label>
+                            <label for="rest_name" class="form-label">Nome Ristorante<span
+                                    class="text-danger fw-bold">*</span></label>
                             <input type="text"
                                 class="form-control @error('rest_name') is-invalid err-animation @enderror" id="rest_name"
                                 name="rest_name" value="{{ old('rest_name') }}" required maxlength="255" minlength="3">
@@ -112,16 +113,17 @@
                         <div class="mb-3 @error('address') err-animation @enderror">
                             <label for="address" class="form-label ">Indirizzo Ristorante<span
                                     class="text-danger fw-bold">*</span></label>
-                            <input type="text"
-                                class="form-control @error('address') is-invalid err-animation @enderror" id="address"
-                                name="address" value="{{ old('address') }}" required maxlength="255" minlength="3">
+                            <input type="text" class="form-control @error('address') is-invalid err-animation @enderror"
+                                id="address" name="address" value="{{ old('address') }}" required maxlength="255"
+                                minlength="3">
                             @error('address')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>
 
                         <div class="mb-3 @error('VAT') err-animation @enderror">
-                            <label for="VAT" class="form-label">Partita IVA<span class="text-danger fw-bold">*</span></label>
+                            <label for="VAT" class="form-label">Partita IVA<span
+                                    class="text-danger fw-bold">*</span></label>
                             <input type="text" class="form-control @error('VAT') is-invalid err-animation @enderror"
                                 id="VAT" name="VAT" value="{{ old('VAT') }}" required pattern="\d{11}"
                                 title="La partita IVA deve essere esattamente di 11 cifre">
@@ -134,8 +136,8 @@
                         <div class="mb-5 @error('phone') err-animation @enderror">
                             <label for="phone" class="form-label">Recapito Telefonico</label>
                             <input type="text" class="form-control @error('phone') is-invalid err-animation @enderror"
-                                id="phone" name="phone" value="{{ old('phone') }}" pattern="\d{10}"
-                                title="il numero di telefono deve essere di 10 cifre">
+                                id="phone" name="phone" value="{{ old('phone') }}" maxlength="10"
+                                minlength="10" pattern="\d{10}" title="il numero di telefono deve essere di 10 cifre">
                             @error('phone')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
