@@ -80,7 +80,7 @@ class DishController extends Controller
 
     public function show($user_slug, $restaurant_slug, $dish_slug)
     {
-        $restaurant = Restaurant::where('slug', $restaurant_slug)->first();
+        /* $restaurant = Restaurant::where('slug', $restaurant_slug)->first();
 
         if ($restaurant->user_id == Auth::user()->id) {
 
@@ -88,7 +88,8 @@ class DishController extends Controller
             return view('admin.dishes.show', compact('dish'));
         } else {
             return view('admin.errors.404');
-        }
+        } */
+        return view('admin.errors.404');
     }
 
     /**
