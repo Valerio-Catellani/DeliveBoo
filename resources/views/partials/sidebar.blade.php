@@ -15,7 +15,7 @@
             class="fa-solid fa-caret-right fs-1 d-none hype-text-collapse"></i></button>
     <a href="http://localhost:5174" class="nav-link text-white d-flex p-3">
         <div class="logo-img-container d-flex align-items-center">
-            <img class="img-fluid" src="/images/cinema_paradiso_logo.png" alt="logo">
+            <img class="img-fluid" src="/images/logo-trasparente.png" alt="logo">
         </div>
         <h2 class="p-3 hype-text-collapse">DeliveBoo</h2>
     </a>

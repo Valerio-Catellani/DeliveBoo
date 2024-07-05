@@ -32,11 +32,11 @@
                 <thead>
                     <tr>
                         <th class="col-2 d-none d-xl-table-cell">Immagine</th>
-                        <th class="col-2">Nome</th>
-                        <th class="col-2 d-none d-xl-table-cell">Descrizione</th>
-                        <th class="col-1">Prezzo</th>
-                        <th class="col-1 d-none d-xl-table-cell">Visibile</th>
-                        <th class="col-4">Azioni</th>
+                        <th>Nome</th>
+                        <th class="d-none d-xl-table-cell">Descrizione</th>
+                        <th>Prezzo</th>
+                        <th class="d-none d-xl-table-cell">Visibile</th>
+                        <th>Azioni</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -51,40 +51,35 @@
                             }
                         @endphp
                         <tr>
-                            <td class="align-middle d-none d-xl-table-cell {{ $dish->visible ? '' : 'opacity-50' }} }}">
+                            <td class="align-middle d-none d-xl-table-cell {{ $dish->visible ? '' : 'opacity-50' }}">
                                 @if (isset($dish->image) && strpos($dish->image, 'http') === 0)
-                                    <img src="{{ $dish->image }}" class="img-fluid" alt="dsih image"
+                                    <img src="{{ $dish->image }}" class="img-fluid" alt="dish image"
                                         style="height: 200px; width:200px">
                                 @else
                                     <img src="{{ asset('storage/' . $dish->image) }}" class="img-fluid" alt="dish image"
                                         style="height: 200px; width:200px">
                                 @endif
                             </td>
-                            <td class="align-middle {{ $dish->visible ? '' : 'opacity-50' }} }}">{{ $dish->name }}</td>
-                            <td class="align-middle d-none d-xl-table-cell {{ $dish->visible ? '' : 'opacity-50' }} }}">
+                            <td class="align-middle {{ $dish->visible ? '' : 'opacity-50' }}">{{ $dish->name }}</td>
+                            <td class="align-middle d-none d-xl-table-cell {{ $dish->visible ? '' : 'opacity-50' }}">
                                 {{ $dish->description }}</td>
-                            <td class="align-middle {{ $dish->visible ? '' : 'opacity-50' }} }}">{{ $dish->price }}€</td>
-                            <td class="align-middle d-none d-xl-table-cell {{ $dish->visible ? '' : 'opacity-50' }} }}">
+                            <td class="align-middle {{ $dish->visible ? '' : 'opacity-50' }}">{{ $dish->price }}€</td>
+                            <td class="align-middle d-none d-xl-table-cell {{ $dish->visible ? '' : 'opacity-50' }}">
                                 {{ $dish->visible ? 'Si' : 'No' }}</td>
-
-                            <td class="align-middle {{ $dish->visible ? '' : 'bg-opacity-50' }} }}">
+                            <td class="align-middle {{ $dish->visible ? '' : 'bg-opacity-50' }}">
                                 <div class="d-flex justify-content-center gap-2">
-                                    <button class="btn btn-primary hype-hover-size "
-                                        onclick="location.href='{{ route('admin.dishes.show', $data_dish_slug) }}'">
-                                        <i class="fa-solid fa-eye"></i> Mostra
-                                    </button>
                                     <button class="btn btn-warning hype-hover-size"
                                         onclick="location.href='{{ route('admin.dishes.edit', $data_dish_slug) }}'">
-                                        <i class="fa-solid fa-edit"></i> Modifica
+                                        <i class="fa-solid fa-edit"></i>
                                     </button>
                                     <form id="delete-form" action="{{ route('admin.dishes.destroy', $data_dish_slug) }}"
                                         method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button class="btn btn-danger element-delete  hype-hover-size" type="submit"
+                                        <button class="btn btn-danger element-delete hype-hover-size" type="submit"
                                             data-element-id="{{ $dish->id }}"
                                             data-element-title="{{ $dish->name }}">
-                                            <i class="fa-solid fa-trash"></i> Elimina
+                                            <i class="fa-solid fa-trash"></i>
                                         </button>
                                     </form>
                                 </div>
