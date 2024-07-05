@@ -5,8 +5,8 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarAdmin">
-            <ul class="navbar-nav mr-auto">
-                <!-- Notifiche -->
+     <!--        <ul class="navbar-nav mr-auto">
+
                 <li class="nav-item dropdown me-2">
                     <button id="btn-message" class="button-message">
                         <div class="content-avatar">
@@ -26,7 +26,7 @@
                         </div>
                     </button>
                 </li>
-            </ul>
+            </ul> -->
 
             <!-- Link Profilo -->
             <ul class="navbar-nav me-2">
