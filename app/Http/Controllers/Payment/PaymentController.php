@@ -37,7 +37,7 @@ class PaymentController extends Controller
         $data = $request->all();
 
         //prendo il ristornate
-        $restaurant = Restaurant::where('slug', $request->input('cart.restaurantSlug'))->first();
+        $restaurant = Restaurant::where('id', $request->input('cart.restaurantId'))->first();
         //!ERRORE: RISTORANTE NON TROVATO
         if (!$restaurant) {
             return response()->json(['success' => false, 'error' => 'Ristorante non trovato']);
@@ -60,12 +60,12 @@ class PaymentController extends Controller
                 return response()->json(['success' => false, 'error' => 'Piatto non trovato']);
             }
             //!ERRORE QUANTITA' SELEZIONATA NON VALIDA
-            else if ($dish['quantity'] <= 0) {
+            else if ($dish['qty'] <= 0) {
                 return response()->json(['success' => false, 'error' => "$dish_on_db->name: Quantità selezionata non consentita"]);
             }
             //Incremento il prezzo
             else {
-                $amount += $dish_on_db->price * $dish['quantity'];
+                $amount += $dish_on_db->price * $dish['qty'];
             }
         }
 
@@ -148,8 +148,8 @@ class PaymentController extends Controller
                 $new_dishOrder->dish_id = $dish_on_db->id;
                 $new_dishOrder->order_id = $new_order->id;
                 $new_dishOrder->dish_name = $dish_on_db->name;
-                $new_dishOrder->dish_quantity = $dish['quantity'];
-                $new_dishOrder->dish_price = $dish_on_db->price * $dish['quantity'];
+                $new_dishOrder->dish_quantity = $dish['qty'];
+                $new_dishOrder->dish_price = $dish_on_db->price * $dish['qty'];
                 $new_dishOrder->save();
             }
 
