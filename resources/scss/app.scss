@@ -79,11 +79,9 @@ body {
 }
 
 .min-custom-btn-grey {
-    background-image: radial-gradient(
-        100% 100% at 100% 0,
-        $background-4th-color 0,
-        $background-secondary-color 100%
-    ) !important;
+    background-image: radial-gradient(100% 100% at 100% 0,
+            $background-4th-color 0,
+            $background-secondary-color 100%) !important;
 }
 
 .form-control:focus {
@@ -153,11 +151,9 @@ body {
         }
 
         li {
-            background: linear-gradient(
-                to right,
-                $background-tertiary-color 50%,
-                $background-primary-color 50%
-            );
+            background: linear-gradient(to right,
+                    $background-tertiary-color 50%,
+                    $background-primary-color 50%);
             background-size: 200% 100%;
             background-position: right bottom;
             transition: background-position 0.5s;
@@ -201,11 +197,9 @@ body {
 
         header {
             height: 80px;
-            background-image: linear-gradient(
-                to right,
-                $background-primary-color 10%,
-                $background-secondary-color 20%
-            );
+            background-image: linear-gradient(to right,
+                    $background-primary-color 10%,
+                    $background-secondary-color 20%);
             display: flex;
             justify-content: end;
             position: relative;
@@ -238,6 +232,7 @@ svg {
     width: 100% !important;
     height: 100% !important;
 }
+
 /* Cards */
 .card-custom {
     overflow: hidden;
@@ -829,8 +824,7 @@ textarea {
     border-radius: 10px;
 }
 
-.img-show-resturant {
-    border: 1px solid red;
+img.img-show-resturant {
     height: 350px;
     width: 100%;
     padding: 0;
@@ -842,6 +836,7 @@ textarea {
 .card-custom {
     max-width: 900px;
     margin: 0 auto;
+
     img {
         height: 250px;
         padding: 3px;
@@ -861,14 +856,17 @@ textarea {
         animation: scales 3s alternate infinite;
         transform-origin: center;
     }
+
     .pao-baixo {
         animation: rotatepao 14s cubic-bezier(0.1, 0.49, 0.41, 0.97) infinite;
         transform-origin: center;
     }
+
     .pao-cima {
         animation: rotatepao 7s 1s cubic-bezier(0.1, 0.49, 0.41, 0.97) infinite;
         transform-origin: center;
     }
+
     .olhos {
         animation: olhos 2s alternate infinite;
         transform-origin: center;
@@ -888,10 +886,12 @@ textarea {
         animation: olhos 2s alternate infinite;
         transform-origin: center;
     }
+
     @keyframes scales {
         from {
             transform: scale(0.98);
         }
+
         to {
             transform: scale(1);
         }
@@ -901,10 +901,12 @@ textarea {
         0% {
             transform: rotate(0deg);
         }
+
         50%,
         60% {
             transform: rotate(-20deg);
         }
+
         100% {
             transform: rotate(0deg);
         }
@@ -914,6 +916,7 @@ textarea {
         0% {
             transform: rotateX(0deg);
         }
+
         100% {
             transform: rotateX(30deg);
         }
@@ -941,11 +944,13 @@ textarea {
     }
 
     @keyframes dash {
+
         0%,
         30% {
             fill: 4B4B62;
             stroke-dashoffset: 0;
         }
+
         80%,
         100% {
             fill: transparent;
@@ -953,6 +958,7 @@ textarea {
         }
     }
 }
+
 /* stile login */
 
 #login,
@@ -978,9 +984,9 @@ textarea {
     height: 60px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
-backdrop-filter: blur(20px);
--webkit-backdrop-filter: blur(20px);
-color: white;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    color: white;
 }
 
 /* stile app blade */
@@ -996,4 +1002,3 @@ color: white;
 .navbar-brand {
     width: 80px;
 }
-
