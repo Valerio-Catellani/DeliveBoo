@@ -68,7 +68,7 @@
                                 {{ $dish->visible ? 'Si' : 'No' }}
                             </td>
                             <td class="align-middle {{ $dish->visible ? '' : 'bg-opacity-50' }}">
-                                <div class="d-flex justify-content-center gap-2">
+                                <div class="d-flex justify-content-left gap-2">
                                     <button class="btn btn-warning hype-hover-size"
                                         onclick="location.href='{{ route('admin.dishes.edit', $data_dish_slug) }}'">
                                         <i class="fa-solid fa-edit"></i>
