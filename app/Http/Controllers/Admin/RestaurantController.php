@@ -83,6 +83,8 @@ class RestaurantController extends Controller
 
 
         $restaurant = Restaurant::where('slug', $restaurant_slug)->first();
+
+        // dd($restaurant);
         if ($restaurant && $restaurant->user_id == Auth::user()->id) {
 
             $data = [

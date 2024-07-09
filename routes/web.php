@@ -8,7 +8,9 @@ use App\Http\Controllers\Payment\PaymentController;
 use App\Http\Controllers\Admin\DishController;
 
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
+use App\Http\Controllers\Admin\OrderController;
 use Illuminate\Support\Facades\Auth;
+
 
 use Illuminate\Support\Facades\Route;
 
@@ -42,6 +44,7 @@ Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin/{user_slu
     //http://127.0.0.1:8000/admin/valerio-cdddd/dishes/pizza-margherita
     Route::resource('restaurants/{restaurant_slug}/dishes', DishController::class)->parameters(['dishes' => 'dish_slug']);
     //http://127.0.0.1:8000/admin/valerio-cdddd/restaurants/da-zio-luciano-1/dishes/pizza-margherita
+    Route::get('restaurants/{restaurant_slug}/orders', [OrderController::class, 'showBills'])->name('orders.showBills');
 
 
     //altre rotte...
