@@ -99,7 +99,7 @@ document.querySelectorAll('#register-user-button').forEach((element) => {
                         if (field.value.length === 0) {
                             validationMessage = 'Il campo Parita Iva e\' obbligatorio';
                         } else {
-                            validationMessage = 'Il campo Parita Iva deve avere almeno 11 caratteri';
+                            validationMessage = 'Il campo Parita Iva deve avere esattamente 11 cifre';
                         }
                         break;
                     case 'phone':
