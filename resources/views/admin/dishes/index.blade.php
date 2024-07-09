@@ -20,7 +20,7 @@
             </div>
         @endif
         <div class="d-flex flex-column mb-3 align-items-baseline">
-            <h2 class="text-center hype-text-shadow display-3 fw-bold title-primary my-3 w-100">Piatti del
+            <h2 class="text-center display-3 fw-bold title-primary my-3 w-100">Piatti del
                 {{ $restaurant->name }}</h2>
             <button class="btn btn-success hype-hover-size my-3"
                 onclick="location.href='{{ route('admin.dishes.create', $data) }}'">
@@ -33,7 +33,7 @@
                     <tr>
                         <th class="col-2 d-none d-xl-table-cell">Immagine</th>
                         <th>Nome</th>
-                        <th class="d-none d-xl-table-cell">Descrizione</th>
+                        {{--<th class="d-none d-xl-table-cell">Descrizione</th>--}}
                         <th>Prezzo</th>
                         <th class="d-none d-xl-table-cell">Visibile</th>
                         <th>Azioni</th>
@@ -61,8 +61,8 @@
                                 @endif
                             </td>
                             <td class="align-middle {{ $dish->visible ? '' : 'opacity-50' }}">{{ $dish->name }}</td>
-                            <td class="align-middle d-none d-xl-table-cell {{ $dish->visible ? '' : 'opacity-50' }}">
-                                {{ $dish->description }}</td>
+                            {{--<td class="align-middle d-none d-xl-table-cell {{ $dish->visible ? '' : 'opacity-50' }}">
+                                {{ $dish->description }}</td>--}}
                             <td class="align-middle {{ $dish->visible ? '' : 'opacity-50' }}">{{ $dish->price }}€</td>
                             <td class="align-middle d-none d-xl-table-cell {{ $dish->visible ? '' : 'opacity-50' }}">
                                 {{ $dish->visible ? 'Si' : 'No' }}</td>
