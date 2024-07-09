@@ -1,7 +1,8 @@
 @extends('layouts.app')
 @section('content')
     <section class="container">
-        <h1>Section title</h1>
+        <!-- <img src="./public/" alt=""> -->
+        <!-- <h1>Section title</h1> -->
         <div class="container">
             <div class="row">
                 @foreach ($cat as $category)
@@ -36,6 +37,6 @@
                 </div>
             @endforeach
         </div>
-        <p>section content</p>
+        <!-- <p>section content</p> -->
     </section>
 @endsection

@@ -28,10 +28,9 @@
 
         @if ($restaurant)
             <li class="nav-item {{ Route::currentRouteName() === 'admin.restaurants.show' ? 'active' : '' }}">
-                <a class="nav-link text-white " aria-current="page"
-                    href="{{ route('admin.restaurants.show', $data) }}"><i
-                        class="fa-solid fa-utensils fs-4 pe-3"></i><span class="hype-text-collapse">I miei
-                        Ristoranti</span></a>
+                <a class="nav-link text-white " aria-current="page" href="{{ route('admin.restaurants.show', $data) }}"><i
+                        class="fa-solid fa-utensils fs-4 pe-3"></i><span class="hype-text-collapse">Il mio
+                        ristorante</span></a>
             </li>
             <li
                 class="nav-item {{ Route::currentRouteName() === 'admin.dishes.index' || Route::currentRouteName() === 'admin.dishes.show' || Route::currentRouteName() === 'admin.dishes.edit' || Route::currentRouteName() === 'admin.dishes.create' ? 'active' : '' }}">
@@ -41,12 +40,12 @@
             </li>
             <li class="nav-item ">
                 <a class="nav-link text-white " aria-current="page" href="{{ route('admin.orders.showBills', $data) }}">
-                <i class="fa-solid fa-receipt fs-4 pe-3"></i><span class="hype-text-collapse">I miei ordini</span>
+                    <i class="fa-solid fa-receipt fs-4 pe-3"></i><span class="hype-text-collapse">I miei ordini</span>
                 </a>
             </li>
         @endif
         {{--
-         <li
+        <li
             class="nav-item {{ Route::currentRouteName() === 'admin.rooms.index' || Route::currentRouteName() === 'admin.rooms.show' || Route::currentRouteName() === 'admin.rooms.edit' || Route::currentRouteName() === 'admin.rooms.create' ? 'active' : '' }}">
             <a class="nav-link text-white " aria-current="page" href="{{ route('admin.rooms.index') }}"><i
                     class="fa-solid fa-tv fs-4 pe-3"></i><span class="hype-text-collapse">Sale</span></a>
