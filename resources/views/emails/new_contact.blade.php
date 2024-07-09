@@ -11,6 +11,12 @@
     <p><strong>Indirizzo:</strong> {{ $lead['customer_adress'] }}</p>
     <p><strong>Telefono:</strong> {{ $lead['customer_phone'] }}</p>
     <p><strong>Data e ora ordine:</strong> {{ $lead['order_date'] }}</p>
-    <p><strong>Totale:</strong> {{ $lead['total_price'] }}</p>
+    <p><strong>Totale ordine:</strong> {{ $lead['total_price'] }}</p>
+
+    <ul>
+        @foreach($orderedDishes as $dish)
+        <li> nome piatto {{ $dish['name'] }} - Quantità: {{ $dish['qty'] }} - Prezzo unitazio: {{ $dish['price'] }}</li>
+        @endforeach
+    </ul>
 </body>
 </html>

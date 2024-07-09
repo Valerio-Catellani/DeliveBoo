@@ -127,7 +127,7 @@ class PaymentController extends Controller
                 'submitForSettlement' => true
             ]
         ]);
-
+        
         //* PAGAMENTO EFFETTUATO CON SUCCESSO
         if ($result->success) {
             
@@ -142,7 +142,9 @@ class PaymentController extends Controller
                 'total_price' => $validated['total_price'],
                 'slug' => $validated['slug'],
             ]);
-    
+            
+            
+            $orderedDishes = [];
             //CREO LA RIGHE NELLA TABELLA DISHORDER
             foreach ($request->input('cart.dishes') as $dish) {
                 $dish_on_db = Dish::where('slug', $dish['slug'])->first();
@@ -153,12 +155,19 @@ class PaymentController extends Controller
                 $new_dishOrder->dish_quantity = $dish['qty'];
                 $new_dishOrder->dish_price = $dish_on_db->price * $dish['qty'];
                 $new_dishOrder->save();
+                $orderedDishes[] = [
+                    'name' => $dish_on_db->name,
+                    'qty' => $dish['qty'],
+                    'price' => $dish_on_db->price
+                ];
             };
 
             //INVIO LA MAIL AL CLIENTE
             
             try {
-                Mail::to($validated['customer_email'])->send(new NewContact($validated));
+                
+                Mail::to($validated['customer_email'])->send(new NewContact($validated, $orderedDishes));
+                Mail::to($user->email)->send(new NewContact($validated, $orderedDishes));
             } catch (\Exception $e) {
                 Log::error('Errore durante l\'invio dell\'email: ' . $e->getMessage());
                 return response()->json(['success' => false, 'error' => 'Errore durante l\'invio dell\'email.']);
