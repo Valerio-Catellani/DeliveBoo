@@ -61,45 +61,45 @@ document.querySelectorAll('#register-user-button').forEach((element) => {
                 switch (field.id) {
                     case 'name':
                         if (field.value.length === 0) {
-                            validationMessage = 'Il campo Nome e\' obbligatorio';
+                            validationMessage = 'Il campo nome è obbligatorio';
                         } else {
                             validationMessage = 'Il campo Nome deve avere almeno 3 caratteri';
                         }
                         break;
                     case 'lastname':
                         if (field.value.length === 0) {
-                            validationMessage = 'Il campo Cognome e\' obbligatorio';
+                            validationMessage = 'Il campo Cognome è obbligatorio';
                         } else {
                             validationMessage = 'Il campo Cognome deve avere almeno 3 caratteri';
                         }
                         break;
                     case 'email':
                         if (field.value.length === 0) {
-                            validationMessage = 'Il campo E-Mail e\' obbligatorio';
+                            validationMessage = 'Il campo E-Mail è obbligatorio';
                         } else if (!emailPattern.test(field.value)) {
-                            validationMessage = 'Il campo E-Mail non e\' valido';
+                            validationMessage = 'Il campo E-Mail non è valido';
                         }
                         break;
                     case 'password':
-                        validationMessage = 'Il campo Password e\' obbligatorio';
+                        validationMessage = 'Il campo Password è obbligatorio';
                         break;
                     case 'password-confirm':
-                        validationMessage = 'Il campo Conferma Password e\' obbligatorio';
+                        validationMessage = 'Il campo Conferma Password è obbligatorio';
                         break;
                     case 'typology_id':
                         validationMessage = 'Seleziona almeno una tipologia';
                         break;
                     case 'rest_name':
-                        validationMessage = 'Il campo Nome Ristorante e\' obbligatorio';
+                        validationMessage = 'Il campo Nome Ristorante è obbligatorio';
                         break;
                     case 'address':
-                        validationMessage = 'Il campo Indirizzo e\' obbligatorio';
+                        validationMessage = 'Il campo Indirizzo è obbligatorio';
                         break;
                     case 'VAT':
                         if (field.value.length === 0) {
-                            validationMessage = 'Il campo Parita Iva e\' obbligatorio';
+                            validationMessage = 'Il campo Parita Iva è obbligatorio';
                         } else {
-                            validationMessage = 'Il campo Parita Iva deve avere esattamente 11 cifre';
+                            validationMessage = 'Hai inserito ' + field.value.length + ' caratteri. Il campo Parita Iva deve avere esattamente 11 caratteri';
                         }
                         break;
                     case 'phone':
