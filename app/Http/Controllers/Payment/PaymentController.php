@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Payment;
 
 use App\Services\BraintreeService;
 use App\Http\Controllers\Controller;
+use App\Mail\NewContact;
 use App\Models\Restaurant;
 use App\Models\User;
 use App\Models\Dish;
@@ -14,6 +15,7 @@ use Carbon\Carbon;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Facades\Mail;
 
 use Illuminate\Http\Request;
 
@@ -151,6 +153,15 @@ class PaymentController extends Controller
                 $new_dishOrder->dish_quantity = $dish['qty'];
                 $new_dishOrder->dish_price = $dish_on_db->price * $dish['qty'];
                 $new_dishOrder->save();
+            };
+
+            //INVIO LA MAIL AL CLIENTE
+            
+            try {
+                Mail::to($validated['customer_email'])->send(new NewContact($validated));
+            } catch (\Exception $e) {
+                Log::error('Errore durante l\'invio dell\'email: ' . $e->getMessage());
+                return response()->json(['success' => false, 'error' => 'Errore durante l\'invio dell\'email.']);
             }
 
             return response()->json(['success' => true, 'transaction' => $result->transaction]);
