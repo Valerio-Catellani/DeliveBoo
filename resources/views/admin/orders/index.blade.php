@@ -1,33 +1,68 @@
-@section('title', 'Dettagli Ristorante: ')
+@section('title', 'Dettagli Ristorante')
 @extends('layouts.admin')
 
 @section('content')
+    <div class="accordion" id="ordersAccordion">
+        @foreach ($orders as $order)
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading{{ $order->id }}">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ $order->id }}" aria-expanded="true" aria-controls="collapse{{ $order->id }}">
+                        Ordine Numero: {{ $order->id }}
+                    </button>
+                </h2>
+                <div id="collapse{{ $order->id }}" class="accordion-collapse collapse" aria-labelledby="heading{{ $order->id }}" data-bs-parent="#ordersAccordion">
+                    <div class="accordion-body">
+                        <h2>Dettagli Cliente</h2>
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>Nome Utente</th>
+                                <td>{{ $order->customer_name }}</td>
+                            </tr>
+                            <tr>
+                                <th>Numero Telefono</th>
+                                <td>{{ $order->customer_phone }}</td>
+                            </tr>
+                            <tr>
+                                <th>Indirizzo</th>
+                                <td>{{ $order->customer_address }}</td>
+                            </tr>
+                            <tr>
+                                <th>Data e Ora</th>
+                                <td>{{ $order->created_at }}</td>
+                            </tr>
+                            <tr>
+                                <th>Email</th>
+                                <td>{{ $order->customer_email }}</td>
+                            </tr>
+                            <tr>
+                                <th>Totale</th>
+                                <td>{{ $order->total_price }}</td>
+                            </tr>
+                        </table>
 
-
-    @if (count($orders) == 0)
-        <h1>Non hai ancora ricevuto ordini</h1>
-    @elseif (count($orders) > 0)
-    @foreach ($orders as $order)
-        <div>
-            <h1>Numero Ordine: {{ $order->id }}</h1>
-            <h2>Nome Utente: {{ $order->customer_name }}</h2>
-            <h2>Numero Telefono: {{ $order->customer_phone }}</h2>
-            <h2>Indirizzo: {{ $order->customer_address }}</h2>
-            <h2>Data e Ora: {{ $order->created_at }}</h2>
-            <h2>Email: {{ $order->customer_email }}</h2>
-            <h2>Totale: {{ $order->total_price }}</h2>
-
-
-            @foreach ($order->dishes as $dish)
-                <div class="border border-3">
-                    <p>Nome Piatto: {{ $dish->pivot->dish_name }}</p>
-                    <p>Prezzo Piatto: {{ $dish->pivot->dish_price }}</p>
-                    <p>Quantità Piatto: {{ $dish->pivot->dish_quantity }}</p>
+                        <h2>Piatti Ordinati</h2>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Nome Piatto</th>
+                                    <th>Prezzo Piatto</th>
+                                    <th>Quantità Piatto</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($order->dishes as $dish)
+                                    <tr>
+                                        <td>{{ $dish->pivot->dish_name }}</td>
+                                        <td>{{ $dish->pivot->dish_price }}</td>
+                                        <td>{{ $dish->pivot->dish_quantity }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-            @endforeach
-        </div>
-    @endforeach
-
-    @endif
+            </div>
+        @endforeach
+    @div>
 
 @endsection
