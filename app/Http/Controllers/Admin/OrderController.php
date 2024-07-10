@@ -22,12 +22,12 @@ class OrderController extends Controller
                     $query->where('restaurant_id', $restaurant->id);
                 })->orderBy('created_at', 'desc')->get();
 
-            if (count($orders) > 0) {
                 return view('admin.orders.index', compact('orders'));
-            } else {
-                dd('non hai ancora ricevuto ordini');
-            }
+            // if (count($orders) > 0) {
+            //     return view('admin.orders.index', compact('orders'));
+            // } else {
+            //     dd('non hai ancora ricevuto ordini');
+            // }
         }
-        dd('error');
     }
 }
