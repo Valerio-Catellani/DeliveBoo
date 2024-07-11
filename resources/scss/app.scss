@@ -33,12 +33,12 @@ body {
     /* CSS */
     align-items: center;
     appearance: none;
-    background-color: $title-primary;
+    background-color: #6f9920; //$title-primary;
     border: 0;
     border-radius: 6px;
-    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
-        rgba(55, 0, 255, 0.3) 0 7px 13px -3px,
-        rgba(58, 70, 111, 0.5) 0 -3px 0 inset;
+    // box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+    //     rgba(55, 0, 255, 0.3) 0 7px 13px -3px,
+    //      rgba(58, 70, 111, 0.5) 0 -3px 0 inset;
     box-sizing: border-box;
     color: #fff;
     cursor: pointer;
@@ -1029,4 +1029,18 @@ img.img-show-resturant {
 
 .sign {
     padding: 5px;
+}
+
+.register-btn {
+    background-color: #6f9920;
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    border: none;
+}
+.register-btn:hover, 
+.register-btn:active{
+    background-color: #70ad00;;
 }
