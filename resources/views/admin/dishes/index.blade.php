@@ -33,7 +33,6 @@
                     <tr>
                         <th class="col-2 d-none d-xl-table-cell">Immagine</th>
                         <th>Nome</th>
-                        <th class="d-none d-xl-table-cell">Descrizione</th>
                         <th>Prezzo</th>
                         <th class="d-none d-xl-table-cell">Visibile</th>
                         <th>Azioni</th>
@@ -55,14 +54,15 @@
                                 @if (isset($dish->image) && strpos($dish->image, 'http') === 0)
                                     <img src="{{ $dish->image }}" class="img-fluid" alt="dish image"
                                         style="height: 200px; width:200px">
-                                @else
+                                @elseif (isset($dish->image) && !is_null($dish->image))
                                     <img src="{{ asset('storage/' . $dish->image) }}" class="img-fluid" alt="dish image"
                                         style="height: 200px; width:200px">
+                                @else
+                                    <img src="{{ asset('images/placeholder.png') }}" class="img-fluid" alt="no image"
+                                        >
                                 @endif
                             </td>
                             <td class="align-middle {{ $dish->visible ? '' : 'opacity-50' }}">{{ $dish->name }}</td>
-                            <td class="align-middle d-none d-xl-table-cell {{ $dish->visible ? '' : 'opacity-50' }}">
-                                {{ $dish->description }}</td>
                             <td class="align-middle {{ $dish->visible ? '' : 'opacity-50' }}">{{ $dish->price }}€</td>
                             <td class="align-middle d-none d-xl-table-cell {{ $dish->visible ? '' : 'opacity-50' }}">
                                 {{ $dish->visible ? 'Si' : 'No' }}</td>

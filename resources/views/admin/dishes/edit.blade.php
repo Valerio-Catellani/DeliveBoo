@@ -28,10 +28,10 @@
                 @csrf
                 @method('PUT')
 
-                <div class="alert alert-warning d-flex align-items-center" role="alert">
+                <!-- <div class="alert alert-warning d-flex align-items-center" role="alert">
                     <i class="fa-solid fa-exclamation-circle me-2"></i>
                     Tutti i campi contrassegnati con <span class="text-danger"> * </span> sono obbligatori.
-                </div>
+                </div> -->
 
 
                 <div class="mb-3 @error('name') err-animation @enderror">
