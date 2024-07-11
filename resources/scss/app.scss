@@ -1040,7 +1040,13 @@ img.img-show-resturant {
     font-size: 1.2rem;
     border: none;
 }
-.register-btn:hover, 
-.register-btn:active{
-    background-color: #70ad00;;
+
+.register-btn:hover,
+.register-btn:active {
+    background-color: #70ad00;
+    ;
+}
+
+.debug {
+    border: 1px solid red;
 }
