@@ -5,7 +5,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarAdmin">
-     <!--        <ul class="navbar-nav mr-auto">
+            <!--        <ul class="navbar-nav mr-auto">
 
                 <li class="nav-item dropdown me-2">
                     <button id="btn-message" class="button-message">
@@ -30,10 +30,10 @@
 
             <!-- Link Profilo -->
             <ul class="navbar-nav me-2">
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link text-white fs-6" href="#"><i
                             class="fa-solid fa-user fs-3 position-relative hype- "></i> Profile</a>
-                </li>
+                </li> -->
                 <!-- Pulsante Logout -->
                 <li class="nav-item">
                     <button class="Btn-logout"
