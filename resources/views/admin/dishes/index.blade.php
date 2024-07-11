@@ -55,7 +55,7 @@
                                     <img src="{{ $dish->image }}" class="img-fluid" alt="dish image">
                                 @elseif (isset($dish->image) && !is_null($dish->image))
                                     <img src="{{ asset('storage/' . $dish->image) }}" class="img-fluid" alt="dish image"
-                                        style="height: 200px; width:200px">
+                                        >
                                 @else
                                     <img src="{{ asset('images/placeholder.png') }}" class="img-fluid" alt="no image"
                                         >
