@@ -53,10 +53,10 @@
                             <td class="align-middle d-none d-xl-table-cell {{ $dish->visible ? '' : 'opacity-50' }}">
                                 @if (isset($dish->image) && strpos($dish->image, 'http') === 0)
                                     <img src="{{ $dish->image }}" class="img-fluid" alt="dish image"
-                                        style="height: 200px; width:200px">
+                                        >
                                 @elseif (isset($dish->image) && !is_null($dish->image))
                                     <img src="{{ asset('storage/' . $dish->image) }}" class="img-fluid" alt="dish image"
-                                        style="height: 200px; width:200px">
+                                        >
                                 @else
                                     <img src="{{ asset('images/placeholder.png') }}" class="img-fluid" alt="no image"
                                         >
