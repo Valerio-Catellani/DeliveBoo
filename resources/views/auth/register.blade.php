@@ -168,7 +168,7 @@
                         </div>
 
                         <div class="mb-2 mx-auto d-flex justify-content-center">
-                            <button id="register-user-button" type="submit" class="mine-custom-btn mb-3 w-100">
+                            <button id="register-user-button" type="submit" class="btn register-btn mb-3">
                                 Registrati
                             </button>
                         </div>
