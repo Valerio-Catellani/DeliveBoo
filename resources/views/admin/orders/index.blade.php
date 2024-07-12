@@ -28,7 +28,7 @@
                             </tr>
                             <tr>
                                 <th>Data e Ora</th>
-                                <td>{{ $order->created_at }}</td>
+                                <td>{{ \Carbon\Carbon::parse($order->created_at)->format('d/m/Y - H:i') }}</td>
                             </tr>
                             <tr>
                                 <th>Email</th>
@@ -39,7 +39,7 @@
                                 <td>{{ $order->total_price }}</td>
                             </tr>
                         </table>
-
+                        
                         <h2>Piatti Ordinati</h2>
                         <table class="table table-bordered">
                             <thead>

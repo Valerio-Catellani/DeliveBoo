@@ -33,7 +33,7 @@ class NewContact extends Mailable
     {
         return new Envelope(
             from: $this->lead['customer_email'],
-            subject: 'New Contact',
+            subject: 'Nuovo Ordine',
         );
     }
 
