@@ -7,7 +7,14 @@
             <div class="accordion-item">
                 <h2 class="accordion-header" id="heading{{ $order->id }}">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ $order->id }}" aria-expanded="true" aria-controls="collapse{{ $order->id }}">
-                        Ordine Numero: {{ $order->id }}
+                        <table class="table table-bordered">
+                            <tr>
+                                <th class="col-2 d-none d-xl-table-cell">Nome Utente:  {{  $order->customer_name }}</th>
+                                <th class="col-2 d-none d-xl-table-cell">Data e Ora:  {{  \Carbon\Carbon::parse($order->created_at)->format('d/m/Y - H:i') }}</th>
+                                <th class="col-2 d-none d-xl-table-cell">Totale:  € {{  $order->total_price }}</th>
+                            </tr>
+                        </table>
+
                     </button>
                 </h2>
                 <div id="collapse{{ $order->id }}" class="accordion-collapse collapse" aria-labelledby="heading{{ $order->id }}" data-bs-parent="#ordersAccordion">
