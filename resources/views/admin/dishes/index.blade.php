@@ -20,7 +20,7 @@
             </div>
         @endif
         <div class="d-flex flex-column mb-3 align-items-baseline">
-            <h2 class="text-center hype-text-shadow display-3 fw-bold title-primary my-3 w-100">Piatti del
+            <h2 class="text-center display-3 fw-bold title-primary my-3 w-100">Piatti del
                 {{ $restaurant->name }}</h2>
             <button class="btn btn-success hype-hover-size my-3"
                 onclick="location.href='{{ route('admin.dishes.create', $data) }}'">
@@ -52,8 +52,7 @@
                         <tr>
                             <td class="align-middle d-none d-xl-table-cell {{ $dish->visible ? '' : 'opacity-50' }}">
                                 @if (isset($dish->image) && strpos($dish->image, 'http') === 0)
-                                    <img src="{{ $dish->image }}" class="img-fluid" alt="dish image"
-                                        >
+                                    <img src="{{ $dish->image }}" class="img-fluid" alt="dish image">
                                 @elseif (isset($dish->image) && !is_null($dish->image))
                                     <img src="{{ asset('storage/' . $dish->image) }}" class="img-fluid" alt="dish image"
                                         >
