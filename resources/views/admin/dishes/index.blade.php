@@ -20,12 +20,14 @@
             </div>
         @endif
         <div class="d-flex flex-column mb-3 align-items-baseline">
-            <h2 class="text-center display-3 fw-bold title-primary my-3 w-100">Piatti del
+            <h2 class="text-center display-3 fw-bold title-primary my-3 w-100">Piatti del ristorante:
                 {{ $restaurant->name }}</h2>
-            <button class="btn btn-success hype-hover-size my-3"
-                onclick="location.href='{{ route('admin.dishes.create', $data) }}'">
-                <i class="fa-solid fa-plus"></i> Aggiungi Piatto
-            </button>
+            @if ($dishes && count($dishes) > 0)
+                <button class="mine-custom-btn hype-hover-size my-3"
+                    onclick="location.href='{{ route('admin.dishes.create', $data) }}'">
+                    <i class="fa-solid fa-plus "></i> Aggiungi Piatto
+                </button>
+            @endif
         </div>
         @if ($dishes && count($dishes) > 0)
             <table class="table table-bordered table-striped text-center hype-unselectable">
@@ -52,13 +54,14 @@
                         <tr>
                             <td class="align-middle d-none d-xl-table-cell {{ $dish->visible ? '' : 'opacity-50' }}">
                                 @if (isset($dish->image) && strpos($dish->image, 'http') === 0)
-                                    <img src="{{ $dish->image }}" class="img-fluid" alt="dish image">
+                                    <img src="{{ $dish->image }}" class="img-fluid mx-auto" alt="{{ $dish->name }}"
+                                        style="width: 150px; height: 150px; object-fit: cover;">
                                 @elseif (isset($dish->image) && !is_null($dish->image))
-                                    <img src="{{ asset('storage/' . $dish->image) }}" class="img-fluid" alt="dish image"
-                                        >
+                                    <img src="{{ asset('storage/' . $dish->image) }}" class="img-fluid mx-auto"
+                                        alt="{{ $dish->name }}" style="width: 150px; height: 150px; object-fit: cover;">
                                 @else
-                                    <img src="{{ asset('images/placeholder.png') }}" class="img-fluid" alt="no image"
-                                        >
+                                    <img src="{{ asset('images/placeholder.png') }}" class="img-fluid mx-auto"
+                                        alt="{{ $dish->name }}" style="width: 150px; height: 150px; object-fit: cover;">
                                 @endif
                             </td>
                             <td class="align-middle {{ $dish->visible ? '' : 'opacity-50' }}">{{ $dish->name }}</td>
@@ -90,7 +93,7 @@
         @else
             <div class="d-flex flex-column justify-content-center align-items-center" style="height: 50vh;">
                 <p class="text-center">Nessun piatto presente</p>
-                <button class="btn btn-success mt-2" onclick="location.href='{{ route('admin.dishes.create', $data) }}'">
+                <button class="mine-custom-btn mt-2" onclick="location.href='{{ route('admin.dishes.create', $data) }}'">
                     <i class="fa-solid fa-plus"></i> Aggiungi il primo piatto
                 </button>
             </div>

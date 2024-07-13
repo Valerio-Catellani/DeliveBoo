@@ -20,9 +20,9 @@ class OrderController extends Controller
             $orders = Order::with('dishes')
                 ->whereHas('dishes', function ($query) use ($restaurant) {
                     $query->where('restaurant_id', $restaurant->id);
-                })->orderBy('created_at', 'desc')->get();
+                })->orderBy('order_date', 'desc')->get();
 
-                return view('admin.orders.index', compact('orders'));
+            return view('admin.orders.index', compact('orders', 'restaurant'));
             // if (count($orders) > 0) {
             //     return view('admin.orders.index', compact('orders'));
             // } else {

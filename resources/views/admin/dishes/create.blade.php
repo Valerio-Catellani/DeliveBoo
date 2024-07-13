@@ -19,7 +19,7 @@
             <div class="card-image">
                 <h2 class="card-heading text-light">
                     Gestore Menu
-                    <small>Aggiungi una nuova portata</small>
+                    <small>Aggiungi un nuovo Piatto</small>
                 </h2>
             </div>
             <form id="comic-form" class="card-form" action="{{ route('admin.dishes.store', $data) }}" method="POST"
@@ -27,9 +27,9 @@
                 @csrf
 
                 <!-- <div class="alert alert-warning d-flex align-items-center" role="alert">
-                    <i class="fa-solid fa-exclamation-circle me-2"></i>
-                    Tutti i campi contrassegnati con <span class="text-danger"> * </span> sono obbligatori.
-                </div> -->
+                            <i class="fa-solid fa-exclamation-circle me-2"></i>
+                            Tutti i campi contrassegnati con <span class="text-danger"> * </span> sono obbligatori.
+                        </div> -->
 
                 <div class="mb-3 @error('name') err-animation @enderror">
                     <label for="name" class="form-label">Nome piatto <span class="text-danger">*</span></label>
@@ -42,7 +42,7 @@
 
                 <div class="mb-3 @error('price') err-animation @enderror">
                     <label for="price" class="form-label">Prezzo <span class="text-danger">*</span></label>
-                    <input type="number"  min="0"
+                    <input type="number" min="0"
                         class="form-control @error('price') is-invalid err-animation @enderror" id="price"
                         name="price" value="{{ old('price') }}" required>
                     @error('price')
@@ -62,7 +62,7 @@
                 <div class="mb-3 @error('description') err-animation @enderror">
                     <label for="description" class="form-label">Descrizione </label>
                     <textarea class="form-control @error('description') is-invalid err-animation @enderror" id="description"
-                        name="description" rows="3" >{{ old('description') }}</textarea>
+                        name="description" rows="3">{{ old('description') }}</textarea>
                     @error('description')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror

@@ -292,6 +292,7 @@ async function getData(month = new Date().getMonth() + 1, year = new Date().getF
         info.ordersByYear = respYear;
         const resp = response.data.results
         info.total_gain = resp.total_price;
+        console.log(info);
 
         for (let day = 1; day <= daysInMonth; day++) {
             const dayString = `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
