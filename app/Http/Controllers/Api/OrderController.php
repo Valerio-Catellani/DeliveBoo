@@ -8,6 +8,9 @@ use App\Models\Dish;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\DB;
+use App\Functions\Helpers;
+use App\Models\Cart;
+use Carbon\Carbon;
 
 use Illuminate\Support\Str;
 use App\Models\Restaurant;
@@ -98,6 +101,64 @@ class OrderController extends Controller
         }
     }
 
+    public function getOrdersByMonth(Request $request)
+    {
+        if ($request->query('user_id')) {
+            Carbon::setLocale('it');
+            $user_id = $request->query('user_id');
+            $restaurant = Restaurant::where('user_id', $user_id)->first();
+
+            if (!$restaurant) {
+                return response()->json(['error' => 'Restaurant not found'], 404);
+            }
+
+            $currentDate = Carbon::now();
+            $startDate = $currentDate->copy()->subMonths(11)->startOfMonth();
+
+            // Inizializzare un array per contenere i dati delle ordinazioni per ogni mese
+            $ordersByMonth = [];
+
+            // Iterare attraverso ogni mese dal mese iniziale fino al mese corrente
+            for ($date = $startDate; $date->lte($currentDate); $date->addMonth()) {
+                $month = $date->month;
+                $year = $date->year;
+
+                // Ottenere le ordinazioni per il mese corrente
+                $monthlyOrders = Order::selectRaw('COUNT(*) as number_of_orders, SUM(total_price) as total_price')
+                    ->whereMonth('order_date', $month)
+                    ->whereYear('order_date', $year)
+                    ->whereHas('dishes', function ($query) use ($restaurant) {
+                        $query->where('restaurant_id', $restaurant->id);
+                    })
+                    ->first();
+
+                // Aggiungere i dati al array
+                $ordersByMonth[] = [
+                    'month' => $date->isoFormat('MMMM'), // Usa isoFormat per ottenere il nome del mese in italiano
+                    'year' => $year,
+                    'number_of_orders' => $monthlyOrders->number_of_orders ?? 0,
+                    'total_price' => $monthlyOrders->total_price ?? 0,
+                ];
+            }
+
+            return response()->json(
+                [
+                    'status' => 'success',
+                    'message' => 'ok',
+                    'results' => $ordersByMonth
+                ],
+                200
+            );
+        } else {
+            return response()->json(
+                [
+                    'status' => 'error',
+                    'message' => 'User ID not provided'
+                ],
+                400
+            );
+        }
+    }
     // http://127.0.0.1:8000/api/get-orders/ristorante-altera-order-1
     public function findSingleOrder($slug)
     {

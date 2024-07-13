@@ -4,13 +4,16 @@ let info = {
     total_number_of_orders: 0,
     total_gain: 0,
     orders: {},
-    dishes: {}
+    dishes: {},
+    ordersByYear: [],
 }
 
 const charts = {
     column: '',
+    columnYear: '',
     donat: '',
-    line: ''
+    line: '',
+    lineYear: '',
 }
 
 function convertDateToItalianFormat(dateString) {
@@ -49,6 +52,42 @@ const ColumnChart = (async function () {
     }
 
 
+});
+
+const ColumnChartYear = (async function () {
+    if (charts.columnYear) {
+        charts.columnYear.destroy();
+        charts.columnYear = '';
+        ColumnChartYear();
+    } else {
+
+
+        charts.columnYear = new Chart(
+            document.getElementById('acquisitionsYear'),
+            {
+                type: 'bar',
+                data: {
+                    labels: info.ordersByYear.map(row => `${row.month} ${row.year}`),
+                    datasets: [
+                        {
+                            label: 'Ordinazioni per Mese',
+                            data: info.ordersByYear.map(row => row.number_of_orders),
+                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            }
+        );
+    }
 });
 
 async function loadImage(src) {
@@ -140,6 +179,44 @@ const LineChart = (async function () {
 
 })
 
+const LineChartYear = (async function () {
+    if (charts.lineYear) {
+        charts.lineYear.destroy();
+        charts.lineYear = '';
+        LineChartYear();
+    } else {
+        const data = info.ordersByYear;
+        const labels = data.map(entry => `${entry.month} ${entry.year}`);
+        const totalPriceData = data.map(entry => parseFloat(entry.total_price));
+
+        const chartData = {
+            labels: labels,
+            datasets: [{
+                label: 'Entrate Mensili',
+                data: totalPriceData,
+                fill: false,
+                borderColor: 'rgb(75, 192, 192)',
+                tension: 0.1
+            }]
+        }
+
+        charts.lineYear = new Chart(
+            document.getElementById('acquisitions-line-Year'),
+            {
+                type: 'line',
+                data: chartData,
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            }
+        );
+    }
+});
+
 
 function reset() {
     info = {
@@ -153,7 +230,11 @@ function reset() {
         element.classList.remove('d-none');
     })
 
-    document.querySelectorAll('.chart').forEach((element) => {
+    document.querySelectorAll('.chart-to-update').forEach((element) => {
+        element.classList.add('d-none');
+    })
+
+    document.querySelectorAll('.fst-italic').forEach((element) => {
         element.classList.add('d-none');
     })
 
@@ -204,6 +285,11 @@ async function getData(month = new Date().getMonth() + 1, year = new Date().getF
         const response = await axios.get('/api/get-orders', {
             params
         })
+        const responseYear = await axios.get('/api/get-orders-by-month', {
+            params
+        })
+        const respYear = responseYear.data.results
+        info.ordersByYear = respYear;
         const resp = response.data.results
         info.total_gain = resp.total_price;
 
@@ -235,13 +321,15 @@ async function getData(month = new Date().getMonth() + 1, year = new Date().getF
         info.total_number_of_orders = calcolaOrdiniTotali(info.orders);
         document.getElementById('total_price').innerHTML = `Guadagni Totali Mensili:  ${info.total_gain} €`
         document.getElementById('total_ordinations').innerHTML = `Ordinazioni Totali Mensili:  ${info.total_number_of_orders}`
-        document.getElementById('current_month').innerHTML = `${month}/${year}`
+        document.querySelectorAll('.current_month').forEach((element) => {
+            element.innerHTML = convertiData(month, year)
+        })
         document.querySelectorAll('.chart').forEach((element) => {
             element.classList.remove('d-none');
         })
 
         ColumnChart();
-        DonatChart();
+        //   DonatChart();
         LineChart();
 
     } catch {
@@ -250,8 +338,23 @@ async function getData(month = new Date().getMonth() + 1, year = new Date().getF
         document.querySelectorAll('.loader-container').forEach((element) => {
             element.classList.add('d-none');
         })
+        document.querySelectorAll('.fst-italic').forEach((element) => {
+            element.classList.remove('d-none');
+        })
+
     }
+}
+const mesiInItaliano = [
+    "gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno",
+    "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre"
+];
+
+// Funzione per convertire il formato di data
+function convertiData(mese, anno) {
+    // Il mese nell'array è zero-indexed, quindi dobbiamo sottrarre 1
+    const nomeMese = mesiInItaliano[mese - 1];
+    return `${nomeMese} ${anno}`;
 }
 
 
-export { ColumnChart, DonatChart, LineChart, getData }
+export { ColumnChart, DonatChart, LineChart, getData, ColumnChartYear, LineChartYear };

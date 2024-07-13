@@ -3,12 +3,15 @@ import "~resources/scss/app.scss";
 import * as bootstrap from "bootstrap";
 import.meta.glob(["../img/**", "../fonts/**"]);
 
-import { getData } from './chartjs.js';
+import { ColumnChartYear, LineChartYear, getData } from './chartjs.js';
 
 
 //DASHBOARD CHARTJS
 if (document.getElementById('restaurant-dashboard')) {
     await getData();
+    ColumnChartYear();
+    LineChartYear();
+
 }
 
 document.querySelectorAll('#chartjs-date-picker').forEach((element) => {
