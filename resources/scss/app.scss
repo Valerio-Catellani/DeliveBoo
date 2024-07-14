@@ -183,12 +183,13 @@ body {
     }
 
     .sidebard-collapse {
-        width: 80px !important;
+        width: 72px !important;
+        overflow: hidden;
     }
 
     @media screen and (max-width: 767px) {
         .sidebar-risize {
-            width: 80px !important;
+            width: 72px !important;
 
             .hype-text-collapse {
                 display: none;
@@ -986,8 +987,8 @@ img.img-show-resturant {
 
 #admin-nav {
     background: rgba(255, 255, 255, 0.466);
-    height: 60px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 0 !important;
 
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);

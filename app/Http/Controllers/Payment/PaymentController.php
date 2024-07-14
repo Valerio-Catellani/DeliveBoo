@@ -127,10 +127,10 @@ class PaymentController extends Controller
                 'submitForSettlement' => true
             ]
         ]);
-        
+
         //* PAGAMENTO EFFETTUATO CON SUCCESSO
         if ($result->success) {
-            
+
             //CREO L'ORDINE
             $new_order = Order::create([
                 'customer_name' => $validated['customer_name'],
@@ -142,8 +142,8 @@ class PaymentController extends Controller
                 'total_price' => $validated['total_price'],
                 'slug' => $validated['slug'],
             ]);
-            
-            
+
+
             $orderedDishes = [];
             //CREO LA RIGHE NELLA TABELLA DISHORDER
             foreach ($request->input('cart.dishes') as $dish) {
@@ -163,9 +163,9 @@ class PaymentController extends Controller
             };
 
             //INVIO LA MAIL AL CLIENTE
-            
+
             try {
-                
+
                 Mail::to($validated['customer_email'])->send(new NewContact($validated, $orderedDishes));
                 Mail::to($user->email)->send(new NewContact($validated, $orderedDishes));
             } catch (\Exception $e) {

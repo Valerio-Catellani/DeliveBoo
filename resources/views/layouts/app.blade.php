@@ -23,7 +23,7 @@
     <div id="app">
         <nav id="admin-nav" class="navbar navbar-expand-md shadow-sm">
             <div class="container">
-                <a href="{{ url('http://localhost:5174/') }}" class="navbar-brand" href="#">
+                <a href="{{ url('http://localhost:5174/') }}" class="navbar-brand p-0" href="#">
                     <img src="/images/logo-trasparente.png" alt="logo delivebool">
                 </a>
                 {{-- config('app.name', 'Laravel') --}}
@@ -36,10 +36,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-    <li class="nav-item">
-        <a class="nav-link" href="http://localhost:5174/">{{ __('Home') }}</a>
-    </li>
-</ul>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">{{ __('Home') }}</a>
+                        </li>
+                    </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">

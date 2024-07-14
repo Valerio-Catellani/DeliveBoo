@@ -13,7 +13,8 @@
                         aria-controls="collapse{{ $order->id }}">
                         <div class="container-fluid">
                             <div class="row">
-                                <div class="col-4 fs-5">Nome Utente: {{ $order->customer_name }}</div>
+                                <div class="col-4 fs-5">Nome Utente: {{ $order->customer_name }}
+                                    {{ $order->customer_lastname }}</div>
                                 <div class="col-4 fs-5">Data e Ora:
                                     {{ \Carbon\Carbon::parse($order->order_date)->format('d/m/Y - H:i') }}</div>
                                 <div class="col-4 fs-5">Totale: {{ $order->total_price }}€</div>
@@ -37,7 +38,7 @@
                         <table class="table table-bordered">
                             <tr>
                                 <th>Nome Utente</th>
-                                <td>{{ $order->customer_name }}</td>
+                                <td>{{ $order->customer_name }} {{ $order->customer_lastname }}</td>
                             </tr>
                             <tr>
                                 <th>Numero Telefono</th>

@@ -18,12 +18,12 @@ class OrderSeeder extends Seeder
 
     public function run(Faker $faker): void
     {
-       $restaurants = Restaurant::All();
-       $number_of_restaurants = count($restaurants);
+        $restaurants = Restaurant::All();
+        $number_of_restaurants = count($restaurants);
 
-       $number_of_orders = Helpers::numberOfOrders();
+        $number_of_orders = Helpers::numberOfOrders();
 
-        for ($i = 0; $i < $number_of_restaurants*$number_of_orders ; $i++) {
+        for ($i = 0; $i < $number_of_restaurants * $number_of_orders; $i++) {
             $new_order = new Order();
 
             $new_order->customer_name = $faker->firstName();
@@ -31,7 +31,7 @@ class OrderSeeder extends Seeder
             $new_order->customer_address = $faker->address();
             $new_order->customer_phone = $faker->phoneNumber();
             $new_order->customer_email = $faker->email();
-            $new_order->order_date = $faker->dateTimeBetween('-1 month', '+1 month');
+            $new_order->order_date = $faker->dateTimeBetween('-1 year', 'now');
             $new_order->total_price = 0.00;
 
             $new_order->save();

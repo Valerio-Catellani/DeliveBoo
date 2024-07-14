@@ -33,7 +33,6 @@ class API_request
 
                 $array_of_data[] = $dish_data;
             }
-            dd($array_of_data);
             return $array_of_data;
         } catch (RequestException $e) {
             // Gestione degli errori

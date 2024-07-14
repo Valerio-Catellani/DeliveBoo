@@ -3,40 +3,7 @@
     <section class="container">
         <!-- <img src="./public/" alt=""> -->
         <!-- <h1>Section title</h1> -->
-        <div class="container">
-            <div class="row">
-                @foreach ($cat as $category)
-                    <div class="col-2 mt-5" style="aspect-ratio: 1/1">
-                        <h6>{{ $category->name }}</h6>
-                        <div class="w-100 h-100">
-                            <img class="img-fluid w-100 h-100" src="{{ $category->image }}" alt="no-img">
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                @foreach ($rest as $res)
-                    <div class="col-2 mt-5" style="aspect-ratio: 1/1">
-                        <h6>{{ $res->Name }}</h6>
-                        <div class="w-100 h-100">
-                            <img class="img-fluid w-100 h-100" src="{{ $res->image }}" alt="no-img">
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-        <div class="row">
-            @foreach ($data as $value)
-                <div class="col-2 mt-5" style="aspect-ratio: 1/1">
-                    <h6>{{ $value->nome }}</h6>
-                    <div class="w-100 h-100">
-                        <img class="img-fluid w-100 h-100" src="{{ $value->immagine }}" alt="no-img">
-                    </div>
-                </div>
-            @endforeach
-        </div>
+        <h2 class="text-center display-3 fw-bold title-primary py-5 my-5 w-100">Area Amministrativa DeliveBoo</h2>
         <!-- <p>section content</p> -->
     </section>
 @endsection

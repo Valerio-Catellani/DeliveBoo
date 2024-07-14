@@ -8,7 +8,7 @@
     <section id="dashboard" data-user-id="{{ Auth::user()->id }}">
 
         @if ($restaurant)
-            <div id="restaurant-dashboard" class=" mx-auto p-5 d-flex flex-column gap-5">
+            <div id="restaurant-dashboard" class=" mx-auto d-flex flex-column gap-5">
                 <div class="container">
                     <h2 class=" display-3 fw-bold title-primary mb-5 my-2 w-100">Benvenuto
                         <strong>{{ Auth::user()->name }}
