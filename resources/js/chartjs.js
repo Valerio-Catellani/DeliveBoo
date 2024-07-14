@@ -6,6 +6,7 @@ let info = {
     orders: {},
     dishes: {},
     ordersByYear: [],
+    arrayOfDishes: '',
 }
 
 const charts = {
@@ -72,8 +73,8 @@ const ColumnChartYear = (async function () {
                         {
                             label: 'Ordinazioni per Mese',
                             data: info.ordersByYear.map(row => row.number_of_orders),
-                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                            borderColor: 'rgba(75, 192, 192, 1)',
+                            backgroundColor: 'rgba(255, 0, 0, 0.2)',
+                            borderColor: 'rgba(255, 0, 0, 1)',
                             borderWidth: 1
                         }
                     ]
@@ -90,64 +91,6 @@ const ColumnChartYear = (async function () {
     }
 });
 
-async function loadImage(src) {
-    return new Promise((resolve) => {
-        const img = new Image();
-        img.onload = () => resolve(img);
-        img.src = src;
-    });
-}
-
-const DonatChart = (async function () {
-    if (charts.donat) {
-        charts.donat.destroy();
-        charts.donat = '';
-        DonatChart();
-    } else {
-        const entries = Object.values(info.dishes);
-        const images = await Promise.all(entries.map(entry => loadImage(entry.image)));
-
-        const data = {
-            labels: entries.map(entry => entry.name),
-            datasets: [{
-                label: 'Ordinazioni per Piatti',
-                data: entries.map(entry => entry.numbers_of_ordinations),
-                backgroundColor: images.map(img => {
-                    const pattern = document.createElement('canvas').getContext('2d').createPattern(img, 'repeat');
-                    return pattern;
-                })
-            }]
-        };
-
-        const ctx = document.getElementById('acquisitions-donat').getContext('2d');
-        charts.donat = new Chart(ctx, {
-            type: 'doughnut',
-            data: data,
-            options: {
-                cutout: '0%',
-                responsive: true,
-                plugins: {
-                    legend: {
-                        display: false
-                    },
-                    tooltip: {
-                        enabled: true
-                    }
-                },
-                elements: {
-                    arc: {
-                        backgroundColor: (ctx) => {
-                            const index = ctx.dataIndex;
-                            const img = images[index];
-                            const pattern = ctx.chart.ctx.createPattern(img, 'repeat');
-                            return pattern;
-                        }
-                    }
-                }
-            }
-        });
-    }
-})
 
 const LineChart = (async function () {
     if (charts.line) {
@@ -195,7 +138,7 @@ const LineChartYear = (async function () {
                 label: 'Entrate Mensili',
                 data: totalPriceData,
                 fill: false,
-                borderColor: 'rgb(75, 192, 192)',
+                borderColor: 'rgb(255, 0, 0)',
                 tension: 0.1
             }]
         }
@@ -234,9 +177,13 @@ function reset() {
         element.classList.add('d-none');
     })
 
-    document.querySelectorAll('.fst-italic').forEach((element) => {
+    document.querySelectorAll('.fst-italic-update').forEach((element) => {
         element.classList.add('d-none');
     })
+
+    document.getElementById('dishes-table').innerHTML = '';
+    document.getElementById('chartjs-date-picker').disabled = true;
+
 
 }
 
@@ -319,6 +266,10 @@ async function getData(month = new Date().getMonth() + 1, year = new Date().getF
                 info.dishes[dish.name].numbers_of_ordinations += order.dish_quantity;
             });
         });
+        const orderDish = Object.entries(info.dishes);
+        orderDish.sort((a, b) => b[1].numbers_of_ordinations - a[1].numbers_of_ordinations);
+        info.arrayOfDishes = orderDish;
+
         info.total_number_of_orders = calcolaOrdiniTotali(info.orders);
         document.getElementById('total_price').innerHTML = `Guadagni Totali Mensili:  ${info.total_gain} €`
         document.getElementById('total_ordinations').innerHTML = `Ordinazioni Totali Mensili:  ${info.total_number_of_orders}`
@@ -330,8 +281,8 @@ async function getData(month = new Date().getMonth() + 1, year = new Date().getF
         })
 
         ColumnChart();
-        //   DonatChart();
         LineChart();
+        dishesTable()
 
     } catch {
 
@@ -342,6 +293,8 @@ async function getData(month = new Date().getMonth() + 1, year = new Date().getF
         document.querySelectorAll('.fst-italic').forEach((element) => {
             element.classList.remove('d-none');
         })
+        document.getElementById('chartjs-date-picker').disabled = false;
+
 
     }
 }
@@ -357,5 +310,36 @@ function convertiData(mese, anno) {
     return `${nomeMese} ${anno}`;
 }
 
+function dishesTable() {
+    const container = document.getElementById('dishes-table');
+    const table = document.createElement('table');
+    table.classList.add('table', 'table-bordered', 'table-striped', 'text-center', 'hype-unselectable', 'table-hover');
+    table.innerHTML = `
+        <thead>
+            <tr>
+                <th>Immagine</th>
+                <th>Nome</th>
+                <th>Numero Ordinazioni</th>
+            </tr>
+        </thead>
+    `;
+    let tmp = '';
+    if (info.arrayOfDishes.length > 0) {
+        for (let i = 0; i < (info.arrayOfDishes.length > 5 ? 5 : info.arrayOfDishes.length); i++) {
+            tmp += `
+                <tr>
+                    <td style="width: 50px"><img src="${info.arrayOfDishes[i][1].image}" class="img-fluid mx-auto" style="width: 50px; height: 50px;"></td>
+                    <td>${info.arrayOfDishes[i][1].name}</td>
+                    <td>${info.arrayOfDishes[i][1].numbers_of_ordinations}</td>
+                </tr>
+            `
+        };
+        table.innerHTML += tmp;
+        container.appendChild(table);
+    } else {
+        container.innerHTML = `<p class="fst-italic text-center fs-5">Nessun elemento da mostrare</p>`
+    }
+}
 
-export { ColumnChart, DonatChart, LineChart, getData, ColumnChartYear, LineChartYear };
+
+export { getData, ColumnChartYear, LineChartYear };

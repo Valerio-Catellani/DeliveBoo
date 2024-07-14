@@ -8,17 +8,25 @@
         @foreach ($orders as $order)
             <div class="accordion-item">
                 <h2 class="accordion-header" id="heading{{ $order->id }}">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#collapse{{ $order->id }}" aria-expanded="true"
                         aria-controls="collapse{{ $order->id }}">
-                        <table class="table table-bordered">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-4 fs-5">Nome Utente: {{ $order->customer_name }}</div>
+                                <div class="col-4 fs-5">Data e Ora:
+                                    {{ \Carbon\Carbon::parse($order->order_date)->format('d/m/Y - H:i') }}</div>
+                                <div class="col-4 fs-5">Totale: {{ $order->total_price }}€</div>
+                            </div>
+                        </div>
+                        {{-- <table class="table table-bordered">
                             <tr>
                                 <th class="col-2 d-none d-xl-table-cell">Nome Utente: {{ $order->customer_name }}</th>
                                 <th class="col-2 d-none d-xl-table-cell">Data e Ora:
                                     {{ \Carbon\Carbon::parse($order->order_date)->format('d/m/Y - H:i') }}</th>
                                 <th class="col-2 d-none d-xl-table-cell">Totale: {{ $order->total_price }} €</th>
                             </tr>
-                        </table>
+                        </table> --}}
 
                     </button>
                 </h2>

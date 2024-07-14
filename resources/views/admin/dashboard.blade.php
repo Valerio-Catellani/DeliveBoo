@@ -10,11 +10,12 @@
         @if ($restaurant)
             <div id="restaurant-dashboard" class=" mx-auto p-5 d-flex flex-column gap-5">
                 <div class="container">
-                    <h2 class="mb-5 display-2">Benvenuto <strong>{{ Auth::user()->name }}
+                    <h2 class=" display-3 fw-bold title-primary mb-5 my-2 w-100">Benvenuto
+                        <strong>{{ Auth::user()->name }}
                             {{ Auth::user()->lastname }}</strong>
                     </h2>
-                    <div class="row w-100">
-                        <div class="col-12 col-xxl-6">
+                    <div class="row ">
+                        <div class="col-12 col-md-6">
                             <div class="card card-custom bg-white border-white border-0 h-100">
                                 @if (isset($restaurant->image) && strpos($restaurant->image, 'http') === 0)
                                     <div class="card-custom-img" style="background-image: url('{{ $restaurant->image }}');">
@@ -33,36 +34,52 @@
                                     <h5 id='total_price' class="card-subtitle mb-3"></h5>
                                     <h5 id='total_ordinations' class="card-subtitle mb-3"></h5>
                                     <hr>
-                                    <label for="chartjs-date-picker">Effettua una ricerca per mese:</label>
+                                    <label for="chartjs-date-picker">Effettua una ricerca per mese: </label>
                                     <input type="month" id="chartjs-date-picker" value="{{ date('Y-m') }}">
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 col-xxl-6 mt-xxl-0">
-                            <p class="text-center fs-3 fst-italic">Entrate Giornaliere per il mese di <span
-                                    class="fw-bold current_month"></span></p>
+                        <div class="col-12 col-md-6 mt-xxl-0">
+                            <p class="text-center fs-3 fst-italic fst-italic-update mt-5 mt-md-0">Piatti più ordinati per il
+                                mese
+                                di
+                                <span class="fw-bold current_month"></span>
+                            </p>
+                            <div class="loader-container d-flex justify-content-center">
+                                @include('partials.loader')
+                            </div>
+                            <div id="dishes-table">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row  py-0 py-md-5">
+                        <div class="col-12 col-md-6 mx-auto my-5 my-md-0 mt-xxl-1">
+                            <p class="text-center fs-3 fst-italic fst-italic-update">Entrate Giornaliere per il mese di
+                                <span class="fw-bold current_month"></span>
+                            </p>
                             <div class="loader-container d-flex justify-content-center">
                                 @include('partials.loader')
                             </div>
                             <div class="w-100"><canvas id="acquisitions-line" class="chart chart-to-update"></canvas></div>
-
-                            <p class="text-center fs-3 pt-3 fst-italic">Ordini Giornalieri per il mese di <span
-                                class="fw-bold current_month"></span></p>
+                        </div>
+                        <div class="col-12 col-md-6 mx-auto mb-5 mt-xxl-1">
+                            <p class="text-center fs-3 fst-italic fst-italic-update">Ordini Giornalieri per il mese di <span
+                                    class="fw-bold current_month"></span></p>
                             <div class="loader-container d-flex justify-content-center">
                                 @include('partials.loader')
                             </div>
                             <div class="w-100"><canvas id="acquisitions" class="chart chart-to-update"></canvas></div>
                         </div>
                     </div>
-                    <div class="row py-5">
-                        <div class="col-12 col-xxl-10 mx-auto my-5 mt-xxl-1">
-                            <p class="text-center fs-3 fst-italic">Entrate Annuali</p>
+                    <div class="row py-2">
+                        <div class="col-12 mx-auto my-3 mt-xxl-1">
+                            <p class="text-center fs-1 fst-italic">Entrate Annuali</p>
                             <div class="loader-container d-flex justify-content-center">
                             </div>
                             <div class="w-100"><canvas id="acquisitions-line-Year" class="chart"></canvas></div>
                         </div>
-                        <div class="col-12 col-xxl-10 mx-auto mt-5 mt-xxl-1">
-                            <p class="text-center fs-3 fst-italic">Ordini Annuali</p>
+                        <div class="col-12 mx-auto mt-5 mt-xxl-1">
+                            <p class="text-center fs-1 fst-italic">Ordini Annuali</p>
                             <div class="loader-container d-flex justify-content-center">
                             </div>
                             <div class="w-100"><canvas id="acquisitionsYear" class="chart"></canvas></div>

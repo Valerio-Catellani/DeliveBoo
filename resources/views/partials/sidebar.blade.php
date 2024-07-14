@@ -33,7 +33,7 @@
                     <i class="fa-solid fa-pizza-slice fs-4 pe-3"></i><span class="hype-text-collapse">Il mio menù</span>
                 </a>
             </li>
-            <li class="nav-item ">
+            <li class="nav-item  {{ Route::currentRouteName() === 'admin.orders.showBills' ? 'active' : '' }}">
                 <a class="nav-link text-white " aria-current="page" href="{{ route('admin.orders.showBills', $data) }}">
                     <i class="fa-solid fa-receipt fs-4 pe-3"></i><span class="hype-text-collapse">I miei ordini</span>
                 </a>

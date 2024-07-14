@@ -79,9 +79,11 @@ body {
 }
 
 .min-custom-btn-grey {
-    background-image: radial-gradient(100% 100% at 100% 0,
-            $background-4th-color 0,
-            $background-secondary-color 100%) !important;
+    background-image: radial-gradient(
+        100% 100% at 100% 0,
+        $background-4th-color 0,
+        $background-secondary-color 100%
+    ) !important;
 }
 
 .form-control:focus {
@@ -151,9 +153,11 @@ body {
         }
 
         li {
-            background: linear-gradient(to right,
-                    $background-tertiary-color 50%,
-                    $background-primary-color 50%);
+            background: linear-gradient(
+                to right,
+                $background-tertiary-color 50%,
+                $background-primary-color 50%
+            );
             background-size: 200% 100%;
             background-position: right bottom;
             transition: background-position 0.5s;
@@ -197,9 +201,11 @@ body {
 
         header {
             height: 80px;
-            background-image: linear-gradient(to right,
-                    $background-primary-color 10%,
-                    $background-secondary-color 20%);
+            background-image: linear-gradient(
+                to right,
+                $background-primary-color 10%,
+                $background-secondary-color 20%
+            );
             display: flex;
             justify-content: end;
             position: relative;
@@ -944,7 +950,6 @@ img.img-show-resturant {
     }
 
     @keyframes dash {
-
         0%,
         30% {
             fill: 4B4B62;
@@ -997,7 +1002,6 @@ img.img-show-resturant {
     background-attachment: fixed;
 }
 
-
 /* stile logo */
 .navbar-brand {
     width: 80px;
@@ -1007,24 +1011,30 @@ img.img-show-resturant {
 
 /* cambia il colore di sfondo dell'intestazione dell'accordion */
 .accordion-button {
-    background-color: #007bff;
-    color: white;
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 1) 9%,
+        rgba(247, 148, 0, 1) 100%
+    );
+
+    color: black;
 }
 
 .accordion-button:not(.collapsed) {
-    background-color: #0056b3;
+    background: none;
+    background-color: rgb(247, 148, 0) !important;
     /* colore quando l'accordion è espanso */
-    color: white;
+    font-weight: bold;
 }
 
 /* cambia il colore di sfondo del corpo dell'accordion */
 .accordion-body {
-    background-color: #f8f9fa;
+    background-color: $background-primary;
 }
 
 /* cambia il colore del bordo dell'accordion */
 .accordion-item {
-    border: 1px solid #dee2e6;
+    border: 1px solid $title-primary;
 }
 
 .sign {
@@ -1044,7 +1054,6 @@ img.img-show-resturant {
 .register-btn:hover,
 .register-btn:active {
     background-color: #70ad00;
-    ;
 }
 
 .debug {
