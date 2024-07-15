@@ -28,11 +28,13 @@
                                 <div class="card-body" style="overflow-y: auto">
                                     <h1 class="card-title display-6 mb-1">{{ $restaurant->name }}</h1>
                                     <p>Proprietario: {{ $restaurant->user->name }} {{ $restaurant->user->lastname }}</p>
+                                    <div id="total_price_year" class="fs-4"></div>
+                                    <div id="total_ordinations_year" class="fs-4"></div>
                                     <hr>
                                     <p>Resoconto Amministrativo per il mese: <span class="fw-bold current_month"></span>
                                     </p>
-                                    <h5 id='total_price' class="card-subtitle mb-3"></h5>
-                                    <h5 id='total_ordinations' class="card-subtitle mb-3"></h5>
+                                    <h6 id='total_price' class="card-subtitle mb-3"></h6>
+                                    <h6 id='total_ordinations' class="card-subtitle mb-3"></h6>
                                     <hr>
                                     <label for="chartjs-date-picker">Effettua una ricerca per mese: </label>
                                     <input type="month" id="chartjs-date-picker" value="{{ date('Y-m') }}">

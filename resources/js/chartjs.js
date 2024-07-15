@@ -3,6 +3,8 @@ import Chart from 'chart.js/auto'
 let info = {
     total_number_of_orders: 0,
     total_gain: 0,
+    total_gain_year: 0,          // Nuova proprietà
+    total_orders_year: 0,        // Nuova proprietà
     orders: {},
     dishes: {},
     ordersByYear: [],
@@ -198,6 +200,7 @@ async function getData(month = new Date().getMonth() + 1, year = new Date().getF
         month: month,
         year: year
     }
+
     function getDaysInMonth(month, year) {
         return new Date(year, month, 0).getDate();
     }
@@ -214,10 +217,22 @@ async function getData(month = new Date().getMonth() + 1, year = new Date().getF
         return totaleOrdini;
     }
 
+    function calcolaGuadagniTotali(orders) {
+        let totaleGuadagni = 0;
+
+        for (let data in orders) {
+            if (orders.hasOwnProperty(data)) {
+                totaleGuadagni += parseFloat(orders[data].total_price);
+            }
+        }
+
+        return totaleGuadagni;
+    }
+
     // Ottieni il numero di giorni nel mese corrente
     const daysInMonth = getDaysInMonth(month, year);
 
-    // Crea un oggetto con le month del mese corrente come chiavi
+    // Crea un oggetto con le date del mese corrente come chiavi
     for (let day = 1; day <= daysInMonth; day++) {
         const dayString = `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
         info.orders[dayString] = {
@@ -227,7 +242,6 @@ async function getData(month = new Date().getMonth() + 1, year = new Date().getF
         };
     }
 
-
     try {
         const response = await axios.get('/api/get-orders', {
             params
@@ -235,21 +249,20 @@ async function getData(month = new Date().getMonth() + 1, year = new Date().getF
         const responseYear = await axios.get('/api/get-orders-by-month', {
             params
         })
-        const respYear = responseYear.data.results
+        const respYear = responseYear.data.results;
         info.ordersByYear = respYear;
-        const resp = response.data.results
+        const resp = response.data.results;
         info.total_gain = resp.total_price;
-        console.log(info);
 
         for (let day = 1; day <= daysInMonth; day++) {
             const dayString = `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
             resp.number_of_orders.forEach(order => {
                 if (order.day === dayString) {
-                    info.orders[dayString].day_of_ordination = convertDateToItalianFormat(dayString)
-                    info.orders[dayString].number_of_orders = order.number_of_orders //! afgggiungi la logica qui
-                    info.orders[dayString].total_price = order.total_price //! afgggiungi la logica qui
+                    info.orders[dayString].day_of_ordination = convertDateToItalianFormat(dayString);
+                    info.orders[dayString].number_of_orders = order.number_of_orders;
+                    info.orders[dayString].total_price = order.total_price;
                 }
-            })
+            });
         }
 
         resp.dishes.forEach(dish => {
@@ -266,38 +279,48 @@ async function getData(month = new Date().getMonth() + 1, year = new Date().getF
                 info.dishes[dish.name].numbers_of_ordinations += order.dish_quantity;
             });
         });
+
         const orderDish = Object.entries(info.dishes);
         orderDish.sort((a, b) => b[1].numbers_of_ordinations - a[1].numbers_of_ordinations);
         info.arrayOfDishes = orderDish;
 
         info.total_number_of_orders = calcolaOrdiniTotali(info.orders);
-        document.getElementById('total_price').innerHTML = `Guadagni Totali Mensili:  ${info.total_gain} €`
-        document.getElementById('total_ordinations').innerHTML = `Ordinazioni Totali Mensili:  ${info.total_number_of_orders}`
+
+        // Calcola i guadagni totali annuali
+        info.total_gain_year = respYear.reduce((total, current) => total + parseFloat(current.total_price), 0);
+        info.total_orders_year = respYear.reduce((total, current) => total + current.number_of_orders, 0);
+
+        document.getElementById('total_price').innerHTML = `Guadagni Totali Mensili:  ${info.total_gain} €`;
+        document.getElementById('total_ordinations').innerHTML = `Ordinazioni Totali Mensili:  ${info.total_number_of_orders}`;
         document.querySelectorAll('.current_month').forEach((element) => {
-            element.innerHTML = convertiData(month, year)
-        })
+            element.innerHTML = convertiData(month, year);
+        });
         document.querySelectorAll('.chart').forEach((element) => {
             element.classList.remove('d-none');
-        })
+        });
 
         ColumnChart();
         LineChart();
-        dishesTable()
+        dishesTable();
 
-    } catch {
+        // Visualizza i guadagni totali annuali e gli ordini totali annuali
+        document.getElementById('total_price_year').innerHTML = `Guadagni Totali Annuali:  ${info.total_gain_year} €`;
+        document.getElementById('total_ordinations_year').innerHTML = `Ordinazioni Totali Annuali:  ${info.total_orders_year}`;
 
+    } catch (error) {
+        console.error(error);
     } finally {
         document.querySelectorAll('.loader-container').forEach((element) => {
             element.classList.add('d-none');
-        })
+        });
         document.querySelectorAll('.fst-italic').forEach((element) => {
             element.classList.remove('d-none');
-        })
+        });
         document.getElementById('chartjs-date-picker').disabled = false;
-
-
     }
 }
+
+
 const mesiInItaliano = [
     "gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno",
     "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre"
