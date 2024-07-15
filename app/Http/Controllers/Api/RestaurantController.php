@@ -85,9 +85,13 @@ class RestaurantController extends Controller
     public function findSingleRestaurant($slug)
     {
         $restaurant = Restaurant::where('slug', $slug)
-            ->with('user', 'typologies', 'dishes')
+            ->with(['user', 'typologies', 'dishes' => function ($query) {
+                $query->where('visible', 1);
+            }])
+            ->whereHas('dishes', function ($query) {
+                $query->where('visible', 1);
+            })
             ->get();
-
         if ($restaurant) {
             return response()->json(
                 [

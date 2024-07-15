@@ -9,7 +9,7 @@
     }
 @endphp
 
-@section('title', 'Dettagli Ristorante: ')
+@section('title', "Menù: $restaurant->name")
 @extends('layouts.admin')
 
 @section('content')

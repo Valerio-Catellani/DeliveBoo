@@ -42,11 +42,11 @@ class DishController extends Controller
         // http://127.0.0.1:8000/api/get-dishes?visible=all
         else {
             if ($request->query('visible') == 'all') {  //se il parametro visible è impostato a all , vogliamo tutti i piatti di un ristorante, anche quelli non visibili
-                $dishes = Dish::with('restaurant')->paginate(10);
+                $dishes = Dish::with('restaurant')->paginate(50);
             } else {
                 $dishes =  Dish::with('restaurant')
                     ->where('visible', true)
-                    ->paginate(10);
+                    ->paginate(50);
             }
         }
 

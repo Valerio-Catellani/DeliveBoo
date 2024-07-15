@@ -1,4 +1,4 @@
-@section('title', 'Admin Dashboard')
+@section('title', 'Dashboard')
 @extends('layouts.admin')
 
 @section('content')
@@ -15,7 +15,7 @@
                             {{ Auth::user()->lastname }}</strong>
                     </h2>
                     <div class="row ">
-                        <div class="col-12 col-md-6">
+                        <div class="col-12 col-xl-6">
                             <div class="card card-custom bg-white border-white border-0 h-100">
                                 @if (isset($restaurant->image) && strpos($restaurant->image, 'http') === 0)
                                     <div class="card-custom-img" style="background-image: url('{{ $restaurant->image }}');">
@@ -39,7 +39,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 col-md-6 mt-xxl-0">
+                        <div class="col-12 col-xl-6 mt-xxl-0">
                             <p class="text-center fs-3 fst-italic fst-italic-update mt-5 mt-md-0">Piatti più ordinati per il
                                 mese
                                 di

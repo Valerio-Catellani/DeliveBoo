@@ -19,6 +19,7 @@
     @vite(['resources/js/app.js'])
 </head>
 
+
 <body class="background-primary">
     <div id="admin">
         @include('partials.sidebar')
@@ -31,6 +32,7 @@
             </main>
         </div>
 </body>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
 
 

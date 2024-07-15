@@ -1,4 +1,4 @@
-@section('title', 'Dettagli Ristorante')
+@section('title', 'Ordini: ' . $restaurant->name)
 @extends('layouts.admin')
 
 @section('content')
